@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: 'your awesome title'
-description: 'your web description'
-keywords: 'your web keywords, another keywords'
-url: 'https://abc.github.io' # your host
+title: '赵志富的个人网站 | 无聊才读书'
+description: '赵志富的博客;记录美好生活。'
+keywords: '赵志富的博客, 赵志富的个人网站，无聊才读书，赵志富，无聊才读书的博客'
+url: 'https://blog.zhaozf.site' # your host
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
