@@ -1,0 +1,682 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="赵志富的博客;记录美好生活。" />
+<meta name="keywords" content="赵志富的博客, 赵志富的个人网站，无聊才读书，赵志富，无聊才读书的博客" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>git学习</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(154,133,255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(154,133,255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">https://zhaozf.site</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">git学习</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(154,133,255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/05/22/Using-GitHub-pages-to-build-hexo-static-blog-process.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(154,133,255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(154,133,255);"><sapn class="main">利用github pages搭建hexo静态博客过程！</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">git学习</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2018/12/12/Some-configuration-of-raspberry-pie-after-installing-the-system.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(154,133,255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(154,133,255);"><sapn class="main">树莓派安装系统之后的一些配置</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/05/22/Using-GitHub-pages-to-build-hexo-static-blog-process.html" class="leftchange" style="border-right: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>上一篇<br><br>利用github pages搭建hexo静态博客过程！</span></a>
+    
+    
+      <a href="/2018/12/12/Some-configuration-of-raspberry-pie-after-installing-the-system.html" class="rightchange" style="border-left: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>下一篇<br><br>树莓派安装系统之后的一些配置</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="git-学习">Git 学习</h1>
+
+<p><img src="https://git-scm.com/images/logo@2x.png" alt="git" title="git" /></p>
+
+<p>Git(读音为/gɪt/。)是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+
+<h3 id="一安装git">一、安装git</h3>
+
+<h5 id="1在linux上安装git">1.在Linux上安装git</h5>
+
+<p>ubuntu上的命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install git
+</code></pre></div></div>
+
+<p>如果是其他版本的Linux可以通过源码安装。</p>
+
+<p>先从官网下载源码，然后解压，依次输入：./config , make , sudo make install这几个命令。
+<!--more--></p>
+<h5 id="2在mac-os-上安装git">2.在Mac OS 上安装git</h5>
+
+<p>在Mac上安装推荐从APPSTORE安装。</p>
+
+<h5 id="3在windows上安装git">3.在Windows上安装git</h5>
+
+<ol>
+  <li>
+    <p>从git<a href="https://git-scm.com/downloads">官网下载程序</a>安装，按默认一直点下一步就可以。</p>
+  </li>
+  <li>
+    <p>安装完成后，在开始菜单或者右键里可以找到git/git bash here点击运行出现类似命令行窗口的东西，恭喜你git安装成功了！</p>
+  </li>
+  <li>
+    <p>然后在命令行里配置你的用户名和email地址。</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name "youname"
+$ git config --global user.eamil "youemail" 
+</code></pre></div></div>
+
+<h3 id="二创建仓库">二、创建仓库</h3>
+
+<p>仓库就是版本库，英文名repository ，每个文件的修改、删除都在版本库里并且可以被追踪。</p>
+
+<p>命令：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir Learn   //创建文件夹
+$ cd Learn      //进入文件夹Learn
+$ git init      //初始化，把这个目录变成git仓库
+</code></pre></div></div>
+<p>这时文件夹里会出现一个.git目录，如果没有看到那就打开隐藏文件。</p>
+
+<h3 id="三把文件添加到版本库">三、把文件添加到版本库</h3>
+
+<ol>
+  <li>首先我们建立一个文本文档命名为README.txt，用命令添加到仓库：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add README.txt    //git add &lt;file&gt;可以多次使用，添加多个文件
+</code></pre></div></div>
+
+<ol>
+  <li>用命令git commit告诉git，把文件提交到仓库。-m后面的内容是本次提交的说明，可以是任意的内容：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git comnit -m "新建一个README.txt"
+</code></pre></div></div>
+
+<ol>
+  <li>可以使用命令git status 查看当前仓库的状态：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status 
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre></div></div>
+
+<ol>
+  <li>使用命令git diff可以查看文件做了什么修改：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff README.txt
+</code></pre></div></div>
+<p>注：如果git status告诉你有文件被修改过，用git diff可以查看修改内容。</p>
+
+<ol>
+  <li>使用命令git log显示从最近到最远的提交日志：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git log   //如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数
+$ git log  --pretty=oneline
+</code></pre></div></div>
+<ol>
+  <li>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git reset --hard commit_id    //commit_id是版本号
+</code></pre></div></div>
+
+<ol>
+  <li>使用git reflog查看命令历史，以便确定要回到未来的哪个版本</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git reflog 
+</code></pre></div></div>
+
+<ol>
+  <li>使用git checkout 命令可以丢弃工作区的修改</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout -- file
+</code></pre></div></div>
+
+<ol>
+  <li>使用git rm命令用于删除一个文件</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git rm README.txt
+</code></pre></div></div>
+
+<h3 id="四把文件添加到远程仓库">四、把文件添加到远程仓库</h3>
+
+<ol>
+  <li>由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以第一步是创建SSH Key。</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen -t rsa -C "youremail@example.com"  //一路回车，使用默认值即可
+
+完成之后可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+</code></pre></div></div>
+
+<ol>
+  <li>登录GitHub 打开“Account settings”，“SSH Keys”页面：</li>
+</ol>
+
+<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。</p>
+
+<ol>
+  <li>要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote add origin git@github.com:zhaozhifu-catshak/Learn.git
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>关联后，使用命令git push -u origin master第一次推送master分支的所有内容，此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</p>
+  </li>
+  <li>
+    <p>用命令git clone克隆一个远程库到本地</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git@github.com:zhaozhifu-catshak/Learn.git
+</code></pre></div></div>
+
+<h3 id="五创建分支">五、创建分支</h3>
+
+<ol>
+  <li>首先，我们创建read分支，然后切换到read分支：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout -b read
+Switched to a new branch 'read'
+</code></pre></div></div>
+
+<ol>
+  <li>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch read       //创建read分支
+$ git checkout read     //切换到read分支
+Switched to branch 'read'
+</code></pre></div></div>
+
+<ol>
+  <li>使用git branch命令查看当前分支：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+* read
+  master
+</code></pre></div></div>
+<ol>
+  <li>git branch命令会列出所有分支，当前分支前面会标一个*号。</li>
+</ol>
+
+<p>然后，我们就可以在read分支上正常提交。</p>
+
+<ol>
+  <li>使用git merge命令用于合并指定分支到当前分支。</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge read
+Updating d46f35e..b17d20e
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+注：如果要合并到master主分支，要先切换到master主分支
+</code></pre></div></div>
+
+<ol>
+  <li>合并完成后，就可以放心地删除read分支了</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -d read
+Deleted branch dev (was b17d20e).
+</code></pre></div></div>
+
+<ol>
+  <li>删除后，查看branch，就只剩下master分支了：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+* master
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>用git log –graph命令可以看到分支合并图.</p>
+  </li>
+  <li>
+    <p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge --no-ff -m "merge with no-ff" read
+
+//-m参数可以把commit描述写进去。
+</code></pre></div></div>
+<ol>
+  <li>使用git branch -D file 命令强行删除分支</li>
+  <li>推送分支:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin read
+</code></pre></div></div>
+
+<h3 id="六创建标签">六、创建标签</h3>
+
+<ol>
+  <li>首先，切换到需要打标签的分支上，使用命令 git tag打标签。</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+* read
+  master
+$ git checkout master
+Switched to branch 'master'
+$ git tag v1.0
+//$ git tag v0.9 commit id
+//可以用commit id 给固定版本打标签
+</code></pre></div></div>
+
+<ol>
+  <li>用命令git tag查看所有标签.</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag
+//v0.9
+v1.0
+</code></pre></div></div>
+
+<ol>
+  <li>命令git tag -a tagname -m “blablabla…”  可以指定标签信息</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag -a v0.1 -m "version 0.1 released" 1094adb
+</code></pre></div></div>
+<ol>
+  <li>使用参数-d删除 <strong><em>本地</em></strong> 标签</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag -d v0.1
+Deleted tag 'v0.1' (was f15b0dd)
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>命令git push origin :refs/tags/tagname 可以删除一个远程标签</p>
+  </li>
+  <li>
+    <p>命令git push origin tagname 可以推送一个本地标签；</p>
+  </li>
+  <li>
+    <p>命令git push origin –tags可以推送全部未推送过的本地标签；</p>
+  </li>
+  <li>
+    <p>让git显示颜色</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global color.ui true
+</code></pre></div></div>
+
+<ul>
+  <li>2019年3月31日下午13：20</li>
+</ul>
+
+<h3 id="七lfslarge-file-storage">七、LFS（Large File Storage）</h3>
+
+<ul>
+  <li>1.显示 Git LFS 系统环境 .
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs env:
+</code></pre></div>    </div>
+  </li>
+  <li>Populate working copy with real content from Git LFS files.</li>
+  <li>2.使用来自Git LFS文件的真实内容填充工作副本
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs checkout:
+</code></pre></div>    </div>
+  </li>
+  <li>Download Git LFS files from a remote.</li>
+  <li>3.从远程下载Git LFS文件
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs fetch:
+</code></pre></div>    </div>
+  </li>
+  <li>Check Git LFS files for consistency.</li>
+  <li>4.检查Git LFS文件的一致性
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs fsck:
+</code></pre></div>    </div>
+  </li>
+  <li>Install Git LFS configuration.</li>
+  <li>5.安装Git LFS并配置
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs install:
+</code></pre></div>    </div>
+  </li>
+  <li>Set a file as “locked” on the Git LFS server.</li>
+  <li>6.在Git LFS服务器上将文件设置为“锁定”。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs lock:
+</code></pre></div>    </div>
+  </li>
+  <li>List currently “locked” files from the Git LFS server.</li>
+  <li>7.列出当前从Git LFS服务器“锁定”的文件
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs locks:
+</code></pre></div>    </div>
+  </li>
+  <li>Show errors from the Git LFS command.</li>
+  <li>8.显示来自Git LFS命令的错误。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs logs:
+</code></pre></div>    </div>
+  </li>
+  <li>Show information about Git LFS files in the index and working tree.</li>
+  <li>9.在索引和工作树中显示关于Git LFS文件的信息
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs ls-files:
+</code></pre></div>    </div>
+  </li>
+  <li>Migrate history to or from Git LFS</li>
+  <li>10.将历史迁移到或从Git LFS
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs migrate:
+</code></pre></div>    </div>
+  </li>
+  <li>Delete old Git LFS files from local storage</li>
+  <li>11.从本地存储中删除旧的Git LFS文件
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs prune:
+</code></pre></div>    </div>
+  </li>
+  <li>Fetch Git LFS changes from the remote &amp; checkout any required working tree files.</li>
+  <li>12.从远程获取Git LFS更改并检出任何所需的工作树文件
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs pull:
+</code></pre></div>    </div>
+  </li>
+  <li>Push queued large files to the Git LFS endpoint.</li>
+  <li>13.将排队的大文件推送到Git LFS端点
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs push:
+</code></pre></div>    </div>
+  </li>
+  <li>Show the status of Git LFS files in the working tree.</li>
+  <li>14.显示工作树中Git LFS文件的状态
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs status:
+</code></pre></div>    </div>
+  </li>
+  <li>View or add Git LFS paths to Git attributes.</li>
+  <li>15.查看或向Git属性添加Git LFS路径
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs track:
+</code></pre></div>    </div>
+  </li>
+  <li>Uninstall Git LFS by removing hooks and smudge/clean filter configuration.</li>
+  <li>16.通过删除挂钩和涂抹/清除过滤器配置卸载Git LFS
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs uninstall:
+</code></pre></div>    </div>
+  </li>
+  <li>Remove “locked” setting for a file on the Git LFS server.</li>
+  <li>17.删除Git LFS服务器上文件的“锁定”设置。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs unlock:
+</code></pre></div>    </div>
+  </li>
+  <li>Remove Git LFS paths from Git Attributes.</li>
+  <li>18.从Git属性中删除Git LFS路径
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs untrack:
+</code></pre></div>    </div>
+  </li>
+  <li>19.更新当前Git存储库的Git hooks.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs update:
+</code></pre></div>    </div>
+  </li>
+  <li>20.报告版本号.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs version:
+</code></pre></div>    </div>
+  </li>
+  <li>Git LFS是一个与Git存储库相关联的大型文件管理和版本控制系统。Git LFS不将大型文件存储为blobs，而是在存储库中存储特殊的“指针文件”，同时将实际的文件内容存储在Git LFS服务器上。当需要时，会自动下载大文件的内容，例如签出包含大文件的Git分支时。</li>
+  <li>Git LFS使用“smudge”过滤器根据指针文件查找大文件的内容，使用“clean”过滤器在大文件的内容发生更改时创建指针文件的新版本。它还使用预推钩子将包含新大文件版本的提交上传到相应的Git服务器时，将大文件内容上传到Git LFS服务器。</li>
+</ul>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>赵志富的个人网站 | 无聊才读书 ©
+  
+  
+    2016
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

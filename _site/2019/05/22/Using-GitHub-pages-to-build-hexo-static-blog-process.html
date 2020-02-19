@@ -1,0 +1,584 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="赵志富的博客;记录美好生活。" />
+<meta name="keywords" content="赵志富的博客, 赵志富的个人网站，无聊才读书，赵志富，无聊才读书的博客" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>利用github pages搭建hexo静态博客过程！</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(154,133,255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(154,133,255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">https://zhaozf.site</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">利用github pages搭建hexo静态博客过程！</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(154,133,255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/06/03/Algorithm-training.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(154,133,255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(154,133,255);"><sapn class="main">Algorithm training</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">利用github pages搭建hexo静态博客过程！</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/05/22/git-study.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(154,133,255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(154,133,255);"><sapn class="main">git学习</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/06/03/Algorithm-training.html" class="leftchange" style="border-right: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>上一篇<br><br>Algorithm training</span></a>
+    
+    
+      <a href="/2019/05/22/git-study.html" class="rightchange" style="border-left: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>下一篇<br><br>git学习</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <p><img src="../assets/blogImg/linian.jpg" alt="" /></p>
+<h1 id="一注册github账号">一、注册github账号</h1>
+
+<ol>
+  <li>搜索Github官网进入，如果你已经有账号密码，那么点击右上角的sign in直接登录。</li>
+  <li>如果没有点击sign up进行注册，填写昵称（用户名）、注册邮箱和密码。</li>
+  <li>注册成功之后在Github首页右上角头像左侧加号点选择 New repositor(新存储库)进行创建一个代码仓库。
+注意：仓库的名字一定是 yourname.github.io 其他默认即可。</li>
+</ol>
+
+<!--more-->
+<ol>
+  <li>创建完成之后，点击Settings查看github pages是否启用
+<img src="/assets/blogImg/20190522125619.png" alt="" /></li>
+  <li>之后就可以通过 https://yourname.github.io 进行访问了。</li>
+</ol>
+
+<h1 id="二搭建hexo静态博客系统">二、搭建hexo静态博客系统</h1>
+
+<ol>
+  <li>hexo需要node.js的支持，首先<a href="https://nodejs.org/en/">下载</a>node.js的安装包。node.js的安装包下载完成之后，一路下一步就可以了。检测node.js是否正确安装可以进入cmd命令行输入 node –version 查看版本。</li>
+  <li><a href="https://git-scm.com/download/">下载git</a> 也是一直下一步就可以了。git的用法参见廖雪峰的<a href="https://www.liaoxuefeng.com/wiki/896043488029600">git教程</a></li>
+  <li>在你需要安装Hexo的目录下右键选择 Git Bash
+```
+$ cd d:/hexo
+$ npm install hexo-cli -g
+$ hexo init blog
+$ cd blog
+$ npm install</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>新建完成后，指定文件夹目录下有：
+- node_modules: 依赖包
+- public：存放生成的页面
+- scaffolds：生成文章的一些模板
+- source：用来存放你的文章
+- themes：主题
+- _config.yml: 博客的配置文件
+
+</code></pre></div></div>
+<p>$ hexo g # 或者hexo generate 是生成静态文件，会在当前目录下生成一个新的叫做public的文件夹
+$ hexo s # 或者hexo server，可以在http://localhost:4000/ 查看。  hexo server (hexo s) 是启动本地web服务，用于博客的预览</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+另外还有其他几个常用命令：
+</code></pre></div></div>
+<p>$ hexo new “postName” #新建文章
+$ hexo new page “pageName” #新建页面
+$ hexo d -g #生成部署
+$ hexo s -g #生成预览</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+现在我们打开http://localhost:4000/ 已经可以看到一篇内置的blog了。
+
+# 三、hexo主题
+1. 我这里用的主题是yilia，安装完成的默认主题是landscape.    
+</code></pre></div></div>
+<p>$ hexo clean #清除之前生成的东西
+$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2. 修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。
+3. 更新主题
+</code></pre></div></div>
+<p>$ cd themes/yilia
+$ git pull
+$ hexo g # 生成
+$ hexo s # 启动本地web服务器</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>打开http://localhost:4000/ ，你会看到我们一个新的主题。
+&gt; yilia 主题配置参考[官方文档](https://github.com/litten/hexo-theme-yilia)
+&gt; ***Hexo主题配置(根目录_config.yml文件)***
+
+更多主题参看[hexo主题官网](https://hexo.io/themes/)
+
+# 四、hexo插件
+ 1. 建立RSS订阅需要安装
+</code></pre></div></div>
+<p>$ npm install hexo-generator-feed –save</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.1 在博客工程文件根目录下_config.yml文件中添加如下内容
+</code></pre></div></div>
+<h1 id="extensions">Extensions</h1>
+<p>plugins:
+    hexo-generator-feed
+#Feed Atom
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.2 打开主题配置文件_config.yml,搜索rss，添加配置
+</code></pre></div></div>
+<p>$ rss: /atom.xml</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>$ hexo g
+$ hexo s</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.3 之后浏览器预览就可以了。
+ 2. 建立站点地图需要安装
+</code></pre></div></div>
+<p>$ npm install hexo-generator-sitemap –save</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>更多插件参考[插件官网](https://hexo.io/plugins/).
+
+&gt; 想要给网站添加图片？请把图片放入根目录 source\ 下建立一个文件夹，当你执行hexo g的时候此文件夹自动生成到public中。
+
+# 五、部署hexo
+1. 使用命令hexo deploy进行部署。它可以部署很多平台，具体请参考[官方文档](https://hexo.io/docs/deployment.html) 。我这里以部署到git为例：
+2. 安装 hexo-deployer-git.
+</code></pre></div></div>
+<p>$ npm install hexo-deployer-git –save</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 编辑 _config.yml 文件:
+</code></pre></div></div>
+<p>deploy:
+  type: git
+  repo: git@github.com:zhaozhifu0/zhaozhifu0.github.io.git  #这里改成你自己的
+  branch: master</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4. 执行hexo deploy命令进行上传部署。
+</code></pre></div></div>
+<p>$ hexo deploy #或者hexo d(hexo deploy的简写) 再或者hexo d -g (生成部署)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5. 最后访问https://yourname.github.io 就可以查看博客的内容了。还可以通过hexo new "postName" 命令创建新文章。
+6. 部署到coding上：
+
+(1)在coding上创建一个项目，进入项目里“代码”页面，点击“一键开启静态 Pages”，然后上传项目代码。
+(2)在上传之前打开 Hexo 博客主配置文件 _config.yml，找到 deploy 属性，作如下配置：
+</code></pre></div></div>
+<p>deploy:
+  type: git
+  repo: 
+      github: git@github.com:zhaozhifu0/zhaozhifu0.github.io.git
+      coding: git@git.dev.tencent.com:zhaozhifu/zhaozhifu.git
+  branch: master</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3)上传之后就可以通过&lt;user_name&gt;.coding.me 访问你的网站。
+(4)绑定自定义域名:
+&gt; Coding Pages 支持绑定自定义域名，域名理论上不用备案，但是根据国家规定建议进行ICP备案。允许以下自定义域名格式：
+&gt; 顶级域名 example.com
+&gt; www 二级域名 www.example.com
+&gt; 二级域名 blog.example.com
+
+(5)进入域名服务商提供的域名管理面板，选中欲绑定的域名，进入解析设置，点击"添加解析"。
+(6)添加 CNAME 记录，在项目设置中绑定域名下面有行小字 ： 绑定前请在域名 DNS 设置中添加一条 CNAME 记录指向 xxxx.coding.me。将@和www记录都解析到这个即可。
+(7)在"Pages 服务"设置页中绑定自定义域名，如果配置 DNS 解析时域名前缀为 ，绑定自定义域名需要填写 www 前缀。
+(8)如果绑定后访问域名看到404相关提示，说明是域名配置是存在问题的，请自行检查DNS配置是否正确。
+
+
+# 六、配置域名
+1. 购买域名
+2. 域名注册提供商那里配置DNS解析， 参考[官方文档](https://help.github.com/en/articles/setting-up-an-apex-domain)
+3. 到github page配置站点域名，参考 ：[Securing your GitHub Pages site with HTTPS](https://help.github.com/en/articles/securing-your-github-pages-site-with-https)
+4. 最后可以用你的域名访问了。
+
+# 七、跳过配置显示demo
+1. 使用Hexo提供的跳过渲染配置，适用于整个目录的设置。
+2. 打开博客根目录_config.yml，找到其中skip_render项，这个项目用来配置/source/中需要跳过渲染的文件或目录，例如希望跳过/source/photowall/里的所有文件渲染，可以配置为：
+
+</code></pre></div></div>
+<p>skip_render: photowall/**</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 给单个文件添加不应用模板的标记，适用于个别特殊文件的处理。例如我们的网站如果要使用百度统计，往往需要在根目录放一个html格式的验证文件，这个文件默认也会经过用主题模板渲染，避免渲染的办法就是在文件头部添加如下内容：
+
+</code></pre></div></div>
+<hr />
+<p>layout: false     #添加layout跳过编译
+title: 利用github pages搭建hexo静态博客过程！
+date: 2019-05-22 12:35:22
+tags:
+    - 博客
+    - Github Pages
+—</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 八、其他
+
+## 文章如何显示摘要
+点击主页时，发现所有文章都是全文显示，不利于查找，可控制显示的字数。
+解决办法：在你 MD 格式文章正文插入 &lt;!-- more --&gt;即可，只会显示它之前的，此后的就不显示，点击文章标题，全文阅读才可看到，同时注释掉以下 themes/yilia/_config.yml，重复
+
+</code></pre></div></div>
+<h1 id="excerpt_link-more">excerpt_link: more</h1>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## 文章显示目录
+增加文章目录 TOC(table of content )，方便阅读文章, 在 themes/yilia/_config.ym中进行配置 toc: 2即可，它会将你 Markdown 语法的标题，生成目录，目录查看在右下角。
+
+## 增加不蒜子统计
+普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。
+
+#####  一、安装脚本（必选）
+要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。
+</code></pre></div></div>
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>不蒜子可以给任何类型的个人站点使用，如果你是用的hexo，打开themes/你的主题/layout/_partial/footer.ejs添加上述脚本即可，当然你也可以添加到 header 中。
+
+##### 二、安装标签（可选）
+只需要复制相应的html标签到你的网站要显示访问量的位置即可。您可以随意更改不蒜子标签为自己喜欢的显示效果，内容参考第三部分扩展开发。根据你要显示内容的不同，这分几种情况。
+
+- 1、显示站点总访问量
+要显示站点总访问量，复制以下代码添加到你需要显示的位置。有两种算法可选：
+
+算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。
+</code></pre></div></div>
+<p><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。
+</code></pre></div></div>
+<p><span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果你是用的hexo，打开themes/你的主题/layout/_partial/footer.ejs添加即可。
+
+## 插入网易云音乐
+登入网易云音乐网页版，选择一首歌，点击歌曲详情，点击生成外链播放器,复制外链代码，插入你需要编辑的 MD 格式文章里面，即可.
+![](/assets/blogImg/201906261615.png)
+
+## Url链接优化
+我们可以发现hexo默认生成的文章地址路径是 【网站名称／年／月／日／文章名称】。
+
+这种链接对搜索爬虫是很不友好的，它的url结构超过了三层，太深了。
+
+下面我推荐安装hexo-abbrlink插件：
+</code></pre></div></div>
+<p>npm install hexo-abbrlink –save</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 实现思路：
+对标题+时间进行md5然后再转base64，保存在front-matter中。
+
+然后配置_config.yml
+</code></pre></div></div>
+<h1 id="permalink-title">permalink: :title/</h1>
+<p>permalink: archives/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## Gitment评论
+
+gitment其实就是利用你的代码仓库的Issues，来实现评论。每一篇文章对应该代码仓库中的一个Issues,Issues中的评论对应你的博客每篇文章中的评论。
+
+1. 注册 OAuth Application
+   首先要注册一个OAuth Application应用可以点击[这里](https://github.com/settings/applications/new)。 输入的内容如下：
+   Application name （随意就好，可以写你博客名称）
+   Homepage URL     （你的博客地址，例如https://zhaozhifu08.github.io/ 如果有域名可以填写域名https://zhaozf.site  ）
+   Application description (随意就好)
+   Authorization callback URL (也是博客地址，例如https://zhaozhifu08.github.io/ 如果有域名可以填写域名https://zhaozf.site)
+   输入完成之后，点击注册就OK了。成功之后就会拿到Client ID和Client Secret，然后先进行一下步，记住这两个后面步骤会用到。
+2. 修改_config.yml文件
+   在themes-&gt;yilia-&gt;_config.yml中修改如下：
+</code></pre></div></div>
+<p>#5、Gitment
+gitment_owner: zhaozhifu0     #你的 GitHub ID
+gitment_repo: ‘zhaozhifu0.github.io’          #存储评论的 repo
+gitment_oauth:
+  client_id: ‘41be2b66b56556bc6c7c’           #client ID
+  client_secret: ‘3338513189c56c3740d424cd2268be4a4923d99a’       #client secret</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 查看结果
+运行命令：hexo s到浏览器查看结果 https://localhost:4000
+
+4. 遇到的坑
+
+4.1 Error: Not Found
+- owner或repo配置错误
+- owner建议直接写github帐号
+- repo填写存放评论的仓库，填写仓库名称就可以了，不需要加https://github.com/xxx/
+
+4.2 Error: Comments Not Initialized
+- 在该页面的Gitment评论区登陆GitHub账号
+- 之前OAuth Application callback填写有误
+
+4.3  Error：validation failed
+
+- id太长
+- issue的标签label有长度限制是50个字符
+- 建议设置为发布博客的日期+时间：
+  修改themes\yilia\layout\_partial\post\gitment.ejs 文件
+
+</code></pre></div></div>
+<p>var gitment = new Gitment({
+  id: “&lt;%=url%&gt;”,                   //修改为 id: “&lt;%=page.date%&gt;”,
+  owner: ‘&lt;%=theme.gitment_owner%&gt;’,
+  repo: ‘&lt;%=theme.gitment_repo%&gt;’,
+  oauth: {
+    client_id: ‘&lt;%=theme.gitment_oauth.client_id%&gt;’,
+    client_secret: ‘&lt;%=theme.gitment_oauth.client_secret%&gt;’,
+  },
+})
+gitment.render(‘gitment-ctn’)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+5. Gitment 汉化
+- 修改themes\yilia\layout\_partial\post\gitment.ejs 文件
+</code></pre></div></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css" />
+
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>将原来的修改为如下：
+</code></pre></div></div>
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css" />
+
+<script src="https://billts.site/js/gitment.js"></script>
+
+<p>```</p>
+
+<p><a href="http://ds666.fun/2019/01/25/%E6%90%AD%E5%8D%9A%E5%AE%A2%E5%85%A8%E8%BF%87%E7%A8%8B%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E7%BE%8E%E5%8C%96/">其他特效参考</a>
+<a href="https://xhyeax.github.io/2018/11/30/click-word/">点击出现文字效果</a>
+<a href="https://blog.csdn.net/stormdony/article/details/86001618">下雪特效</a></p>
+
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+  <p><a href="https://www.zhihu.com/question/21193762">使用hexo，如果换了电脑怎么更新博客？</a>
+<a href="https://www.jianshu.com/p/1e402922ee32/">Markdown——入门指南</a>
+<a href="https://segmentfault.com/a/1190000004947261">手把手教你使用Hexo + Github Pages搭建个人独立博客</a>
+<a href="https://eirunye.github.io/2018/09/02/Hexo%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2%E2%80%94%E6%89%93%E9%80%A0%E7%82%AB%E9%85%B7%E7%9A%84Next%E4%B8%BB%E9%A2%98%E2%80%94%E9%AB%98%E7%BA%A7%E2%80%94%E4%B8%89/#more">Hexo搭建GitHub博客—打造炫酷的NexT主题–高级(三)</a>
+<a href="https://www.cnblogs.com/jackyroc/p/7681938.html">我是如何利用Github Pages搭建起我的博客，细数一路的坑</a>
+<a href="https://segmentfault.com/a/1190000004947261">手把手教你使用Hexo + Github Pages搭建个人独立博客</a>
+<a href="https://www.jianshu.com/p/f054333ac9e6">hexo的next主题个性化教程:打造炫酷网站</a>
+<a href="https://www.codercto.com/a/55846.html">自己动手修改完善yilia主题</a>
+<a href="https://www.codercto.com/a/57534.html">自己动手修改完善yilia主题（下）</a></p>
+</blockquote>
+
+<h1 id="其他扩展">其他扩展</h1>
+<p><a href="https://juejin.im/post/5ce53de85188252d46797fee">为什么我选择用 Github issues 来写博客</a>
+<a href="https://blog.zscself.com/posts/70677220/">修改Yilia左下角SubNav的社交图标</a></p>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>赵志富的个人网站 | 无聊才读书 ©
+  
+  
+    2016
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

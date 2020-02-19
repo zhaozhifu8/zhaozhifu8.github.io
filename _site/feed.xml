@@ -1,4 +1,294 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-19T22:23:24+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>赵志富的博客;记录美好生活。</subtitle><author><name>true</name></author><entry><title type="html">【翻译】 第六篇 Atomic Design with React</title><link href="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html" rel="alternate" type="text/html" title="【翻译】 第六篇 Atomic Design with React" /><published>2019-11-30T23:59:24+08:00</published><updated>2019-11-30T23:59:24+08:00</updated><id>http://localhost:4000/2019/11/30/Atomic-Design-with-React</id><content type="html" xml:base="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html">&lt;center&gt;&lt;h1&gt; React 的原子设计&lt;/h1&gt;&lt;/center&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-19T22:52:48+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>赵志富的博客;记录美好生活。</subtitle><author><name>true</name></author><entry><title type="html">yarn 安装与使用</title><link href="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html" rel="alternate" type="text/html" title="yarn 安装与使用" /><published>2020-02-04T20:01:00+08:00</published><updated>2020-02-04T20:01:00+08:00</updated><id>http://localhost:4000/2020/02/04/Yarn-installation-and-use</id><content type="html" xml:base="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/20200204.png&quot; alt=&quot;yarn包管理器&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;1---introduction&quot;&gt;1 - Introduction&lt;/h1&gt;
+
+&lt;p&gt;Yarn 对你的代码来说是一个包管理器， 你可以通过它使用全世界开发者的代码， 或者分享自己的代码。yarn可以快速、安全、可靠地做到这一点，所以你永远不必担心。&lt;/p&gt;
+
+&lt;p&gt;通过Yarn你可以使用其他开发者针对不同问题的解决方案，使自己的开发过程更简单。&lt;/p&gt;
+
+&lt;p&gt;代码通过 包（package） (或者称为 模块（module）) 的方式来共享。 一个包里包含所有需要共享的代码，以及描述包信息的文件，称为 package.json 。&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;h1 id=&quot;2---installation&quot;&gt;2 - Installation&lt;/h1&gt;
+
+&lt;p&gt;注意：当前，Yarn 2仅可通过npm安装。以前在Yarn 1中可用的安装方法（Windows安装程序，Chocolatey，Debian / Ubuntu软件包，Homebrew和RPM软件包）将很快再次可用。&lt;/p&gt;
+
+&lt;p&gt;1.安装Node.js&lt;/p&gt;
+
+&lt;p&gt;2.安装yarn&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install -g yarn@berry&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;3.通过运行以下命令测试Yarn 2是否已正确安装，其结果应为“ v2.0.0”或类似的结果：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn --version&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;每个项目的安装&quot;&gt;每个项目的安装&lt;/h2&gt;
+
+&lt;p&gt;1.遵循全局安装说明&lt;/p&gt;
+
+&lt;p&gt;2.移至您的项目文件夹：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd ~/path/to/project&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;3.运行以下命令：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn set version berry&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;4.提交.yarn和.yarnrc.yml更改&lt;/p&gt;
+
+&lt;h1 id=&quot;3---usage&quot;&gt;3 - Usage&lt;/h1&gt;
+
+&lt;p&gt;现在，您已经安装了 Yarn ，可以开始使用Yarn了。这是您需要的一些最常见的命令。&lt;/p&gt;
+
+&lt;p&gt;访问命令列表&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn help&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;开始一个新项目&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn init&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;安装所有依赖项&lt;/p&gt;
+
+&lt;p&gt;yarn
+&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;添加依赖&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add [package]
+yarn add [package]@[version]
+yarn add [package]@[tag]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将依赖项添加到不同类别的依赖项中&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add [package] --dev  # dev dependencies
+yarn add [package] --peer # peer dependencies
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;升级依赖&lt;/p&gt;
+
+&lt;p&gt;yarn up [package]
+yarn up [package]@[version]
+yarn up [package]@[tag]&lt;/p&gt;
+
+&lt;p&gt;删除依赖&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn remove [package]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;升级yarn本身&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn set version 2.0.0&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;yarn set version from sources&lt;/code&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="yarn" /><category term="包管理器" /><summary type="html"></summary></entry><entry><title type="html">uni-app 跨平台框架学习笔记【一】</title><link href="http://localhost:4000/2020/01/14/Learning-notes-of-uni-app-cross-platform-framework.html" rel="alternate" type="text/html" title="uni-app 跨平台框架学习笔记【一】" /><published>2020-01-14T17:43:22+08:00</published><updated>2020-01-14T17:43:22+08:00</updated><id>http://localhost:4000/2020/01/14/Learning-notes-of-uni-app-cross-platform-framework</id><content type="html" xml:base="http://localhost:4000/2020/01/14/Learning-notes-of-uni-app-cross-platform-framework.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201001141036.jpg&quot; alt=&quot;uni-app学习笔记&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;uni-app 是一个使用 Vue.js 开发所有前端应用的框架，&lt;/p&gt;
+
+&lt;p&gt;开发者编写一套代码，可发布到iOS、Android、H5、&lt;/p&gt;
+
+&lt;p&gt;以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。&lt;/p&gt;
+
+&lt;p&gt;uni-app 使用vue的语法+小程序的标签和API。功能架构如下图：
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/blogImg/202001141040.png&quot; alt=&quot;uni-app功能框架图&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;uni-app-约定了如下开发规范&quot;&gt;uni-app 约定了如下开发规范：&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;页面文件遵循 Vue &lt;a href=&quot;https://vue-loader.vuejs.org/zh/spec.html#%E7%AE%80%E4%BB%8B&quot;&gt;单文件组件 (SFC) 规范&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;组件标签靠近小程序规范，详见&lt;a href=&quot;https://uniapp.dcloud.io/component/README&quot;&gt;官网uni-app 组件规范&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;接口能力（JS API）靠近微信小程序规范，但需将前缀 wx 替换为 uni，详见uni-app接口规范&lt;/li&gt;
+  &lt;li&gt;数据绑定及事件处理同 Vue.js 规范，同时补充了App及页面的生命周期&lt;/li&gt;
+  &lt;li&gt;为兼容多端运行，建议使用flex布局进行开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;目录结构&quot;&gt;目录结构&lt;/h2&gt;
+
+&lt;p&gt;一个uni-app工程，默认包含如下目录及文件：&lt;/p&gt;
+
+&lt;p&gt;┌─components            uni-app组件目录
+│  └─comp-a.vue         可复用的a组件
+├─hybrid                存放本地网页的目录
+├─platforms             存放各平台专用页面的目录
+├─pages                 业务页面文件存放的目录
+│  ├─index
+│  │  └─index.vue       index页面
+│  └─list
+│     └─list.vue        list页面
+├─static                存放应用引用静态资源（如图片、视频等）的目录，注意：静态资源只能存放于此
+├─wxcomponents          存放小程序组件的目录
+├─main.js               Vue初始化入口文件
+├─App.vue               应用配置，用来配置App全局样式以及监听 应用生命周期
+├─manifest.json         配置应用名称、appid、logo、版本等打包信息
+└─pages.json            配置页面路由、导航条、选项卡等页面类信息&lt;/p&gt;
+
+&lt;p&gt;注意：
+    static 目录下的 js 文件不会被编译，如果里面有 es6 的代码，不经过转换直接运行，在手机设备上会报错。
+    css、less/scss 等资源同样不要放在 static 目录下，建议这些公用的资源放在 common 目录下。&lt;/p&gt;
+
+&lt;h2 id=&quot;生命周期&quot;&gt;生命周期&lt;/h2&gt;
+
+&lt;h3 id=&quot;应用生命周期&quot;&gt;应用生命周期&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;函数名&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;说明&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onLaunch&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;当uni-app 初始化完成时触发（全局只触发一次）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onShow&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;当 uni-app 启动，或从后台进入前台显示&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onHide&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;当 uni-app 从前台进入后台&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onError&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;当 uni-app 报错时触发&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onUniNViewMessage&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;对 nvue 页面发送的数据进行监听，可参考 nvue 向 vue 通讯&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;页面生命周期&quot;&gt;页面生命周期&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;onLoad	监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）&lt;/li&gt;
+  &lt;li&gt;onShow	监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面&lt;/li&gt;
+  &lt;li&gt;onReady	监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发&lt;/li&gt;
+  &lt;li&gt;onHide	监听页面隐藏&lt;/li&gt;
+  &lt;li&gt;onUnload	监听页面卸载&lt;/li&gt;
+  &lt;li&gt;onResize	监听窗口尺寸变化&lt;/li&gt;
+  &lt;li&gt;onPullDownRefresh	监听用户下拉动作，一般用于下拉刷新&lt;/li&gt;
+  &lt;li&gt;onReachBottom	页面上拉触底事件的处理函数&lt;/li&gt;
+  &lt;li&gt;onTabItemTap	点击 tab 时触发，参数为Object，具体见官方文档&lt;/li&gt;
+  &lt;li&gt;onShareAppMessage	用户点击右上角分享&lt;/li&gt;
+  &lt;li&gt;onPageScroll	监听页面滚动，参数为Object&lt;/li&gt;
+  &lt;li&gt;onNavigationBarButtonTap	监听原生标题栏按钮点击事件，参数为Object&lt;/li&gt;
+  &lt;li&gt;onBackPress	监听页面返回，返回 event = {from:backbutton、 navigateBack} ，backbutton 表示来源是左上角返回按钮或 android 返回键；navigateBack表示来源是 uni.navigateBack ；详细说明及使用：onBackPress 详解&lt;/li&gt;
+  &lt;li&gt;onNavigationBarSearchInputChanged	监听原生标题栏搜索输入框输入内容变化事件&lt;/li&gt;
+  &lt;li&gt;onNavigationBarSearchInputConfirmed	监听原生标题栏搜索输入框搜索事件，用户点击软键盘上的“搜索”按钮时触发。&lt;/li&gt;
+  &lt;li&gt;onNavigationBarSearchInputClicked	监听原生标题栏搜索输入框点击事件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;路由&quot;&gt;路由&lt;/h2&gt;
+
+&lt;p&gt;uni-app页面路由为框架统一管理，开发者需要在pages.json里配置每个路由页面的路径及页面样式。类似小程序在app.json中配置页面路由一样。所以 uni-app 的路由用法与 Vue Router 不同，如仍希望采用 Vue Router 方式管理路由，可在插件市场搜索 Vue-Router。&lt;/p&gt;
+
+&lt;h3 id=&quot;路由跳转&quot;&gt;路由跳转&lt;/h3&gt;
+&lt;p&gt;uni-app 有两种页面路由跳转方式：使用navigator组件跳转、调用API跳转。&lt;/p&gt;
+
+&lt;h2 id=&quot;运行环境判断&quot;&gt;运行环境判断&lt;/h2&gt;
+&lt;p&gt;开发环境和生产环境
+uni-app 可通过 process.env.NODE_ENV 判断当前环境是开发环境还是生产环境。一般用于连接测试服务器或生产服务器的动态切换。&lt;/p&gt;
+
+&lt;p&gt;cli模式下，是通行的编译环境处理方式。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if(process.env.NODE_ENV === 'development'){
+    console.log('开发环境')
+}else{
+    console.log('生产环境')
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;页面样式与布局&quot;&gt;页面样式与布局&lt;/h2&gt;</content><author><name>true</name></author><category term="微信小程序" /><category term="跨平台框架" /><category term="uni-app" /><summary type="html"></summary></entry><entry><title type="html">身份证最后一位校验算法(ISO 7064:1983.MOD 11-2)</title><link href="http://localhost:4000/2019/12/18/ISO-7064.html" rel="alternate" type="text/html" title="身份证最后一位校验算法(ISO 7064:1983.MOD 11-2)" /><published>2019-12-18T19:35:20+08:00</published><updated>2019-12-18T19:35:20+08:00</updated><id>http://localhost:4000/2019/12/18/ISO-7064</id><content type="html" xml:base="http://localhost:4000/2019/12/18/ISO-7064.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201912181143.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在生活中，有一些游戏账号的实名认证和申请
+或者某些网站的注册会用到身份证号。&lt;/p&gt;
+
+&lt;p&gt;当输入错误的身份证号时会提示出错
+给人的感觉是他们真的能识别身份证信息一样。
+当然，除了一些政府、银行、证券、保险等行业接入的是NCIIC（全国公民身份证号码查询服务中心）
+其他的大多数都是根据最后一位校验位来判断该身份证号码是否有效。&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;p&gt;目前国内最权威的渠道肯定是全国公民身份证号码查询服务中心，简称NCIIC，
+也就是很多实名认证服务商所声称采用的公安部接口。
+实际上由于公安网跟外网是隔绝的，所以公安部的接口绝对是不会直接对外的提供的。
+NCIIC是隶属于公安部的一个事业单位，可以直连国家人口基础信息库，
+其数据权威性主要表现在：数据更新准确，公民的出生、死亡、 姓名变更等信息都会第一时间更新，
+可以满足政府、金融等机构的对数据质量的高要求。
+所以NCIIC的授权范围，也主要集中在政府、银行、证券、保险等行业。&lt;/p&gt;
+
+&lt;h4 id=&quot;结构和形式&quot;&gt;结构和形式&lt;/h4&gt;
+
+&lt;p&gt;1．号码的结构
+　　公民身份号码是特征组合码，由十七位数字本体码和一位校验码组成。排列顺序从左至右依次为：六位数字地址码，八位数字出生日期码，三位数字顺序码和一位数字校验码。
+2．地址码
+　　表示编码对象常住户口所在县（县级市、旗、区）的行政区划代码，按GB/T2260的规定执行。
+3．出生日期码
+　　表示编码对象出生的年、月、日，按GB/T7408的规定执行，年、月、日代码之间不用分隔符。
+4．顺序码
+　　表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号，顺序码的奇数分配给男性，偶数分配给女性。
+5．校验码
+　　根据前面十七位数字码，按照ISO 7064:1983.MOD 11-2校验码计算出来的检验码。&lt;/p&gt;
+
+&lt;p&gt;地址码：
+华北地区：北京市|110000，天津市|120000，河北省|130000，山西省|140000，内蒙古自治区|150000
+东北地区： 辽宁省|210000，吉林省|220000，黑龙江省|230000
+华东地区： 上海市|310000，江苏省|320000，浙江省|330000，安徽省|340000，福建省|350000，江西省|360000，山东省|370000
+华中地区： 河南省|410000，湖北省|420000，湖南省|430000
+华南地区：广东省|440000，广西壮族自治区|450000，海南省|460000
+西南地区：重庆市|500000，四川省|510000，贵州省|520000，云南省|530000，西藏自治区|540000
+西北地区： 陕西省|610000，甘肃省|620000，青海省|630000，宁夏回族自治区|640000，新疆维吾尔自治区|650000
+特别地区：台湾地区(886)|830000，香港特别行政区（852)|810000，澳门特别行政区（853)|820000&lt;/p&gt;
+
+&lt;p&gt;中国大陆居民身份证号码中的地址码的数字编码规则为：
+第一、二位表示省（自治区、直辖市、特别行政区）。
+第一位数字是以前的大区制代码。第二位是大区所在省市编码。全国共分为6个大区：华北局（1）、东北局（2）、华东局（3）、中南局（4）、西南局（5）和西北局（6）
+第三、四位表示市（地级市、自治州、盟及国家直辖市所属市辖区和县的汇总码）。其中，01-20，51-70表示省直辖市；21-50表示地区（自治州、盟）。
+第五、六位表示县（市辖区、县级市、旗）。01-18表示市辖区或地区（自治州、盟）辖县级市；21-80表示县（旗）；81-99表示省直辖县级市。&lt;/p&gt;
+
+&lt;p&gt;其中第十七位奇数分给男性，偶数分给女性。
+作为尾号的校验码，是由号码编制单位按统一的公式计算出来的，如果某人的尾号是0-9，都不会出现X，但如果尾号是10，那么就得用X来代替&lt;/p&gt;
+
+&lt;h4 id=&quot;iso-70641983mod-11-2计算方法&quot;&gt;ISO 7064:1983.MOD 11-2计算方法&lt;/h4&gt;
+
+&lt;p&gt;1、将前面的身份证号码17位数分别乘以不同的系数。从第一位到第十七位的系数分别为：7－9－10－5－8－4－2－1－6－3－7－9－10－5－8－4－2。
+2、将这17位数字和系数相乘的结果相加。
+3、用加出来和除以11，看余数是多少？
+4、余数只可能有0－1－2－3－4－5－6－7－8－9－10这11个数字。其分别对应的最后一位身份证的号码为1－0－X －9－8－7－6－5－4－3－2。(即余数0对应1，余数1对应0，余数2对应X…)
+5、通过上面得知如果余数是3，就会在身份证的第18位数字上出现的是9。如果对应的数字是2，身份证的最后一位号码就是罗马数字X。
+例如：某男性的身份证号码为【53010219200508011X】， 我们看看这个身份证是不是符合计算规则的身份证。
+首先我们得出前17位的乘积和【&lt;code class=&quot;highlighter-rouge&quot;&gt;(5*7)+(3*9)+(0*10)+(1*5)+(0*8)+(2*4)+(1*2)+(9*1)+(2*6)+(0*3)+(0*7)+(5*9)+(0*10)+(8*5)+(0*8)+(1*4)+(1*2)&lt;/code&gt;】是189，然后用189除以11得出的结果是189÷11=17余下2，187÷11=17，还剩下2不能被除尽，也就是说其余数是2。最后通过对应规则就可以知道余数2对应的检验码是X。所以，可以判定这是一个正确的身份证号码。&lt;/p&gt;
+
+&lt;p&gt;JavaScript代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//验证方法
+function verifyCode(id){
+ if(id.length !=18 )
+  return false;
+ /*1、从第一位到第十七位的系数分别为：
+   7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2
+   将这17位数字和系数相乘的结果相加。 */
+ var arr = [7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2];
+ var sum = 0;
+ for(var i=0; i&amp;lt;arr.length; i++){
+  sum += parseInt(id.charAt(i)) * arr[i];
+ }
+ //2、用加出来和除以11，看余数，
+ var c = sum%11;
+ //3、分别对应的最后一位身份证的号码为：1－0－X－9－8－7－6－5－4－3－2
+ var ch = [‘1‘, ‘0‘, ‘X‘, ‘9‘, ‘8‘, ‘7‘, ‘6‘, ‘5‘, ‘4‘, ‘3‘, ‘2‘];
+ var code = ch[c];
+ var last = id.charAt(17);
+ last = last==‘x‘ ? ‘X‘: last;
+ return last == code;
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var id = &quot;34052419800101001X&quot;;
+ console.log(verifyCode(id));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="算法" /><category term="身份证校验" /><summary type="html"></summary></entry><entry><title type="html">【翻译】 第六篇 Atomic Design with React</title><link href="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html" rel="alternate" type="text/html" title="【翻译】 第六篇 Atomic Design with React" /><published>2019-11-30T23:59:24+08:00</published><updated>2019-11-30T23:59:24+08:00</updated><id>http://localhost:4000/2019/11/30/Atomic-Design-with-React</id><content type="html" xml:base="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html">&lt;center&gt;&lt;h1&gt; React 的原子设计&lt;/h1&gt;&lt;/center&gt;
 
 &lt;blockquote&gt;
   &lt;table&gt;
@@ -357,7 +647,616 @@ I have recently had the opportunity to work on a new product from scratch made i
 
 &lt;p&gt;The best products are built by people who understand the whole product, not just their silo. In order to make such products, UI/UX Designers should look to evolve into Product Designers who are able to generate and process a additional information to get the best result.&lt;/p&gt;
 
-&lt;p&gt;最好的产品是由了解整个产品的人创造的，而不仅仅是他们自己的筒仓。 为了制造这样的产品，ui / ux 设计师应该考虑发展成为能够生成和处理附加信息以获得最佳结果的产品设计师。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="Adobe" /><category term="产品设计的演化过程" /><summary type="html">从 ui / ux 设计师到产品设计师的演变</summary></entry><entry><title type="html">【翻译】(第四篇)18 designers predict UI/UX trends for 2018</title><link href="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html" rel="alternate" type="text/html" title="【翻译】(第四篇)18 designers predict UI/UX trends for 2018" /><published>2019-08-10T23:25:22+08:00</published><updated>2019-08-10T23:25:22+08:00</updated><id>http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018</id><content type="html" xml:base="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html">&lt;center&gt;&lt;h1&gt; 18位设计师预测2018年用户界面/用户体验趋势&lt;/h1&gt;&lt;/center&gt;
+&lt;p&gt;最好的产品是由了解整个产品的人创造的，而不仅仅是他们自己的筒仓。 为了制造这样的产品，ui / ux 设计师应该考虑发展成为能够生成和处理附加信息以获得最佳结果的产品设计师。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="Adobe" /><category term="产品设计的演化过程" /><summary type="html">从 ui / ux 设计师到产品设计师的演变</summary></entry><entry><title type="html">如何在 Windows 上安装 Django并创建应用</title><link href="http://localhost:4000/2019/10/18/How-to-install-Django-and-create-application-on-Windows.html" rel="alternate" type="text/html" title="如何在 Windows 上安装 Django并创建应用" /><published>2019-10-18T02:03:31+08:00</published><updated>2019-10-18T02:03:31+08:00</updated><id>http://localhost:4000/2019/10/18/How-to-install-Django-and-create-application-on-Windows</id><content type="html" xml:base="http://localhost:4000/2019/10/18/How-to-install-Django-and-create-application-on-Windows.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201910251755.jfif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本文将指导您如何在 Windows 上安装 Python 3.7.4和 Django。 
+它还提供了关于安装 virtualenv 和 virtualenvwrapper 的说明。
+这使得在 Python 项目中工作更加容易。&lt;br /&gt;
+这是为 Django 项目工作的用户提供的初学者指南，并不反映在为 Django 本身开发补丁时应该如何安装 Django。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;本指南中的步骤已经在 Windows 7、8和10中测试过了。 在其他版本中，步骤类似。 你将需要熟悉使用命令提示符。&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;h2 id=&quot;安装-python&quot;&gt;安装 Python&lt;/h2&gt;
+
+&lt;p&gt;Django 是一个 Python web 框架，因此需要在机器上安装 Python。 在撰写本文时，使用的是Python 3.7.4版本。&lt;/p&gt;
+
+&lt;p&gt;要在你的机器上安装 Python，请访问 google https://Python.org/downloads/ 。 这个网站应该为你提供一个最新版本的 Python 下载按钮。 下载可执行安装程序并运行它。 选中“向 PATH 添加 Python 3.5”旁边的复选框，然后单击“立即安装”。&lt;/p&gt;
+
+&lt;p&gt;安装完成后，打开命令提示符并检查 Python 版本是否与您通过执行以下命令安装的版本相匹配:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;关于pip&quot;&gt;关于pip&lt;/h2&gt;
+
+&lt;p&gt;Pip 是 Python 的一个包管理。 它进行安装和卸载 Python 包(比如 Django!) 很简单。 对于安装的其余部分，我们将使用 pip 从命令行安装 Python 包。&lt;/p&gt;
+
+&lt;p&gt;要在您的计算机上安装 pip，请转到安装 https://pip.pypa.io/en/latest/Installing/ ，并按照 get-pip.py 说明进行安装。&lt;/p&gt;
+
+&lt;p&gt;如果您正在使用 Python 22.7.9或 Python 33.4，或者您正在 virtualenv 或 pyvenv 创建的虚拟环境中工作，那么 pip 已经安装。 只需确保升级 pip 即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装virtualenv-及virtualenvwrapper&quot;&gt;安装virtualenv 及virtualenvwrapper&lt;/h2&gt;
+
+&lt;p&gt;Virtualenv 和 virtualenvwrapper 为您创建的每个 Django 项目提供一个专用的环境。 虽然不是强制性的，但这被认为是最佳实践，并且在将来准备部署项目时将为您节省时间。 简单地输入:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install virtualenvwrapper-win
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;然后为你的项目创建一个虚拟环境:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkvirtualenv myproject
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;虚拟环境将被自动激活，您将在命令提示符旁边看到“(myproject)”来指定该虚拟环境。 如果你启动一个新的命令提示符，你需要使用以下命令再次激活环境:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;workon myproject
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;安装-django&quot;&gt;安装 Django&lt;/h2&gt;
+
+&lt;p&gt;可以在虚拟环境中使用 pip 轻松地安装 Django。&lt;/p&gt;
+
+&lt;p&gt;在命令提示符中，确保虚拟环境处于活动状态，并执行以下命令:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install django
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这将下载并安装最新的 Django 版本。&lt;/p&gt;
+
+&lt;p&gt;安装完成后，您可以通过在命令提示符中执行 Django-admin – version 来验证您的 Django 安装。&lt;/p&gt;
+
+&lt;h2 id=&quot;编写你的第一个-django-应用程序&quot;&gt;编写你的第一个 Django 应用程序&lt;/h2&gt;
+
+&lt;h4 id=&quot;创建一个项目&quot;&gt;创建一个项目&lt;/h4&gt;
+
+&lt;p&gt;如果这是您第一次使用 Django，那么您必须处理一些初始设置。 也就是说，您需要自动生成一些代码来建立 Django 项目—— Django 实例的设置集合，包括数据库配置、特定于 Django 的选项和特定于应用程序的设置。&lt;/p&gt;
+
+&lt;p&gt;从命令行中，cd 进入你想存储代码的目录，然后运行以下命令:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...\&amp;gt; django-admin startproject mysite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这将在你的工作目录文件夹中创建一个 mysite 目录。 如果不起作用，请参阅运行 django-admin 的问题。&lt;/p&gt;
+
+&lt;p&gt;让我们来看看 startproject 创建了什么:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;manage.py：命令行实用程序，允许您以各种方式与这个 django 项目交互。&lt;/li&gt;
+  &lt;li&gt;mysite/&lt;strong&gt;init&lt;/strong&gt;.py: 一个空文件，它告诉 Python 这个目录应该被视为一个 Python 包。&lt;/li&gt;
+  &lt;li&gt;mysite/settings.py: 此 Djangoproject 的设置 / 配置。&lt;/li&gt;
+  &lt;li&gt;mysite/urls.py: 这个 Django 项目的 URL 声明; 您的 Django 驱动站点的“目录”。&lt;/li&gt;
+  &lt;li&gt;mysite/wsgi.py:为您的项目提供与 wsgi 兼容的 web 服务器的入口点。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;开发服务器&quot;&gt;开发服务器&lt;/h2&gt;
+
+&lt;p&gt;让我们验证一下您的 Django 项目是否正常工作。 如果你还没有进入外部 mysite 目录，可以运行以下命令:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...\&amp;gt; py manage.py runserver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;您将在命令行上看到以下输出:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+October 16, 2019 - 15:50:53
+Django version 2.2, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;您已经启动了 Django 开发服务器，这是一个纯粹用 Python 编写的轻量级 Web 服务器。 我们已经在 Django 中包含了这一点，这样您就可以快速开发，而无需配置生产服务器(比如 Apache) ，直到您准备好投入生产。&lt;/p&gt;
+
+&lt;p&gt;现在是注意的好时机: 不要在任何类似于生产环境的环境中使用此服务器。 它只能在开发过程中使用。 (我们的业务是制作 Web 框架，而不是 Web 服务器。)&lt;/p&gt;
+
+&lt;p&gt;现在服务器已经运行，可以使用 Web 浏览器访问 google http://127.0.0.1:8000/ 。 你会看到一个“恭喜! ” 佩奇，火箭正在起飞。 成功了！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201910171811.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;改变端口&quot;&gt;①改变端口&lt;/h4&gt;
+&lt;p&gt;默认情况下，runserver 命令在内部 IP 端口8000启动开发服务器。
+如果要更改服务器端口，请将其作为命令行参数传递。 例如，这个命令在端口8080上启动服务器:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...\&amp;gt; py manage.py runserver 8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果您想更改服务器的 IP，请将它与端口一起传递。 例如，要侦听所有可用的公共 ip (如果你正在运行 Vagrant 或者想在网络上的其他计算机上炫耀你的工作，这是很有用的) ，使用:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...\&amp;gt; py manage.py runserver 0:8000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;0是0.0.0.0的捷径。 开发服务器的完整文档可以在 runserver 参考中找到。&lt;/p&gt;
+
+&lt;h4 id=&quot;运行服务器的自动重新加载&quot;&gt;②运行服务器的自动重新加载&lt;/h4&gt;
+
+&lt;p&gt;开发服务器根据需要为每个请求自动重新加载 Python 代码。 您不需要重新启动服务器，代码更改即可生效。 但是，像添加文件样的
+操作不会触发重新启动，因此在这些情况下必须重新启动服务器。&lt;/p&gt;
+
+&lt;h2 id=&quot;创建投票应用程序&quot;&gt;创建投票应用程序&lt;/h2&gt;
+
+&lt;p&gt;现在您的环境(一个“项目”)已经设置好了，您就可以开始工作了。&lt;/p&gt;
+
+&lt;p&gt;您在 Django 中编写的每个应用程序都由遵循某种约定的 Python 包组成。 自带了一个工具，可以自动生成应用程序的基本目录结构，所以你可以专注于编写代码而不是创建目录。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;## 项目 vs 应用程序
+项目和应用程序有什么区别？ 应用程序是一个 Web 应用程序，它可以做一些事情，比如 Weblog 系统、公共记录数据库或者一个简单的投票应用程序。 项目是针对特定网站的配置和应用程序的集合。 一个项目可以包含多个应用程序。 一个应用程序可以在多个项目中。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;你的应用程序可以在你的 Python 路径上的任何地方运行。 在本教程中，我们将在 manage.py 文件旁边创建我们的投票应用程序，这样它就可以作为自己的顶级模块导入，而不是 mysite 的子模块。&lt;/p&gt;
+
+&lt;p&gt;要创建你的应用程序，确保你和 manage.py 在同一个目录下，然后输入以下命令:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...\&amp;gt; py manage.py startapp polls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这将创建一个目录民意调查，如下所示:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这个目录结构将存放轮询应用程序。&lt;/p&gt;
+
+&lt;h2 id=&quot;写下你的第一个观点&quot;&gt;写下你的第一个观点&lt;/h2&gt;
+
+&lt;p&gt;让我们编写第一个视图。 打开文件 polls / views.py 并在其中放入以下 Python 代码:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;polls/views.py
+```
+from django.http import HttpResponse&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;def index(request):
+    return HttpResponse(“Hello, world. You’re at the polls index.”)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;这是 Django 中最简单的视图。 要调用这个视图，我们需要将它映射到一个 URL ——为此我们需要一个 URLconf。
+
+要在 polls 目录中创建 URLconf，请创建一个名为 urls.py 的文件。 你的应用程序目录现在应该是这样的:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;polls/
+    &lt;strong&gt;init&lt;/strong&gt;.py
+    admin.py
+    apps.py
+    migrations/
+        &lt;strong&gt;init&lt;/strong&gt;.py
+    models.py
+    tests.py
+    urls.py
+    views.py&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;在 polls / urls.py 文件中包含以下代码:
+&amp;gt; polls/urls.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;from django.urls import path&lt;/p&gt;
+
+&lt;p&gt;from . import views&lt;/p&gt;
+
+&lt;p&gt;urlpatterns = [
+    path(‘’, views.index, name=’index’),
+]&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;下一步是将根 URLconf 指向 polls.url 模块。 在 mysite / urls.py 中，为 django.urls.include 添加一个导入，并在 urlpatterns 列表中插入一个 include () ，这样就可以:
+
+&amp;gt; mysite/urls.py
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;from django.contrib import admin
+from django.urls import include, path&lt;/p&gt;
+
+&lt;p&gt;urlpatterns = [
+    path(‘polls/’, include(‘polls.urls’)),
+    path(‘admin/’, admin.site.urls),
+]&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;函数允许引用其他 URLconfs。 无论 Django 遇到什么 include () ，它都会删除与该点匹配的 URL 的任何部分，并将剩余的字符串发送到包含的 URLconf 进行进一步处理。
+
+Include ()背后的思想是为了便于插入和播放 url。 因为民意调查是在它们自己的 URLconf (polls / urls.py)中，所以它们可以放在“ / polls / ” ，或者“ / fun polls / ” ，或者“ / content / polls / ” ，或者任何其他路径根目录下，这个应用程序仍然可以工作。
+
+
+&amp;gt; #### 何时使用 include ()
+&amp;gt; 当您包含其他 URL 模式时，您应该始终使用 include ()。 Url 是唯一的例外。
+
+您现在已经将索引视图连接到 URLconf。 确认它正在使用以下命令:
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;…&amp;gt; py manage.py runserver
+```
+在你的浏览器中进入 http://localhost:8000/polls/ ，你会看到文本“Hello, world. You’re at the polls index.” ，您在索引视图中定义的。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h4 id=&quot;页面没有找到&quot;&gt;页面没有找到？&lt;/h4&gt;
+  &lt;p&gt;如果你在这里得到一个错误页面，检查你要去的是 http://localhost:8000/polls/ ，而不是 http://localhost:8000/ 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Path ()函数传递了四个参数，其中两个是必需的: route 和 view，两个是可选的: kwargs 和 name。 在这一点上，我们有必要回顾一下这些争论的目的。&lt;/p&gt;
+
+&lt;h3 id=&quot;path-argument-route&quot;&gt;path() argument: route&lt;/h3&gt;
+
+&lt;p&gt;Route 是一个包含 URL 模式的字符串。 当处理一个请求时，Django 从 urlpatterns 中的第一个模式开始，沿着列表一路向下，将请求的 URL 与每个模式进行比较，直到找到匹配的模式。&lt;/p&gt;
+
+&lt;p&gt;模式不搜索 GET 和 POST 参数或域名。 例如，在对 myapp / https://www.example.com/myapp/ 的请求中，URLconf 将查找 myapp / 。 在 https://www.example.com/myapp/?page=3的请求中，URLconf 也会查找 myapp / 。&lt;/p&gt;
+
+&lt;h3 id=&quot;path-argument-view&quot;&gt;path() argument: view&lt;/h3&gt;
+
+&lt;p&gt;当 Django 找到一个匹配模式时，它调用指定的视图函数，其中以 HttpRequest 对象作为第一个参数，并将 route 中的任何“捕获”值作为关键字参数。 我们稍后会给出一个例子。&lt;/p&gt;
+
+&lt;h3 id=&quot;path-argument-kwargs&quot;&gt;path() argument: kwargs&lt;/h3&gt;
+
+&lt;p&gt;可以在字典中将任意关键字参数传递给目标视图。 我们不打算在本教程中使用 Django 的这个特性。&lt;/p&gt;
+
+&lt;h3 id=&quot;path-argument-name&quot;&gt;path() argument: name&lt;/h3&gt;
+
+&lt;p&gt;命名 URL 可以让您明确地从 Django 中的其他地方引用它，尤其是从模板中。 这个功能强大的特性允许您对项目的 URL 模式进行全局更改，同时只触及单个文件。&lt;/p&gt;
+
+&lt;p&gt;当您熟悉了基本的请求和响应流后，请阅读本教程的第2部分以开始使用数据库。&lt;/p&gt;</content><author><name>true</name></author><category term="python" /><category term="Django" /><summary type="html"></summary></entry><entry><title type="html">三阶魔方教程</title><link href="http://localhost:4000/2019/09/16/Third-level-cube-tutorial.html" rel="alternate" type="text/html" title="三阶魔方教程" /><published>2019-09-16T05:19:28+08:00</published><updated>2019-09-16T05:19:28+08:00</updated><id>http://localhost:4000/2019/09/16/Third-level-cube-tutorial</id><content type="html" xml:base="http://localhost:4000/2019/09/16/Third-level-cube-tutorial.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201909152135.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;一简介&quot;&gt;一、简介&lt;/h2&gt;
+
+&lt;p&gt;魔方 ，英文名为Rubik’s Cube，又叫鲁比克方块，台湾地区称之为魔术方块，香港地区称之为扭计骰，最早是由匈牙利布达佩斯建筑学院厄尔诺·鲁比克（又称作厄尔诺·卢比克）教授于1974年发明的。魔方与中国人发明的“华容道”，法国人发明的“独立钻石”一起被称为世界三大智力运动。魔方竞速是一项手部极限运动。&lt;/p&gt;
+
+&lt;p&gt;三阶发明以后，许多其他种类型的魔方纷纷出现靠，如二阶（2&lt;em&gt;2&lt;/em&gt;2）、四阶、五阶、六阶…..至今已达到十三阶。还有许多节点的异形魔方，如五魔方、镜面。金字塔、斜转、SQ1、不等阶、捆绑、连体、空心、齿轮、魔中魔、超级转角、智慧之轮、时间机器等等……&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;h2 id=&quot;二魔方的比赛相关&quot;&gt;二、魔方的比赛相关&lt;/h2&gt;
+
+&lt;p&gt;世界魔方协会（英文 ：Word Cube Association，简称WCA）是魔方官方的国际性赛事组织，成立于2003年，只有通过世界魔方协会的比赛才能记载入世界纪录。WCA现有的比赛记录：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;~&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;单次&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;平均&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;二阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0.49&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;三阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;四阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;21.54&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;26.06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;五阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44.83&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;53.08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;六阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1:33.55&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1:44.88&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;七阶&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2:20.66&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2:25.06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;三阶盲拧&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;21.05&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;24.72&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;三阶单手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.88&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;魔表&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.76&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5.72&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;脚拧&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20.57&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;28.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;五魔方&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;35.94&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42.89&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;金字塔&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.32&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.41&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SQ1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.84&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9.90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;斜转&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.10&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.76&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;最小步&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;19步&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;24.33步&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;三魔方的其他玩法&quot;&gt;三、魔方的其他玩法&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;速拧–有15秒观察时间，用最短的时间复原一个魔方，快者为胜。&lt;/li&gt;
+  &lt;li&gt;盲拧–将魔方记忆下来，不得做笔记，接着戴上眼罩并且由裁判用纸板挡住视线，复原魔方。记忆魔方的时间也算入最终成绩。&lt;/li&gt;
+  &lt;li&gt;多盲–参赛者在比赛项目开始前必须说明将还原的魔方数目，每个魔方有十分钟的记忆时间，总时间限制为一个小时，最终成绩分数成功个数减去失败个数，
+相同分数时用时最短者胜。&lt;/li&gt;
+  &lt;li&gt;单拧–也称三单，即用单手复原魔方，复原阶段开始后一旦接触到魔方，则不能用其他部位包括另一只手或物品接触魔方。&lt;/li&gt;
+  &lt;li&gt;脚拧–用脚复原魔方，一般为坐在合适高度的椅子上复原。&lt;/li&gt;
+  &lt;li&gt;最小步–可自备最多三个魔方，白纸和笔若干，在1小时内把解法写在纸上，最小步者为胜。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;四魔方界名人&quot;&gt;四、魔方界名人&lt;/h2&gt;
+
+&lt;p&gt;菲神：Feliks Zemdegs，1995年12月20日出生在澳大利亚墨尔本。魔方界的天才，目前已打破78项魔方世界记录，并且多数是打破自己的记录。
+庄海燕：网名瓦西里（老瓦），盲拧传奇人物。
+张砷镓：国内首个WCA赛中单次SUB10的魔友，魔方系列文章非常有水准，特别是《十字天书》对许多CROSS提速有非常大的帮助。
+中岛悠：曾打破多项世界纪录，“中岛非标”可以说是速拧必修课。
+江淦源：前中国世界纪录保持者，其编写的GANCFOP和其创立的江淦源GAN品牌三阶魔方均受到广大魔友的好评。&lt;/p&gt;
+
+&lt;h2 id=&quot;五魔方常用术语&quot;&gt;五、魔方常用术语&lt;/h2&gt;
+
+&lt;p&gt;N阶：阶数一般指魔方主体部分两个相邻旋转面共有的块数，如三阶魔方每个边有三个小块，四阶每边有四个小块。
+复原：指魔方从非原始状态到原始状态的过程。
+容错：魔方没转到位，仍然可以转动其它层的一个能力。
+SUB：Subtraction，在魔方圈内一般指在xx以下、以内。
+AVG：Average，指平均成绩。
+DNF：Did not finish，指放弃此次成绩。
+DNS：Did not start ，指复原开始前弃权。
+PB: Personal Best.指个人魔方最快记录。
+UWR：Unofficial World Record，指非官方统计世界纪录。
+WR：World Record，指世界纪录；（世界WR全国NR亚洲AsR欧洲ER北美洲NAR南美SAR大洋OcR 非洲AfR）
+WCA：World Cube Association，指世界魔方协会。
+FSC：  Finger Short Cut的缩写。指由一组旋转动作组成的、在公式中经常出现的顺手手法（如 R U R’ U’）。
+CZZ：有两种含义①拆再装法 ②Cross+ZBF2L+ZBLL法。
+BLD：Blindfold Cubing，指盲拧。
+PSC：Prepared Solve Challenge，指同一条打乱公式，自行研究解法并录制视频上传，以还原时间最短者为胜。
+LBL：Layer By Layer的简称。指层先法（七步法、基础法）。
+CFOP：Fridrich Method 的简称，三阶速拧复原法，流程为Cross、F2L、OLL、PLL，取每一步骤的首字母作为简称。
+Cross：十字。指还原底层的4个棱块。
+F2L：Frist Two Layers的缩写。指CFOP法复制前两层的方法。
+OLL：Orientation of Last Layer 的缩写。指最后一层朝向。
+PLL：Permutation of Last Layer 的缩写。指最后一层换位。
+跳P：指魔方幸运地直接复原，跳过了PLL步骤。跳0同理。&lt;/p&gt;
+
+&lt;h2 id=&quot;六魔方花样公式&quot;&gt;六、魔方花样公式&lt;/h2&gt;
+
+&lt;p&gt;六面回字： U’  D  F’  B  L  R’  U’  D
+四色回字： B2  L  R  B  L2  B  F  D  U’  B  F  R2  F’  L  R
+对称棋盘： L2  R2  F2  B2  U2   D2
+循环棋盘： D2  F2  U’  B2  F2  L2  R2  D  R’  B  F  D’  U  L  R  D2  U2  F’  U2 
+六面十字： B2  F’  L2  R2  D2  B2  F2  L2  R2  U2  F’
+四面十字： U2  R  B  D  B  F’  L’  U’  B  F’  L  F  L’  R  D  U2  F’  R’  U2
+六面五色： U  B2  L2  B  F’  U  F’  D2  L  D2  F  D  R2  F2  R’  B’  U’  R’
+六面六色： D2  U2  L2  B  R2  D’  L2  R2  D2  B2  F2  U’ R2  B’  R2
+六面彩条： F2  U2  F2  B2  U2  F  B
+六面三条：（U2  L2）3  (U2  R2)3  U  D  L2  R2
+六面凹字： F2  L’  R  B2  U2  L  R’  D2
+六面凹字： U  D  L2  F2  U  D’  B2  R2  D2
+六面凹：    F2  R  F2  R’    U2  F2  L  U2  B2  U2  F’  U2  R  D’  B2  D  F’  D2  R  F
+六面工字： D2  M  L’  F2  B2  M  D2
+六面Q字：  D  F2  U’  B  F’  L  R’  D  L2  U’  B  R2  B’  U  L2  U’
+六面J字：   D2  L2  D  R2  U  B2  U2  B R’  B’  D  B2  R’  F  R2  F’  U  R’
+六面L字：   L  R  U  D  F’  B’  L  R
+六面E字：   F2  R2  F2  U’  R’  B2  F  L  R’  U  L’  R U B  U2 F2  D’  U’
+六面U字：  D’  U  B  D’  L’ R  F  D’  U  L
+六面T字：  U2  F2  R2  D  U’  L2  B2 D  U     或者    B2  D2  L  R’  D2  B2  L  R
+CCTV字：  B2  R2  D2  U2  F2  L  R’  U2  L’  R’
+大小魔方： U2L2F2  U’B2D  RF’RF’RF’  D’B2U’&lt;/p&gt;
+
+&lt;h2 id=&quot;七公式说明&quot;&gt;七、公式说明&lt;/h2&gt;
+
+&lt;p&gt;R  =  right 右面        F = front 前面        U =  up  上面
+L  =  left  左面          B = back 后面        D =  down 下面&lt;/p&gt;
+
+&lt;p&gt;图：&lt;/p&gt;
+
+&lt;p&gt;公式记忆技巧：
+大写表示一层，小写表示两层，带撇表示逆时针，不带撇表示顺时针。  M表示中间层（Middle），xyz表示魔方整体转动。&lt;/p&gt;
+
+&lt;p&gt;在四节或更高阶魔方里，由于多了很多层，所以另做以下定义：&lt;/p&gt;
+
+&lt;p&gt;M3R 表示从R层往左数的第三层单独转动，M2R缩写成MR。
+T3R  表示从R层往左数的三个层同时转动。T2R缩写TR。
+同理M4L,T3L 
+注意：顺逆时针，是基于正式着对应面的时候判断的。&lt;/p&gt;
+
+&lt;h2 id=&quot;八三阶魔方教程&quot;&gt;八、三阶魔方教程&lt;/h2&gt;
+
+&lt;h4 id=&quot;本教程以白色为底建议大家也先按教程来方便学习&quot;&gt;①本教程以白色为底，建议大家也先按教程来，方便学习。&lt;/h4&gt;
+&lt;p&gt;1.1 在顶层组成小花
+黄色中心块朝上，找到四个白色的棱块（白红，白橙，白绿，白蓝），如果在中层则可直接将其转到顶面。
+如果他在底层或者顶层，需要先转到中层再处理。
+注意：如果已有白棱在顶层，应先转动顶层避开，在归位。&lt;/p&gt;
+
+&lt;p&gt;如果已有白棱在顶层，应先转动顶层避开，在归位：&lt;/p&gt;
+
+&lt;p&gt;1.2  复原白色十字
+转动顶层，使白色的棱块侧面颜色和中块颜色一致，将此层转动180度到底面。四个白色棱块注意按此方法归位到底层，第一步完成。&lt;/p&gt;
+
+&lt;h4 id=&quot;对好侧面t字&quot;&gt;②对好侧面T字&lt;/h4&gt;
+&lt;p&gt;第二步目标：此步目标是复位四个带有白色的角块（白红蓝、白红绿、白橙蓝、白橙绿），令第一层复原，在侧面可以看到一个倒着的“T”字。&lt;/p&gt;
+
+&lt;p&gt;2.1 复原顶层白色角块&lt;/p&gt;
+
+&lt;p&gt;公式1： R U R’ U’&lt;/p&gt;
+
+&lt;p&gt;2.2 复原底层白色角块
+当顶层找不到白色角块后，在进行这一步：&lt;/p&gt;
+
+&lt;p&gt;用上述方法即可复原四个白色角块，至此底层完成进行下一步。&lt;/p&gt;
+
+&lt;h4 id=&quot;复原中层棱块&quot;&gt;③复原中层棱块&lt;/h4&gt;
+&lt;p&gt;此步目标是复原四个没有黄色面的棱块（红蓝，红绿，橙蓝，橙绿）。&lt;/p&gt;
+
+&lt;p&gt;3.1 复原在顶层的中层棱块
+转动顶层（U）使要复原的块停在侧面颜色和中心块颜色相同的位置，对照以下两种情况做对应处理（目标位置要对着我们）&lt;/p&gt;
+
+&lt;p&gt;公式2： U R U’ R’ U’ F’ U F&lt;/p&gt;
+
+&lt;p&gt;公式3： U’ F’ U F U R U’ R’&lt;/p&gt;
+
+&lt;p&gt;大家可以发现这两个情况是镜像的，公式也是镜像的。这两条简单公式可以观察规律，结合自己的理解来记忆。&lt;/p&gt;
+
+&lt;p&gt;3.2 复原在中层错误的棱块&lt;/p&gt;
+
+&lt;p&gt;当第三层无合适的棱块时，在第二层找到未复原的棱块，接着转一次公式2可将其移动到顶层，再按对应情况处理。至此第三步完成。&lt;/p&gt;
+
+&lt;p&gt;前两层都完成后，恭喜你可以进行下一步了。&lt;/p&gt;
+
+&lt;h4 id=&quot;对顶层的黄色十字&quot;&gt;④对顶层的黄色十字&lt;/h4&gt;
+
+&lt;p&gt;顶层有以下四种情况，对照图中的所示的朝向，转公式4处理即可。&lt;/p&gt;
+
+&lt;p&gt;公式4： F  R  U  R’  U’  F’&lt;/p&gt;
+
+&lt;p&gt;当你的魔方完成上图所示后，可进行下一步。&lt;/p&gt;
+
+&lt;h4 id=&quot;复原顶层&quot;&gt;⑤复原顶层&lt;/h4&gt;
+&lt;p&gt;重复一下步骤最多三次即可复原顶层。&lt;/p&gt;
+
+&lt;p&gt;1、转动顶层将魔方和某个俯视图朝向保持一致（俯视图的黄条表示侧面的黄色面，黄条也要对应上。）
+2、转公式5
+	公式5：R  U  R’  U  R  U2  R’
+为了方便记忆观察顶面的四个角块，以上情况可总结成三种：
+A: 有0面黄色面时（十字），把侧面两个黄色面朝向左边。
+B：有两面黄色面时（坦克、双鱼），把侧面黄色面放在前面左侧。
+C：有1面黄色面时（小鱼），把鱼头朝向左下。&lt;/p&gt;
+
+&lt;h4 id=&quot;对凹字&quot;&gt;⑥对凹字&lt;/h4&gt;
+&lt;p&gt;一直转动U层知道前面左上和右上角颜色相同，转公式6即可对好凹字。如果找不到相同的，则先直接转一次公式6在观察。&lt;/p&gt;
+
+&lt;p&gt;公式6： R’  U  L’  U2  R  U’  R’  U2  L  R&lt;/p&gt;
+
+&lt;h4 id=&quot;复原顶棱&quot;&gt;⑦复原顶棱&lt;/h4&gt;
+&lt;p&gt;如果剩下的四个棱块都未归位，则直接转一次公式7即可归位其中的一个，如果剩下三个棱块未复原，则把已复原好的棱块放在背面，转公式7最多两次即可
+复原魔方。&lt;/p&gt;
+
+&lt;p&gt;公式7：R2  U  R  U  R’  U’  R’  U’  R’  U  R’&lt;/p&gt;</content><author><name>true</name></author><category term="魔方" /><category term="三阶魔方" /><summary type="html">一、简介</summary></entry><entry><title type="html">JavaScript 面试题收集 –持续更新</title><link href="http://localhost:4000/2019/08/31/javascript-Interview-questions.html" rel="alternate" type="text/html" title="JavaScript 面试题收集    --持续更新" /><published>2019-08-31T05:52:57+08:00</published><updated>2019-08-31T05:52:57+08:00</updated><id>http://localhost:4000/2019/08/31/javascript-Interview-questions</id><content type="html" xml:base="http://localhost:4000/2019/08/31/javascript-Interview-questions.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201908302202.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;送你-43-道-javascript-面试题&quot;&gt;送你 43 道 JavaScript 面试题&lt;/h2&gt;
+
+&lt;p&gt;原文链接：https://juejin.im/post/5d0644976fb9a07ed064b0ca&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下面代码的输出是什么？&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = &quot;Lydia&quot;;
+  let age = 21;
+}
+
+sayHi();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A: Lydia 和 undefined
+B: Lydia 和 ReferenceError
+C: ReferenceError 和 21
+D: undefined 和 ReferenceError&lt;/p&gt;
+
+&lt;p&gt;答案: D
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;在函数中，我们首先使用var关键字声明了name变量。 这意味着变量在创建阶段会被提升（JavaScript会在创建变量创建阶段为其分配内存空间），默认值为undefined，直到我们实际执行到使用该变量的行。 我们还没有为name变量赋值，所以它仍然保持undefined的值。
+使用let关键字（和const）声明的变量也会存在变量提升，但与var不同，初始化没有被提升。 在我们声明（初始化）它们之前，它们是不可访问的。 这被称为“暂时死区”。 当我们在声明变量之前尝试访问变量时，JavaScript会抛出一个ReferenceError。
+译者注：
+关于let的是否存在变量提升，我们何以用下面的例子来验证：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let name = 'ConardLi'
+{
+  console.log(name) // Uncaught ReferenceError: name is not defined
+  let name = 'code秘密花园'
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;let变量如果不存在变量提升，console.log(name)就会输出ConardLi，结果却抛出了ReferenceError，那么这很好的说明了，let也存在变量提升，但是它存在一个“暂时死区”，在变量未初始化或赋值前不允许访问。
+变量的赋值可以分为三个阶段：&lt;/p&gt;
+
+&lt;p&gt;创建变量，在内存中开辟空间
+初始化变量，将变量初始化为undefined
+真正赋值&lt;/p&gt;
+
+&lt;p&gt;关于let、var和function：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;let 的「创建」过程被提升了，但是初始化没有提升。&lt;/li&gt;
+  &lt;li&gt;var 的「创建」和「初始化」都被提升了。&lt;/li&gt;
+  &lt;li&gt;function 的「创建」「初始化」和「赋值」都被提升了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下面代码的输出是什么?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for (var i = 0; i &amp;lt; 3; i++) {
+  setTimeout(() =&amp;gt; console.log(i), 1);
+}
+
+for (let i = 0; i &amp;lt; 3; i++) {
+  setTimeout(() =&amp;gt; console.log(i), 1);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A: 0 1 2 and 0 1 2
+B: 0 1 2 and 3 3 3
+C: 3 3 3 and 0 1 2&lt;/p&gt;
+
+&lt;p&gt;答案: C
+由于JavaScript中的事件执行机制，setTimeout函数真正被执行时，循环已经走完。 由于第一个循环中的变量i是使用var关键字声明的，因此该值是全局的。 在循环期间，我们每次使用一元运算符++都会将i的值增加1。 因此在第一个例子中，当调用setTimeout函数时，i已经被赋值为3。
+在第二个循环中，使用let关键字声明变量i：使用let（和const）关键字声明的变量是具有块作用域的（块是{}之间的任何东西）。 在每次迭代期间，i将被创建为一个新值，并且每个值都会存在于循环内的块级作用域。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下面代码的输出是什么?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () =&amp;gt; 2 * Math.PI * this.radius
+};
+
+shape.diameter();
+shape.perimeter();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A: 20 and 62.83185307179586
+B: 20 and NaN
+C: 20 and 63
+D: NaN and 63&lt;/p&gt;
+
+&lt;p&gt;答案: B
+请注意，diameter是普通函数，而perimeter是箭头函数。
+对于箭头函数，this关键字指向是它所在上下文（定义时的位置）的环境，与普通函数不同！ 这意味着当我们调用perimeter时，它不是指向shape对象，而是指其定义时的环境（window）。没有值radius属性，返回undefined。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;28-道-javascript-面试题看看能错几道&quot;&gt;28 道 JavaScript 面试题，看看能错几道？&lt;/h2&gt;
+
+&lt;p&gt;原文链接：https://mp.weixin.qq.com/s/o260IGR5FxvN-P8Kgtz1uA&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下面代码输出什么?&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>true</name></author><summary type="html"></summary></entry><entry><title type="html">【翻译】(第四篇)18 designers predict UI/UX trends for 2018</title><link href="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html" rel="alternate" type="text/html" title="【翻译】(第四篇)18 designers predict UI/UX trends for 2018" /><published>2019-08-10T23:25:22+08:00</published><updated>2019-08-10T23:25:22+08:00</updated><id>http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018</id><content type="html" xml:base="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html">&lt;center&gt;&lt;h1&gt; 18位设计师预测2018年用户界面/用户体验趋势&lt;/h1&gt;&lt;/center&gt;
 
 &lt;blockquote&gt;
   &lt;table&gt;
@@ -589,838 +1488,219 @@ Isha Kasliwal，Twitch 高级 ui / ux 设计师 / 开发人员&lt;/p&gt;
 米里亚姆苏珊娜，OddBird 的设计师和开发人员&lt;/p&gt;
 
 &lt;p&gt;An honorary mention goes to… 
-获得荣誉提名的是..&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="designers" /><summary type="html">18位设计师预测2018年用户界面/用户体验趋势</summary></entry><entry><title type="html">【微信小程序采坑之路】①radio实现接收后台数据并展示</title><link href="http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying.html" rel="alternate" type="text/html" title="【微信小程序采坑之路】①radio实现接收后台数据并展示" /><published>2019-08-05T03:46:31+08:00</published><updated>2019-08-05T03:46:31+08:00</updated><id>http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying</id><content type="html" xml:base="http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201908042042.jpg&quot; alt=&quot;微信小程序&quot; /&gt;&lt;/p&gt;
+获得荣誉提名的是..&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="designers" /><summary type="html">18位设计师预测2018年用户界面/用户体验趋势</summary></entry><entry><title type="html">MATLAB学习笔记</title><link href="http://localhost:4000/2019/08/06/matlab-Learning-notes.html" rel="alternate" type="text/html" title="MATLAB学习笔记" /><published>2019-08-06T02:24:44+08:00</published><updated>2019-08-06T02:24:44+08:00</updated><id>http://localhost:4000/2019/08/06/matlab-Learning-notes</id><content type="html" xml:base="http://localhost:4000/2019/08/06/matlab-Learning-notes.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201908051827.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;新手开发学习采坑之路，只为记录一下遇到问题：&lt;/p&gt;
+&lt;h2 id=&quot;本文是matlab官网教程的学习记录笔记&quot;&gt;本文是MATLAB官网教程的学习记录笔记&lt;/h2&gt;
 
-&lt;p&gt;今天在开发微信小程序的时候遇到了一个小坑，在获取后台返回的数据之后想要在前台渲染。&lt;/p&gt;
+&lt;h4 id=&quot;11命令&quot;&gt;1.1命令&lt;/h4&gt;
 
-&lt;p&gt;首先要实现的功能是页面的展示，代码是from表单写的，用户通过这个表单提交数据到后台，然后在下一次用户打开这个页面的时候展示上一次通过from表单提交的数据。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clear 用于删除工作区变量，clc 用于清除命令行窗口。
 
-&lt;!--more--&gt;
+MATLAB 包含内置的常量，例如 pi 表示 π
 
-&lt;p&gt;然后我最初的想法是通过wx:for循环把数据里的每一个元素提出，再用item提取出来，但是实际的结果不尽人意，通过wx:for循环之后整个表单页面在渲染层就不显示了。这样一来，这个方法就实现不了了，后台的数据都已经获取到了，就差渲染到页面上了。&lt;/p&gt;
+MATLAB 包含许多内置的函数，例如 abs（计算绝对值）和 eig（计算特征值）sqrt（计算平方根）。 &amp;lt;!--more--&amp;gt;
+MATLAB 变量命名为符合以下规则的任何名称：以字母开头，并且仅包含字母、数字和下划线 (_)。
 
-&lt;p&gt;最后想到了通过setData方法来进行数据绑定，直接使用来进行展示， 运行了一下，可以。没想到直接使用了一个最简单的办法就实现了。&lt;/p&gt;
+您可以使用方括号创建包含多个元素的数组。
+&amp;gt;&amp;gt; x = [3 5]
+x = 
+    3    5
 
-&lt;ul&gt;
-  &lt;li&gt;Js逻辑层代码：
-&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492288-30ff1ba7-a92b-4aa3-bf50-0490732601ac-image1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Wxml渲染层代码：
-&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492310-14ad7b94-d16e-4ac0-9570-65744d8cb0e7-image2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;显示的页面样式是这样的：
-&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492350-38a749ad-c5c1-49b5-bf70-788d2afacd26-image3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-    &lt;p&gt;虽然，input组件可以显示了，但是还有一个radio单选组件，这个怎么才能让接收到数据显示到radio组件上呢？&lt;/p&gt;
+当您用空格（或逗号）分隔数值时，MATLAB 会将这些数值组合为一个行向量，行向量是一个包含一行多列的数组 (1×n)。当您用分号分隔数值时，MATLAB 会创建一个列向量 (n×1)
+&amp;gt;&amp;gt; x = [1;3]。
 
-    &lt;p&gt;在网上搜索得到的结果是 正常的JavaScript代码里需要定义一个方法然后通过传递的元素名获取元素对象，获取到对象之后进行遍历，寻找值等于所获取值的子对象，找到子对象之后用rObj[i].checked =  ‘checked’;将数据显示到radio选项里。但是微信小程序这个就比较麻烦，checked这个属性的值是boolean值，只有true和false，我就在这个值里绑定一个三元运算符进行判断，如果这个值等于提交给后台的value值，那么就是true然后radio里的选项上这个就是选中状态。&lt;/p&gt;
 
-    &lt;p&gt;在实验的时候，我的代码是这样写的：（错误的范例）&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;view class=&quot;form-item&quot;&amp;gt;
-    &amp;lt;view class=&quot;form-item-hd&quot;&amp;gt;特技方式：&amp;lt;/view&amp;gt;
-    &amp;lt;view class=&quot;section__title&quot;&amp;gt;
-      &amp;lt;radio-group name=&quot;style&quot;&amp;gt;
-        &amp;lt;label&amp;gt;
-          &amp;lt;radio value=&quot;4&quot; checked=&quot;&quot; /&amp;gt;向左移动&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;
-          &amp;lt;radio value=&quot;38&quot; checked=&quot;&quot;/&amp;gt;向右移动&amp;lt;/label&amp;gt;
-      &amp;lt;/radio-group&amp;gt;
-    &amp;lt;/view&amp;gt;
-  &amp;lt;/view&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;不管上一次发送的是什么它总是显示的是最后一个radio选项，就像这样：
-&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492371-6e26f89b-3b83-42d4-b4a3-965d93526434-image4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+您可以组合使用空格和分号来创建矩阵，即包含多行多列的数组。输入矩阵时，您必须逐行输入它们。
+&amp;gt;&amp;gt; x = [3 4 5;6 7 8]
+x = 
+    3    4    5
+    6    7    8
 
-    &lt;p&gt;不太记得了是哪位伟大的名人说过一句话：“这样的结果那就只有一种可能了，那就是代码是问题”。接着找bug吧！把checked的属性全都试了一遍。但是结果还是不好使。What？（一个黑人大大问号），难道是三元运算符的问题吗？找了一下小程序的文档，一看果然是，运算的结果true是不加单引号的，（emmm！！！）运行之后正确执行了。这一个小坑让我转了这么一大圈。但是结果是圆满的。&lt;/p&gt;
+在 MATLAB 中，您可以在方括号内执行计算。
+&amp;gt;&amp;gt; x = [abs(-4) 4^2]
+x = 
+ 	    4    16
 
-    &lt;p&gt;这个错误让我想起了一个笑话：一个程序员在肯德基编程，一个乞丐边上坐下来，向他乞讨。他给了一块钱，继续写代码。乞丐没有走，看着他。过了一会，悄悄地说：“这行少了一个分号” 他惊诧地睁大眼睛问：“这个你也懂? ” 乞丐满眼含泪：“就是因为懂这个，所以我才落的今天这下场。”……&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>true</name></author><category term="微信小程序" /><category term="Radio组件" /><summary type="html"></summary></entry><entry><title type="html">【翻译】(第三篇) The Psychology Principles Every UI/UX Designer Needs to Know</title><link href="http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know.html" rel="alternate" type="text/html" title="【翻译】(第三篇) The Psychology Principles Every UI/UX Designer Needs to Know" /><published>2019-07-17T06:42:49+08:00</published><updated>2019-07-17T06:42:49+08:00</updated><id>http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know</id><content type="html" xml:base="http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know.html">&lt;center&gt;&lt;h1&gt; 每一个UI/UX设计者需要知道的心理学原则&lt;/h1&gt;&lt;/center&gt;
+对于长向量，输入单个数值是不实际的。可用来创建等间距向量的替代便捷方法是使用 : 运算符并仅指定起始值和最终值：	first:last。
+&amp;gt;&amp;gt; y = 5:8
+y = 
+    5    6    7    8
 
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
-        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
 
-&lt;p&gt;** 原文链接：https://uxplanet.org/the-psychology-principles-every-ui-ux-designer-needs-to-know-24116fd65778 **&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;作者：Thanasis Rigopoulos&lt;/li&gt;
-  &lt;li&gt;2017年6月8日&lt;/li&gt;
-&lt;/ul&gt;
+: 运算符使用默认的间距 1，但是您可以指定您自己的间距，如下所示。
+&amp;gt;&amp;gt; x = 20:2:26
+x = 
+    20    22    24    26
 
-&lt;p&gt;&lt;img src=&quot;../assets/translate/translate3-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+如果您知道向量中所需的元素数目（而不是每个元素之间的间距），则可以改用 linspace 函数：linspace	(first,last,number_of_elements)。注意，请使用逗号 (,) 分隔 linspace 函数的输入。
+&amp;gt;&amp;gt; x = linspace(0,1,5)
+x = 
+    0    0.250    0.500    0.750    1.000
 
-&lt;!--more--&gt;
 
-&lt;p&gt;Psychology plays a big part in a user’s experience with an application. By understanding how our designs are perceived, we can make adjustments so that the apps we create are more effective in achieving the goals of the user.
-心理学在用户的应用体验中起着重要作用。通过了解我们的设计是如何被感知的，我们可以进行调整，以便我们创建的应用程序在实现用户目标方面更有效。&lt;/p&gt;
+linspace 和 : 运算符都可创建行向量。但是，您可以使用转置运算符 (') 将行向量转换为列向量。
+&amp;gt;&amp;gt; x = 1:3;
+&amp;gt;&amp;gt; x = x'
+x = 
+    1
+    2
+    3
 
-&lt;p&gt;To help you understand the perception of the user, I will introduce some design principles which I think are the most important, and also provide common examples of these principles in practice. Let’s start with the Von Restorff effect:
-帮助你理解用户的感受，我将介绍一些我认为最重要的设计原则，并在实践中提供这些原则的常见例子。让我们从冯·雷斯托夫效应（Von Restorff effect）开始：&lt;/p&gt;
 
-&lt;h2 id=&quot;冯雷斯托夫效应von-restorff-effect&quot;&gt;冯·雷斯托夫效应（Von Restorff effect）&lt;/h2&gt;
+您可以通过在一条命令中创建行向量并将其全部转置来创建列向量。注意此处使用圆括号来指定运算的顺序。
+&amp;gt;&amp;gt; x = (1:2:5)'
+x = 
+    1
+    3
+    5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The Von Restorff effect (also known as the isolation effect) predicts that when multiple similar objects are present, the one that differs from the rest is most likely to be remembered!
-Von Restorff效应（也称为隔离效应）预测，当存在多个类似对象时，最有可能记住与其他对象不同的对象！&lt;/p&gt;
+&lt;p&gt;linspace
+https://www.mathworks.cn/help/matlab/ref/linspace.html&lt;/p&gt;
 
-&lt;p&gt;Does this ring any bells?
-这个预测准确吗？&lt;/p&gt;
+&lt;p&gt;3.3 数组创建函数&lt;/p&gt;
 
-&lt;p&gt;This is the main reason why all call-to-actions (CTAs) look different from the rest of the action buttons on a site or application!
-这就是为什么所有动作调用（CTAs）看起来都不同于网站上或应用程序上的其他动作按钮的主要原因！&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;许多矩阵创建函数允许您输入一个数值来创建方阵 (n×n)，或者输入两个数值来创建非方阵。
+&amp;gt;&amp;gt; x = rand(2)
+x = 
+    0.8147    0.1270
+ 	   0.9058    0.9134    
+&amp;gt;&amp;gt; x = rand(2,3)
+x = 
+    0.6324    0.2785    0.9575
+    0.0975    0.5469    0.9649
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-2.png&quot; alt=&quot;Von Restorff Effect Example&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;4.1 保存和加载变量&lt;/p&gt;
 
-&lt;p&gt;We want users to be able to differentiate between a simple action button and a CTA, in order for them to have a clear understanding what the CTA does, whilst also remembering it throughout their use of the application or site.
-我们希望用户能够区分简单的操作按钮和CTA，以便他们清楚地了解CTA的作用，同时在使用应用程序或网站的过程中记住它。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;您可以使用 save 命令将工作区中的变量保存到称为 MAT 文件的 MATLAB 特定格式文件中。
+  &amp;gt;&amp;gt; save foo x
+以上命令将名为 x 的变量保存到名为 foo.mat 的 MAT 文件中。
 
-&lt;blockquote&gt;
-  &lt;p&gt;“When multiple similar objects are present, the one that differs from the rest is most likely to be remembered!”
-当存在多个相似的物体时，最有可能记住与其他物体不同的物体！&lt;/p&gt;
+您可以使用 load 命令从 MAT 文件加载变量。
+&amp;gt;&amp;gt; load foo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;/blockquote&gt;
+&lt;p&gt;附加资源：保存、加载和删除工作区变量 
+https://www.mathworks.cn/help/matlab/matlab_env/save-load-and-delete-workspace-variables.html&lt;/p&gt;
 
-&lt;h2 id=&quot;序列位置效应serial-position-effect&quot;&gt;序列位置效应（Serial position effect）&lt;/h2&gt;
+&lt;p&gt;5.1 对数组进行索引&lt;/p&gt;
 
-&lt;p&gt;The Serial Position Effect is the propensity of a user to best remember the first and last items in a series.
-序列位置效应是用户倾向于最好地记住序列中第一项和最后一项。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;您可以使用行、列索引从数组中提取值。
+&amp;gt;&amp;gt; x = A(5,7);
+此语法将会提取 A 的第 5 行第 7 列的值，然后将结果赋给变量 x。	
 
-&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-3.png&quot; alt=&quot;From left to right, Twitter, Medium, ProductHunt&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This is why most applications nowadays ditch the hamburger menu and go for a bottom or top bar navigation, placing the most important user actions to the right or left. In the image above, you can see some examples from popular iOS applications. Each put the “Home” and “Profile” items all the way to the left and right, with serial position effect in mind.
-这就是为什么现在大多数应用程序放弃汉堡包菜单，选择底部或顶部的导航条，将最重要的用户操作放在右侧或左侧。在上图中，您可以看到一些流行的iOS应用程序的示例。每个都将“主页”和“配置文件”项目一直放在左右两侧，并考虑到序列位置效应。&lt;/p&gt;
+您可以使用 MATLAB 关键字 end，作为行或列索引来引用最后一个元素。
+&amp;gt;&amp;gt; x = A(end,2);
 
-&lt;h2 id=&quot;认知负荷cognitive-load&quot;&gt;认知负荷（Cognitive load）&lt;/h2&gt;
+请注意，您可以将算术运算与关键字 end 结合使用。例如：
+&amp;gt;&amp;gt; x = A(end-1,end-2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Cognitive load refers to the total amount of mental effort being used in a person’s working memory. To put it simply, it is the amount of thought you need to exercise in order to complete a specific task.
-认知负荷是指在一个人的工作记忆中所使用的脑力的总量。简单地说，它是完成一项特定任务所需要的思考量。&lt;/p&gt;
+&lt;p&gt;5.2 提取多个元素&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Cognitive load is the amount of thought you need to exercise in order to complete a specific task.”
-认知负荷是为了完成一项特定的任务而需要锻炼的思想量。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;用作索引时，冒号运算符 (:) 可指代该维度中的所有元素。以下语法
+&amp;gt;&amp;gt; x = A(2,:)
+会创建一个包含 A 中第 2 行上所有元素的行向量。
 
-&lt;/blockquote&gt;
 
-&lt;p&gt;Cognitive load theory can be differentiated into three types:
-认知负荷理论可分为三种类型：&lt;/p&gt;
+冒号运算符可以引用某个值范围。以下语法会创建一个包含矩阵 A 的第 1 行、第 2 行和第 3 行所有元素的矩阵。
+&amp;gt;&amp;gt; x = A(1:3,:)
 
-&lt;p&gt;1.Intrinsic cognitive load
-1.内在认知负荷&lt;/p&gt;
+单个索引值可用于引用向量元素。例如，以下语句
+&amp;gt;&amp;gt; x = v(3)
+会返回向量 v 的第 3 个元素（当 v 为行向量或列向量时）。
 
-&lt;p&gt;2.Extraneous cognitive load
-2.外来认知负荷&lt;/p&gt;
+单个索引值范围可用于引用向量元素的子集。例如 
+&amp;gt;&amp;gt; x = v(3:end)
+返回向量 v 的一个子集，其中包含从第三个到最后一个元素范围内的所有元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;3.Germane cognitive load
-3.相关认知负荷&lt;/p&gt;
+&lt;p&gt;附加资源：矩阵索引 | 数组索引
+https://www.mathworks.cn/help/matlab/math/array-indexing.html
+https://www.mathworks.com/help/matlab/learn_matlab/array-indexing.html&lt;/p&gt;
 
-&lt;p&gt;I will touch upon the Intrinsic and Germane types as I think that these are the most applicable to UX design.
-我将讨论内在的和相关联系的类型，因为我认为它们最适用于UX设计。&lt;/p&gt;
+&lt;p&gt;5.3 更改数组中的值&lt;/p&gt;
 
-&lt;h2 id=&quot;内在认知负荷intrinsic-cognitive-load&quot;&gt;内在认知负荷（Intrinsic Cognitive Load）&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;记住您可以使用 : 字符来提取整列数据。
 
-&lt;p&gt;Intrinsic cognitive load is the difficulty associated with a specific instructional topic. It’s the main reason micro-copy and copy play a huge role in a good user experience.
-内在认知负荷是与特定教学主题相关的困难。这是微拷贝和拷贝在良好的用户体验中发挥巨大作用的主要原因。&lt;/p&gt;
+可以通过组合使用索引与赋值来修改变量的元素。
+A(2,5) = 11
+将 data 的第一行最后一列的值更改为 0.5。
+&amp;gt;&amp;gt;data(1,end)=0.5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;For example most of the time on applications’ empty states, we prompt users to complete a task. Here, the copy needs to be short, simple and with the appropriate words in order for the user to be able to easily follow the instructions.
-例如，大多数情况下，在应用程序的空状态下，我们会提示用户完成一项任务。在这里，副本需要简短、简单和适当的文字，以便用户能够轻松地按照说明进行操作。&lt;/p&gt;
+&lt;p&gt;6.1 执行数组运算&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-4.png&quot; alt=&quot;From left to right, Stayful, Serist, Lucidchart&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MATLAB 的设计让您能够自然地处理数组。例如，您可以将一个标量值与数组中的所有元素相加。
+&amp;gt;&amp;gt; y = x + 2
 
-&lt;h2 id=&quot;相关认知负荷germane-cognitive-load&quot;&gt;相关认知负荷（Germane Cognitive Load）&lt;/h2&gt;
+您可以将任意两个大小相同的数组相加。
+&amp;gt;&amp;gt; z = x + y
 
-&lt;p&gt;Germane cognitive load is the cognitive load devoted to processing information and construction of schemas. The schemas describe a pattern of thought that organises categories of information and any relationships among them.
-相关认知负荷是专门用于信息处理和模式构建的认知负载。这些图式描述了一种思维模式，它组织信息的类别和它们之间的任何关系。&lt;/p&gt;
+您可以将数组中的所有元素与某个标量相乘或相除。
+&amp;gt;&amp;gt; z = 2*x
+&amp;gt;&amp;gt; y = x/3
 
-&lt;p&gt;One of the reasons we use design patterns is because they’re something we’re programmed to do by default — so it’s easier for the users to recognise and learn something new if they can discern it into a pattern from something they already understand.
-我们使用设计模式的其中一个原因是，它们是我们在默认情况下编程要做的事情——因此，如果用户能够从他们已经理解的东西中将其识别为模式，那么他们就更容易识别和学习新的东西。&lt;/p&gt;
+MATLAB 中的基本统计函数可应用于某个向量以生成单个输出。可以使用 max 函数来确定向量的最大值。
+&amp;gt;&amp;gt; xMax = max(x)
 
-&lt;blockquote&gt;
-  &lt;p&gt;“It’s easier for users to learn something new if they can discern it to a pattern from something they understand”
-“如果用户能够从他们所理解的事物中辨别出某种模式，那么他们更容易学习新事物。”&lt;/p&gt;
-&lt;/blockquote&gt;
+MATLAB 的函数可在单个命令中对整个向量或值数组执行数学运算。
+&amp;gt;&amp;gt; xSqrt = sqrt(x)
+使用 round 函数创建一个名为 vr 的变量，其中包含四舍五入为整数的平均体积 va
+vr=round(va)
 
-&lt;h2 id=&quot;希克定律hicks-law&quot;&gt;希克定律（Hick’s Law）&lt;/h2&gt;
 
-&lt;p&gt;Hick’s Law is the most popular principle, along with the Gestalt Laws.
-希克定律是除了格式塔定律之外最流行的原理。&lt;/p&gt;
+* 运算符执行矩阵乘法。因此，如果您使用 * 将两个大小相同的向量相乘，则由于内部维度不一致，您将会收到一条错误消息。
+&amp;gt;&amp;gt; z = [3 4] * [10 20]
+用于矩阵乘法的维度不正确。请检查并确保第一个矩阵中的列数与第二个矩阵中的行数匹配。要执行按元素相乘，请使用 '.*'。
+而 .* 运算符执行按元素乘法，允许您将两个大小相同的数组的对应元素相乘。
+&amp;gt;&amp;gt; z = [3 4] .* [10 20]
+z = 
+    30    80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;It’s also very simple to understand and practice. Hick’s Law describes that the time it takes for a person to make a decision depends on the choices available to him or her. So if the number of choices increases, the time to make a decision increases logarithmically.
-它也很容易理解和实践。希克定律描述了一个人做出决定所需的时间取决于他或她所能做出的选择。因此，如果选择的数量增加，做出决定的时间将以对数方式增加。&lt;/p&gt;
+&lt;p&gt;附加资源：数组与矩阵运算
+https://ww2.mathworks.cn/help/matlab/matlab_prog/array-vs-matrix-operations.html&lt;/p&gt;
 
-&lt;p&gt;A very nice example of Hick’s Law that applies to user experience design are lists:
-适用于用户体验设计的希克定律的一个很好的例子是列表：&lt;/p&gt;
+&lt;p&gt;7.1 从函数调用获取多个输出&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-5.png&quot; alt=&quot;Hick’s Law Example&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;size 函数可以应用于数组，以生成包含数组大小的单个输出变量。
+&amp;gt;&amp;gt; s = size(x)
 
-&lt;h2 id=&quot;邻近定律law-of-proximity&quot;&gt;邻近定律（Law of Proximity）&lt;/h2&gt;
+size 函数可以应用于矩阵，以生成单个输出变量或两个输出变量。使用方括号 ([ ]) 获取多个输出。
+&amp;gt;&amp;gt; [xrow,xcol] = size(x)
 
-&lt;p&gt;Law of proximity is part of the Gestalt Laws of Perceptual Organization, and it states that objects that are near, or proximate to each other, tend to be grouped together. To put it in simpler terms, our brain can easily associate objects close to each other, better than it does objects that are spaced far apart. This clustering occurs because humans have a natural tendency to organise and group things together.
-邻近法则是知觉组织的格式塔法则的一部分，它指出，接近或接近彼此的物体倾向于组合在一起。简单地说，我们的大脑可以很容易地将彼此靠近的物体联系在一起，这比那些相隔很远的物体要好。这种聚集的发生是因为人类有一种自然的倾向，将事物组织在一起。&lt;/p&gt;
+可以使用 max 函数确定向量的最大值及其对应的索引值。max 函数的第一个输出为输入向量的最大值。执行带两个输出的调用时，第二个输出为索引值。
+&amp;gt;&amp;gt; [xMax,idx] = max(x)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-6.png&quot; alt=&quot;Law of Proximity Example&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;9.1 绘制向量图&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“The Law of Proximity states that objects that are near, or proximate to each other, tend to be grouped together”
-邻近定律规定，彼此接近或接近的物体倾向于组合在一起。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;可以使用 plot 函数在一张图上绘制两个相同长度的向量。
+&amp;gt;&amp;gt; plot(x,y)
 
-&lt;/blockquote&gt;
+plot 函数接受一个附加参数，该参数让您能够在单引号中使用各种符号来指定颜色、线型和标记样式。
+&amp;gt;&amp;gt; plot(x,y,'r--o')
+以上命令将会绘制一条红色 (r) 虚线 (--)，并使用圆圈 (o) 作为标记。您可以在线条设定的文档中了解有关可用符号的详细信息。https://ww2.mathworks.cn/help/matlab/ref/linespec.html
 
-&lt;p&gt;In the example above, there are 72 circles. We recognise the circles in groups, based on the distance between them. Categorically, we also perceive that there’s a group of 36 circles on the left side of the image, and 3 groups of 12 circles on the right side of the image.
-在上面的例子中，有72个圆。我们根据两个圆之间的距离，对它们进行分组识别。明确地说，我们还发现图像左侧有一组36个圆圈，右侧有3组12个圆圈。&lt;/p&gt;
+您会注意到，最开始创建的绘图消失了。要在一张图上先后绘制两条线，请使用 hold on 命令保留之前的绘图，然后添加另一条线。您也可以使用 hold off 命令返回到默认行为。
 
-&lt;p&gt;I believe this example makes it clear that there is a need to group things together when designing a UI, as well as the importance of being careful when putting things together since users may naturally think they are associated with each other.
-我相信这个例子清楚地表明，在设计一个UI时需要将事物分组在一起，并且在将事物组合在一起时要小心，因为用户可能会自然地认为它们是相互关联的。&lt;/p&gt;
+close all 命令以关闭所有打开的图窗窗口。
 
-&lt;p&gt;Originally published at blog.marvelapp.com on June 8, 2017.
-最初于2017年6月8日在blog.marvelapp.com上发布。&lt;/p&gt;</content><author><name>true</name></author><category term="心理学" /><category term="设计" /><category term="UI/UX" /><category term="翻译" /><summary type="html">每一个UI/UX设计者需要知道的心理学原则</summary></entry><entry><title type="html">【致自己-心灵鸡汤】放下，需要勇气，更考验智慧</title><link href="http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more.html" rel="alternate" type="text/html" title="【致自己-心灵鸡汤】放下，需要勇气，更考验智慧" /><published>2019-07-13T01:58:22+08:00</published><updated>2019-07-13T01:58:22+08:00</updated><id>http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more</id><content type="html" xml:base="http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201907122010.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+当您单独绘制一个向量时，MATLAB 会使用向量值作为 y 轴数据，并将 x 轴数据的范围设置为从 1 到 n（向量中的元素数目）。
 
-&lt;center&gt;&amp;lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;amp;id=460378099&amp;amp;auto=1&amp;amp;height=66&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/center&gt;
+plot 函数接受可选的附加输入，这些输入由一个属性名称和一个关联的值组成。
+&amp;gt;&amp;gt; plot(y,'LineWidth',5)
+以上命令将绘制一条粗线。您可以在 Line 属性文档中了解更多可用属性的详细信息。 https://www.mathworks.com/help/matlab/ref/matlab.graphics.chart.primitive.line-properties.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;人生在世，不过两词：拿得起，放得下。&lt;/p&gt;
+&lt;p&gt;9.2 编写绘图注释&lt;/p&gt;
 
-&lt;p&gt;柏拉图说：“如果不幸福、不快乐，那就放手吧。人生最遗憾的，莫过于，&lt;em&gt;** 轻易地放弃了不该放弃的，固执地坚持了不该坚持的。 **&lt;/em&gt;”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;可以使用绘图注释函数（例如 title）在绘图中添加标签。这些函数的输入是一个字符串。MATLAB 中的字符串是用单引号 (') 引起来的。
+&amp;gt;&amp;gt; title('Plot Title')	
 
-&lt;p&gt;拼尽全力也得不到的东西，就试着放下吧。&lt;/p&gt;
-
-&lt;p&gt;放下，是人生的一场修行，你以为放下就会失去，但放下才是真正的拥有。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;center&gt;&lt;h1&gt;壹&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;追不上的不追背不动的放下-看不惯的删除&quot;&gt;“追不上的，不追。背不动的，放下。 看不惯的，删除。”&lt;/h3&gt;
-
-&lt;p&gt;渐渐发现，生活中大多苦恼，其实都是我们自己“创造”的。&lt;/p&gt;
-
-&lt;p&gt;怀念已逝而无可挽救的事物，追寻得不到的人，渴望远远没能力够到的生活，对未来期许太大、太多。&lt;/p&gt;
-
-&lt;p&gt;可现实对于背负过多念想的人来说，往往是残酷的。&lt;/p&gt;
-
-&lt;p&gt;生活，本就是一边拥有，一边失去。一些得到，一些不可及。唯有让一切随缘，缘深多聚聚，缘浅随它去，你才能活得快乐些。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122049.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;就像郭德纲说的那样：&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;　“人在天涯，身不由己，风雨踏歌行。江湖子弟，拿得起来放得下。放不下，也得放。
-活一百岁的没几个人，开心就笑，不开心待会儿再笑。高高兴兴比什么都强。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;　好日子，是脚踏实地一步一步过出来的。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;** 往后余生，只愿你能不念过去，不盼将来，过好现在。 **&lt;/em&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;h1&gt;贰&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;不要赌天意不要猜人心天意你赌不起人心你猜不透&quot;&gt;“不要赌天意，不要猜人心。天意你赌不起，人心你猜不透。”&lt;/h3&gt;
-
-&lt;p&gt;寝室里那个太自我的室友，让你很困扰吧？&lt;/p&gt;
-
-&lt;p&gt;职场话语间总有言外之意的同事，让你很苦恼吧？&lt;/p&gt;
-
-&lt;p&gt;感情中和你意见不合吵吵闹闹的男/女朋友，让你很受伤吧？&lt;/p&gt;
-
-&lt;p&gt;可若是别太放在心上，做好自己，便不会如此闹心了，不是吗？&lt;/p&gt;
-
-&lt;p&gt;每一段关系，只要自己竭尽全力守护过，无愧于心，足矣。&lt;/p&gt;
-
-&lt;p&gt;分分合合，他去他来，乃是人生常态。我们唯一能做的，是有缘相遇时，好好珍惜。发现道不同，则不相为谋，潇洒离开就好。&lt;/p&gt;
-
-&lt;p&gt;不怪TA，也不怪你，更不怪所谓是是非非纷扰之事。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;** 毕竟，“天下无不散之筵席”，才是一生中大多数关系无法避免的结局啊。 **&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122051.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;h1&gt;叁&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;不要总是抱怨生活不会因为抱怨变得更好-&quot;&gt;“不要总是抱怨，生活不会因为抱怨变得更好” 。&lt;/h3&gt;
-
-&lt;p&gt;三毛曾说：&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“偶尔抱怨一次人生可能是某种情感的宣泄，也无不可，但习惯性的抱怨而不谋求改变，便是不聪明的人了。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;倘若真心想要改变现状，就打起精神吧。&lt;/p&gt;
-
-&lt;p&gt;考大学失败3次，申请工作失败30多次，其中有两次肯德基和警察岗位应聘只因为他长得丑而拒绝。&lt;/p&gt;
-
-&lt;p&gt;首次创业准备大展宏图，最终也失败了的马云，凭着不服输，埋头向前冲的韧劲，最终创造了让他享誉全中国、甚至全世界的阿里巴巴。&lt;/p&gt;
-
-&lt;p&gt;失败只是漫长人生中一个小磕绊，也许多年后你甚至都记不起这段经历。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;** 要记住，频频回头看而止步不前的人，是无法如愿过上好日子的。 **&lt;/em&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;h1&gt;肆&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;一个人要抵过千军万马一个人也要活得有声有色&quot;&gt;“一个人要抵过千军万马，一个人也要活得有声有色。”&lt;/h3&gt;
-
-&lt;p&gt;曾看过这样一句很温暖的话：&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“希望你别迷路了，希望你交到好朋友，希望你别再被人欺负，希望你幸福，希望你一个人也能够坚强。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;不要自怨自艾，心态好了，生活才不会这么累。&lt;/p&gt;
-
-&lt;p&gt;生活有小目标，有能聊得来的人，工作勤勉，还有点小钱，偶尔做做不切实际的梦，偶尔也浪费一点时间，挺好。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122053.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;不要因为一次感情失败就失望于人性，不要因为一次挫折就否定自己的能力，不要因为暂时没有努力方向就消极怠慢。&lt;/p&gt;
-
-&lt;p&gt;生活有希望，才会足够坚强。&lt;/p&gt;
-
-&lt;p&gt;人生就是，一边努力着，一边快乐着，平淡且真，有所期待。&lt;/p&gt;
-
-&lt;p&gt;这就是一个人最好的生活状态吧：&lt;em&gt;** 有所为，有所爱，也有人懂，有自己的生活节奏，也永远对未来有所期待。 **&lt;/em&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;h1&gt;伍&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;除了生死其他一切都是小事&quot;&gt;“除了生死，其他一切都是小事”&lt;/h3&gt;
-
-&lt;p&gt;你该知道，极乐世界描绘得好，也无法安慰即将逝世之人。&lt;/p&gt;
-
-&lt;p&gt;因为离去前回想这一生后，他们深知活着的世界，才是最动人而无可代替的。&lt;/p&gt;
-
-&lt;p&gt;身边有珍惜的人，眼前有治愈的美景，可以品尝美味的食物，起起落落的人生经历，那一刻回忆起来也是美好的往事。&lt;/p&gt;
-
-&lt;p&gt;所以啊，遇到再怎么苦恼让人难过的事也好，要想着，一切终会过去，时间会给你治愈，没有什么是解决不了的。&lt;/p&gt;
-
-&lt;p&gt;还活着，一切就还有希望，未来还会走向更好的地方。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;** 当你握紧双手，里面什么也没有； **&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;** 当你打开双手，世界就在你手中。 **&lt;/em&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="致自己" /><category term="心灵鸡汤" /><summary type="html"></summary></entry><entry><title type="html">【翻译】(第二篇) How to streamline your UI/UX workflow with Figma</title><link href="http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma.html" rel="alternate" type="text/html" title="【翻译】(第二篇) How to streamline your UI/UX workflow with Figma" /><published>2019-07-12T17:22:59+08:00</published><updated>2019-07-12T17:22:59+08:00</updated><id>http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma</id><content type="html" xml:base="http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma.html">&lt;center&gt;&lt;h1&gt; 如何使用Figma简化您的UI/UX工作流&lt;/h1&gt;&lt;/center&gt;
-
-&lt;h4 id=&quot;如何在下一个项目中节省90的时间&quot;&gt;如何在下一个项目中节省90%的时间&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;作者：Nicole Saidy&lt;/li&gt;
-  &lt;li&gt;2018年2月12日&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;原文地址：https://blog.nicolesaidy.com/how-to-streamline-your-ui-ux-workflow-with-figma-b72c30596435&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*OGwKowQMVnj5Vk-lbbB6OQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;去年，我一直使用Figma软件来进行我的UI/UX设计工作，并且它节省了我很多工作时间。他真的改变了我的工作流。&lt;/p&gt;
-
-&lt;p&gt;除了直观的使用。我喜欢Figma的原因是因为他是完整的一套东西。它使我能够在整个设计过程中工作：线框图、设计、设计系统、原型设计和协作。&lt;/p&gt;
-
-&lt;p&gt;我不想谈论你为什么应该使用Figma。反而，我将向你展示你怎样使用一个简单的黑客软件节省你下一个项目的时间。&lt;/p&gt;
-
-&lt;p&gt;这都归结为Figma中的一个重要特性：✨组件✨。
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*zafsrGTkmeVKhMCEldZ34g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;组件在Figma中是和Sketch中的符号是非常相似的。但是我认为Figma的组件更灵活，更容易使用。如果您对组件不太了解，请先阅读本文或观看本教程。&lt;/p&gt;
-
-&lt;p&gt;Figma 怎样节省我的时间呢？让我们看看传统的设计过程与Figma中的设计过程的对比。&lt;/p&gt;
-
-&lt;h2 id=&quot;终极对决&quot;&gt;终极对决：&lt;/h2&gt;
-
-&lt;h4 id=&quot;经典过程&quot;&gt;经典过程：&lt;/h4&gt;
-
-&lt;p&gt;最简单的经典过程是在像Balsamiq这样的应用程序中构建线框图，然后在另一个应用程序 Sketch中构建设计，然后在另一个应用程序像 inVision中构建原型。这不是一个相互作用的过程，因为它会引起摩擦并浪费很多时间，更不用说它会在线框和原型之间产生巨大的差距。&lt;/p&gt;
-
-&lt;h4 id=&quot;figma过程&quot;&gt;Figma过程：&lt;/h4&gt;
-
-&lt;p&gt;使用Figma，您可以跳过2个步骤，在Figma中构建交互式线框，创建一个UI库（在相同的时间），然后更新已经花费宝贵时间用于创建最终设计原型的UI组件。&lt;/p&gt;
-
-&lt;p&gt;让我换个说法。从一开始就使用组件构建线框。当你这样做时，在你的线框被批准之后，你所需要做的就是更新组件。这将把它们从灰度基本形状转换为详细设计的组件，这些组件可以完全将线框转换为高保真原型。&lt;/p&gt;
-
-&lt;h4 id=&quot;他是怎样工作&quot;&gt;他是怎样工作？&lt;/h4&gt;
-
-&lt;p&gt;下面是执行步骤&lt;/p&gt;
-
-&lt;h5 id=&quot;step-1-构建你的线框&quot;&gt;step 1. 构建你的线框&lt;/h5&gt;
-
-&lt;p&gt;在这步骤之前，你应该已经在纸上画完了你屏幕上的草图。之后，是时候把他们移到数字线框了。&lt;/p&gt;
-
-&lt;p&gt;你开始在屏幕上画之前。第一件事是你需要创建一个UI框架库。这就是所有可重用的UI组件和指导原则将发生的地方。&lt;/p&gt;
-
-&lt;p&gt;第一个组件你应该创建你的文本样式。创建每一个样式的组件（H1,H2,H3,H4,P,Small，等）。保持原样的字体，不要考虑设计。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*kglcTnnr6lQvK56nHl1k5g.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;现在，每当您想向屏幕添加文本时，都可以从UI库中的文本组件中获取一个实例。为什么?当你进入设计阶段，想要改变你所有屏幕的字体样式时，你只需要从这里改变一次，它就会在任何地方更新。你一会就明白了。&lt;/p&gt;
-
-&lt;p&gt;这个概念同样适用于所有其他组件。&lt;/p&gt;
-
-&lt;p&gt;创建所有其他对象作为组件，如按钮、输入、下拉列表、导航栏、卡片、标签、页脚等。我通常喜欢先在屏幕中创建对象，在它的上下文中构建它，然后将它拖到我的UI库并将其转换为组件，然后将其复制回我的屏幕。&lt;/p&gt;
-
-&lt;p&gt;到项目结束时，（几乎）您在设计中创建的每个对象都应该是一个组件。这不仅可以节省您的工作时间，而且还可以保持整个产品的一致性，这是UI/UX设计中的一个关键点。&lt;/p&gt;
-
-&lt;h5 id=&quot;step-2-使线框交互&quot;&gt;Step 2. 使线框交互&lt;/h5&gt;
-
-&lt;p&gt;完成线框图和创建UI库之后，是时候让线框图交互了。幸运的是，Figma让这一切变得非常容易。&lt;/p&gt;
-
-&lt;p&gt;您只需要在原型模式下将每个对象拖到其链接页。请记住，链接原始组件会将相同的链接应用于其所有实例，如下所示。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*pO1A_LCHEZpOiX9PR42c0g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;下一步是与利益相关者共享交互式线框，并通过直接在原型上添加评论来获得反馈。&lt;/p&gt;
-
-&lt;p&gt;在几个迭代周期之后，您的线框应该得到批准。&lt;/p&gt;
-
-&lt;h5 id=&quot;step-3-设计系统风格&quot;&gt;Step 3. 设计系统风格&lt;/h5&gt;
-
-&lt;p&gt;一旦您的交互式线框获得批准，您现在就可以设计系统的样式。在这个步骤中，您将品牌设计指南、颜色和设计细节添加到您的UI库中已经构建的组件中。此步骤完全将线框转换为高保真设计原型。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*azAA0jqs7f2hCm4FMCDDKw.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我喜欢先向利益相关者展示风格指南，以便在向他们展示所有屏幕之前获得关于情绪和设计风格的反馈。我喜欢在其中添加一些UI组件，让他们了解每个组件的设计方式。&lt;/p&gt;
-
-&lt;h5 id=&quot;step-4-原型定稿&quot;&gt;Step 4. 原型定稿&lt;/h5&gt;
-
-&lt;p&gt;一旦样式指南获得批准，剩下的就是对原型进行润色。在这里你可以确保一切都到位。有些对象可能不是需要设计的组件，或者需要填充的组件。确保播放原型并尝试链接以确保所有链接都正常工作。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*o0XtqMUKt1n7mX_Sw1G85g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;原型完成了！现在，您可以与利益相关者共享一个链接，以获得最终批准。然后，您将它交给开发人员，向他们展示如何检查和导出Figma中的图像，同时他们还可以直接在原型上提出任何问题。&lt;/p&gt;
-
-&lt;p&gt;您还可以与用户共享一个公共链接来测试原型并收集反馈。&lt;/p&gt;
-
-&lt;p&gt;就这样！我希望我的过程能帮助你节省下一个项目的时间。&lt;/p&gt;
-
-&lt;p&gt;如果你喜欢这个，那么你肯定会喜欢我用Figma简化你的工作流程的SkillShare类，点击这里免费获得我的类（以及2个月的SkillShare溢价）。&lt;/p&gt;
-
-&lt;p&gt;别忘了在下面给我一些👏，在我的博客上写更多与设计相关的文章。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="设计" /><category term="软件使用" /><summary type="html">如何使用Figma简化您的UI/UX工作流</summary></entry><entry><title type="html">【翻译】(第一篇) 7 steps to become a UI/UX designer</title><link href="http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer.html" rel="alternate" type="text/html" title="【翻译】(第一篇) 7 steps to become a UI/UX designer" /><published>2019-06-20T03:42:59+08:00</published><updated>2019-06-20T03:42:59+08:00</updated><id>http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer</id><content type="html" xml:base="http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer.html">&lt;center&gt;&lt;h1&gt;七步成为UI/UX设计师&lt;/h1&gt;&lt;/center&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
-        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;提示帮助您开始的资源&quot;&gt;提示：帮助您开始的资源&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;作者：Nicole Saidy&lt;/li&gt;
-  &lt;li&gt;2017年5月25日&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;** 原文链接：https://blog.nicolesaidy.com/7-steps-to-become-a-ui-ux-designer-8beed7639a95 **&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../assets/translate/translate1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;最近，我收到很多人的的相似问题：
-●	我怎么样才能深入的了解UI或UX？
-●	我作为一名程序员/营销经理/社交媒体策划师并且想要知道更多的关于设计。我该从哪里开始？
-●	你知道什么是好的设计和什么事坏的设计吗？
-●	成为一名设计师需要什么？
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;h3 id=&quot;如何开始&quot;&gt;“如何开始？”&lt;/h3&gt;
-&lt;p&gt;这个问题使我回到我刚开始职业生涯的时候。7年前，在我第一份设计工作的第一天。我坐在iMac上的一个空白Photoshop文件前（那是我是Windows用户）。我想知道我的经理刚刚向我介绍了什么。我没有灵感怎样开始。大脑一片空白。&lt;/p&gt;
-
-&lt;p&gt;在就职那份工作之前，我只是大学毕业获得多媒体学位。那么，为什么我对设计一无所知呢？大学不教我们实用设计。大多数的大学课程只教我们原理和有时候教我们怎样使用设计软件像Adobe套件。但那还不够—甚至还不够接近。
-只有自己练习和学习才能使你成为更好的设计师
-自学七年后，我现在是一名设计教师和国际会议演讲者。
-你应该知道的第一件事是：&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;你不必生来就拥有它
-我们不是天生就是设计师的独角兽。设计是学来的。设计就是解决问题。这是一个不断发现问题并为其创造解决方案的过程。
-设计有很多领域：用户界面、用户体验、产品设计师、图形设计师、交互设计师、信息架构师，并且列表还在继续。首先找出你更感兴趣的专业。现在，让我们集中讨论最常见的类型：界面和体验的混合：UI/UX设计师。&lt;/p&gt;
-  &lt;h1 id=&quot;1-熟悉用户界面原则&quot;&gt;1.	熟悉用户界面原则&lt;/h1&gt;
-  &lt;p&gt;练习设计之前，第一件事你需要学习一些设计的原则。由此，你将要能够进入设计的世界并且开始具有创造力的思想。你将要学习心理方面的设计：为什么它看起来好看和不好看
-这是一些你应该知道的基础原则&lt;/p&gt;
-  &lt;h3 id=&quot;1-颜色&quot;&gt;1.	颜色&lt;/h3&gt;
-  &lt;p&gt;颜色词汇，基础与色彩心理学。
-&lt;a href=&quot;https://www.sitepoint.com/principles-of-design-colour/&quot;&gt;设计原则：颜色&lt;/a&gt;&lt;/p&gt;
-  &lt;h3 id=&quot;2-平衡&quot;&gt;2.	平衡&lt;/h3&gt;
-  &lt;p&gt;对称与非对称
-&lt;a href=&quot;https://www.sitepoint.com/principles-of-good-design-balance/&quot;&gt;设计原则：平衡&lt;/a&gt;&lt;/p&gt;
-  &lt;h3 id=&quot;3-对比度&quot;&gt;3.	对比度&lt;/h3&gt;
-  &lt;p&gt;使用对比度去组织信息，构建层次结构和创造焦点。
-&lt;a href=&quot;https://www.sitepoint.com/principles-of-design-contrast/&quot;&gt;设计原则：对比度&lt;/a&gt;&lt;/p&gt;
-  &lt;h3 id=&quot;4-排版&quot;&gt;4.	排版&lt;/h3&gt;
-  &lt;p&gt;选择字体并且在网页上创建可读文档。
-&lt;a href=&quot;https://www.smashingmagazine.com/2009/03/10-principles-for-readable-web-typography/&quot;&gt;10条原则中的可读性和网页排版原则&lt;/a&gt;&lt;/p&gt;
-  &lt;h3 id=&quot;5-一致性&quot;&gt;5.	一致性&lt;/h3&gt;
-  &lt;p&gt;最重要的原则，从这里开始创建直观和可用的设计。
-&lt;a href=&quot;https://uxdesign.cc/design-principle-consistency-6b0cf7e7339f&quot;&gt;设计原则：一致性&lt;/a&gt;
-&lt;a href=&quot;https://goodui.org/&quot;&gt;这里&lt;/a&gt;有一些很好的做和不做的设计一个好的用户界面。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;2-学习创造性的用户体验过程&quot;&gt;2.	学习创造性的用户体验过程&lt;/h1&gt;
-&lt;p&gt;接下来的事是明白创造性的过程。UI/Ux设计是每个创意人经历的一个特殊的阶段。
-分为四个不同的阶段-发现、定义、开发和交付-&lt;a href=&quot;https://www.thoughtworks.com/insights/blog/double-diamond&quot;&gt;双菱形&lt;/a&gt;是设计过程的简单可视图&lt;/p&gt;
-&lt;h3 id=&quot;发现&quot;&gt;发现&lt;/h3&gt;
-&lt;p&gt;这是一个开始阶段，设计师开始研究，获得灵感，收集想法。&lt;/p&gt;
-&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
-&lt;p&gt;这是定义阶段，设计师定义从发现阶段提取的想法。在此基础上，创建了一个清晰的创意简报。&lt;/p&gt;
-&lt;h3 id=&quot;开发&quot;&gt;开发&lt;/h3&gt;
-&lt;p&gt;这就是创建、原型化、测试和迭代解决方案或概念的地方。这个试错的过程帮助设计师改进和完善他们的想法&lt;/p&gt;
-&lt;h3 id=&quot;交付&quot;&gt;交付&lt;/h3&gt;
-&lt;p&gt;最后阶段是交付，最终项目完成、生产和启动的地方。
-查看我的文章&lt;a href=&quot;https://blog.prototypr.io/how-to-streamline-your-ui-ux-workflow-with-figma-b72c30596435&quot;&gt;如何使用Figma简化您的UI/UX工作流。&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;3-培养你的设计眼光&quot;&gt;3.	培养你的设计眼光&lt;/h1&gt;
-
-&lt;p&gt;知道设计原则是很好的，但有时这还不够，你还必须训练你的眼睛去看好的设计和坏的设计，并找出设计的优缺点。&lt;/p&gt;
-
-&lt;p&gt;最有效的训练你的设计眼光的方法是通过灵感。在打开一张空白的画布并盯着它看半个小时之前，要知道只有通过研究才能获得创造性。有时候大脑不能自己创造想法，你必须先看看其他的设计才能开始创造自己的想法，尤其是当你是一个初学者的时候。&lt;/p&gt;
-
-&lt;p&gt;所以看看其他设计师在Dribbble上做了什么，每当你遇到漂亮的设计或与你的项目相关的东西时，把它保存在你的笔记中，并提到你喜欢它的地方，你也可以截图。这样，您就可以从一系列鼓舞人心的设计开始你的创作。&lt;/p&gt;
-
-&lt;p&gt;这是我最喜欢的灵感网站：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://onepagelove.com/&quot;&gt;onepagelove.com&lt;/a&gt;一页的网站设计给你灵感&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.awwwards.com/&quot;&gt;awwwards.com&lt;/a&gt;奖励网站，促进设计人才&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dribbble.com/&quot;&gt;dribbble.com&lt;/a&gt;分享工作的设计师社区&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pttrns.com/&quot;&gt;pttrns.com&lt;/a&gt;移动设计模式的集合。&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://uimovement.com/&quot;&gt;uimovement.com&lt;/a&gt;最好的用户界面设计灵感，每一天。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;4-每天阅读设计文章&quot;&gt;4.	每天阅读设计文章&lt;/h1&gt;
-
-&lt;p&gt;为了让我们熟悉设计，最好的方法是每天阅读几篇文章。&lt;/p&gt;
-
-&lt;p&gt;使阅读设计新闻和博客成为日常习惯。在线上有数以百万计的文章可供我们发现新的趋势、用例和教程。我们要做的就是找到他们。没有什么比从别人的经历中学习更好的了。&lt;/p&gt;
-
-&lt;p&gt;所以，从一杯咖啡和一些鼓舞人心的文章开始你的一天吧，这些文章都是关于中型杂志或是零碎杂志的文章。早晨学习新事物会开阔你的思维，为你的一天创造空间。&lt;/p&gt;
-
-&lt;p&gt;然后，在你的一天中，时不时地休息一下，多读些东西。休息对创造力非常重要，尤其是当你陷入困境，觉得没有效率的时候。将您喜欢的网站作为浏览器主页添加书签或订阅设计时事通讯。&lt;/p&gt;
-
-&lt;p&gt;以下是我最喜欢的博客和新闻网站：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;blog.marvelapp.com&lt;/li&gt;
-  &lt;li&gt;medium.com/design&lt;/li&gt;
-  &lt;li&gt;smashingmagazine.com&lt;/li&gt;
-  &lt;li&gt;webdesignernews.com&lt;/li&gt;
-  &lt;li&gt;sitepoint.com/design-ux&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;5-设计假项目&quot;&gt;5.	设计假项目&lt;/h1&gt;
-&lt;p&gt;熟能生巧。我们都知道，没有经验，我们找不到客户/工作。但是没有工作或项目，我们就不能练习，对吗？&lt;/p&gt;
-
-&lt;p&gt;但是我们可以通过自己练习打破这个循环，通过创建假项目来娱乐！Dribbble 就可以满足它了。&lt;/p&gt;
-
-&lt;p&gt;腾出时间选择一个你已经使用的网站或应用程序，然后重新设计它。它可以是任何你认为更好的东西。你也可以设计自己的应用程序想法。&lt;/p&gt;
-
-&lt;p&gt;从这里，你将建立你的设计组合，你将实践设计。&lt;/p&gt;
-
-&lt;h1 id=&quot;6-学习最新的网页设计工具&quot;&gt;6.	学习最新的网页设计工具。&lt;/h1&gt;
-&lt;p&gt;外面有很多设计工具，但是你不需要知道所有这些工具。了解最棒的产品，选择最喜爱的产品，并随时掌握最新的功能和趋势。&lt;/p&gt;
-
-&lt;p&gt;以下是我在设计过程中使用的最新工具：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.sketch.com/&quot;&gt;Sketch&lt;/a&gt;用于界面设计
-&lt;a href=&quot;https://www.figma.com/&quot;&gt;Figma&lt;/a&gt;用于协同界面设计
-&lt;a href=&quot;https://balsamiq.com/&quot;&gt;Balsamiq&lt;/a&gt;用于低保真线框
-&lt;a href=&quot;https://www.adobe.com/products/xd.html&quot;&gt;Adobe XD&lt;/a&gt;用于界面设计和原型设计
-&lt;a href=&quot;https://marvelapp.com/&quot;&gt;Marvel App&lt;/a&gt;用于模型交互设计
-&lt;a href=&quot;https://www.invisionapp.com/&quot;&gt;Invision App&lt;/a&gt;用于原型设计和协作&lt;/p&gt;
-
-&lt;h1 id=&quot;7-指导并得到指导&quot;&gt;7.	指导并得到指导&lt;/h1&gt;
-
-&lt;p&gt;学习设计的另一个好方法是找一个愿意帮忙的设计导师或设计师朋友。他们将帮助你加快学习过程。&lt;/p&gt;
-
-&lt;p&gt;设计师会审查你的作品并尽可能给出他们的评论。这就像一条捷径。他们也会给你从他们的经验中学到的技巧和诀窍。所以，继续给设计师发电子邮件，提出问题，讨论你的问题。&lt;/p&gt;
-
-&lt;p&gt;而且，从我教设计和前端的几年中，我学到的比我教的还多。当你准备好和别人谈论设计时，你可以指导或教育别人设计。你将学会从不同的角度看待它，你会得到你可能从未想过的反馈和问题。&lt;/p&gt;
-
-&lt;p&gt;每当你和别人谈论设计的时候，你的大脑总是处于“头脑风暴”的状态，你会发现自己对设计越来越感兴趣。&lt;/p&gt;
-
-&lt;p&gt;查看我的&lt;a href=&quot;https://github.com/nicolesaidy/awesome-web-design&quot;&gt;很棒的网页设计&lt;/a&gt;Github存储库，这是一个网站设计师的资源管理列表。&lt;/p&gt;
-
-&lt;p&gt;如果你喜欢这篇文章，一定要在下面给我一些👏，并在我的&lt;a href=&quot;https://blog.nicolesaidy.com/&quot;&gt;博客&lt;/a&gt;上找到更多的设计文章。另外，还可以在&lt;a href=&quot;https://twitter.com/nicolesaidy&quot;&gt;Twitter&lt;/a&gt;上打个招呼🙋🏽‍&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="设计" /><summary type="html">七步成为UI/UX设计师</summary></entry><entry><title type="html">Algorithm training</title><link href="http://localhost:4000/2019/06/03/Algorithm-training.html" rel="alternate" type="text/html" title="Algorithm training" /><published>2019-06-03T06:27:46+08:00</published><updated>2019-06-03T06:27:46+08:00</updated><id>http://localhost:4000/2019/06/03/Algorithm-training</id><content type="html" xml:base="http://localhost:4000/2019/06/03/Algorithm-training.html">&lt;h1 id=&quot;第一周&quot;&gt;第一周&lt;/h1&gt;
-&lt;h3 id=&quot;要求&quot;&gt;要求&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
-  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
-    &lt;h3 id=&quot;注意事项&quot;&gt;注意事项&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
-  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
-    &lt;h3 id=&quot;第一周题目&quot;&gt;第一周题目&lt;/h3&gt;
-    &lt;!--more--&gt;
-    &lt;h4 id=&quot;中文网站&quot;&gt;中文网站：&lt;/h4&gt;
-    &lt;h5 id=&quot;链表&quot;&gt;链表&lt;/h5&gt;
-    &lt;p&gt;简单：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
-简单：https://leetcode-cn.com/problems/merge-two-sorted-lists
-中等：https://leetcode-cn.com/problems/swap-nodes-in-pairs/
-中等：https://leetcode-cn.com/problems/linked-list-cycle-ii
-困难：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;数组&quot;&gt;数组&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/sort-array-by-parity/
-简单：https://leetcode-cn.com/problems/sort-array-by-parity-ii/
-中等：https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
-中等：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
-困难：https://leetcode-cn.com/problems/search-in-rotated-sorted-array&lt;/p&gt;
-
-&lt;h5 id=&quot;栈&quot;&gt;栈&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/valid-parentheses/
-中等：https://leetcode-cn.com/problems/next-greater-element-ii/
-困难：https://leetcode-cn.com/problems/maximum-frequency-stack/&lt;/p&gt;
-
-&lt;h5 id=&quot;递归&quot;&gt;递归&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/longest-univalue-path/
-中等：https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/
-困难：https://leetcode-cn.com/problems/special-binary-string/&lt;/p&gt;
-
-&lt;h5 id=&quot;排序&quot;&gt;排序&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/valid-anagram/
-中等：https://leetcode-cn.com/problems/wiggle-sort-ii/
-困难：https://leetcode-cn.com/problems/maximum-gap/&lt;/p&gt;
-
-&lt;h5 id=&quot;二分查找&quot;&gt;二分查找&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/arranging-coins/
-中等：https://leetcode-cn.com/problems/powx-n/
-困难：https://leetcode-cn.com/problems/dungeon-game/&lt;/p&gt;
-
-&lt;h4 id=&quot;英文网站&quot;&gt;英文网站：&lt;/h4&gt;
-&lt;h5 id=&quot;链表-1&quot;&gt;链表&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/remove-duplicates-from-sorted-list/
-简单：https://leetcode.com/problems/merge-two-sorted-lists
-中等：https://leetcode.com/problems/swap-nodes-in-pairs/
-中等：https://leetcode.com/problems/linked-list-cycle-ii
-困难：https://leetcode.com/problems/reverse-nodes-in-k-group/&lt;/p&gt;
-
-&lt;h5 id=&quot;数组-1&quot;&gt;数组&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/sort-array-by-parity/
-简单：https://leetcode.com/problems/sort-array-by-parity-ii/
-中等：https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
-中等：https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-困难：https://leetcode.com/problems/search-in-rotated-sorted-array&lt;/p&gt;
-
-&lt;h5 id=&quot;栈-1&quot;&gt;栈&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/valid-parentheses/
-中等：https://leetcode.com/problems/next-greater-element-ii/
-困难：https://leetcode.com/problems/maximum-frequency-stack/&lt;/p&gt;
-
-&lt;h5 id=&quot;递归-1&quot;&gt;递归&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/longest-univalue-path/
-中等：https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
-困难：https://leetcode.com/problems/special-binary-string/&lt;/p&gt;
-
-&lt;h5 id=&quot;排序-1&quot;&gt;排序&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/valid-anagram/
-中等：https://leetcode.com/problems/wiggle-sort-ii/
-困难：https://leetcode.com/problems/maximum-gap/&lt;/p&gt;
-
-&lt;h5 id=&quot;二分查找-1&quot;&gt;二分查找&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/arranging-coins/
-中等：https://leetcode.com/problems/powx-n/
-困难：https://leetcode.com/problems/dungeon-game/&lt;/p&gt;
-
-&lt;h1 id=&quot;第二周&quot;&gt;第二周&lt;/h1&gt;
-&lt;h3 id=&quot;本周重点学习知识点&quot;&gt;本周重点学习知识点&lt;/h3&gt;
-&lt;p&gt;跳表、散列表、哈希算法、二叉树、红黑树&lt;/p&gt;
-
-&lt;h3 id=&quot;要求-1&quot;&gt;要求&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
-  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
-    &lt;h3 id=&quot;注意事项-1&quot;&gt;注意事项&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
-  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
-    &lt;h3 id=&quot;第二周题目&quot;&gt;第二周题目&lt;/h3&gt;
-    &lt;h4 id=&quot;中文网站-1&quot;&gt;中文网站：&lt;/h4&gt;
-    &lt;h5 id=&quot;哈希表&quot;&gt;哈希表&lt;/h5&gt;
-    &lt;p&gt;简单：https://leetcode-cn.com/problems/valid-anagram/
-中等：https://leetcode-cn.com/problems/top-k-frequent-words
-中等：https://leetcode-cn.com/problems/find-duplicate-file-in-system/
-困难：https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/
-困难：https://leetcode-cn.com/problems/number-of-atoms/&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;二叉树&quot;&gt;二叉树&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/second-minimum-node-in-a-binary-tree/
-中等：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
-中等：https://leetcode-cn.com/problems/all-nodes-distance-k-in-binary-tree/
-困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
-困难：https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/&lt;/p&gt;
-
-&lt;h5 id=&quot;二叉搜索树&quot;&gt;二叉搜索树&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
-中等：https://leetcode-cn.com/problems/range-sum-of-bst/
-中等：https://leetcode-cn.com/problems/contains-duplicate-iii/
-困难：https://leetcode-cn.com/problems/count-of-range-sum/
-困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/&lt;/p&gt;
-
-&lt;h4 id=&quot;英文网站-1&quot;&gt;英文网站：&lt;/h4&gt;
-&lt;h5 id=&quot;哈希表-1&quot;&gt;哈希表&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/valid-anagram/
-中等：https://leetcode.com/problems/top-k-frequent-words
-中等：https://leetcode.com/problems/find-duplicate-file-in-system/
-困难：https://leetcode.com/problems/substring-with-concatenation-of-all-words/
-困难：https://leetcode.com/problems/number-of-atoms/&lt;/p&gt;
-
-&lt;h5 id=&quot;二叉树-1&quot;&gt;二叉树&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
-中等：https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
-中等：https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
-困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/
-困难：https://leetcode.com/problems/binary-tree-maximum-path-sum/&lt;/p&gt;
-
-&lt;h5 id=&quot;二叉搜索树-1&quot;&gt;二叉搜索树&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/minimum-distance-between-bst-nodes/
-中等：https://leetcode.com/problems/range-sum-of-bst/
-中等：https://leetcode.com/problems/contains-duplicate-iii/
-困难：https://leetcode.com/problems/count-of-range-sum/
-困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/&lt;/p&gt;
-
-&lt;h1 id=&quot;第三周&quot;&gt;第三周&lt;/h1&gt;
-&lt;h3 id=&quot;本周重点学习知识点-1&quot;&gt;本周重点学习知识点&lt;/h3&gt;
-&lt;p&gt;递归树、堆和排序、图、深度和广度优先搜索、字符串匹配&lt;/p&gt;
-
-&lt;h3 id=&quot;要求-2&quot;&gt;要求&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
-  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
-    &lt;h3 id=&quot;注意事项-2&quot;&gt;注意事项&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
-  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
-    &lt;h3 id=&quot;第三周题目&quot;&gt;第三周题目&lt;/h3&gt;
-    &lt;h4 id=&quot;中文网站-2&quot;&gt;中文网站：&lt;/h4&gt;
-    &lt;h5 id=&quot;图&quot;&gt;图&lt;/h5&gt;
-    &lt;p&gt;简单：https://leetcode-cn.com/problems/find-the-town-judge/
-中等：https://leetcode-cn.com/problems/course-schedule-ii
-困难：https://leetcode-cn.com/problems/minimize-malware-spread-ii/&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;堆和排序&quot;&gt;堆和排序&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/
-中等：https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/
-困难：https://leetcode-cn.com/problems/find-median-from-data-stream/&lt;/p&gt;
-
-&lt;h5 id=&quot;dfs&quot;&gt;DFS&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
-中等：https://leetcode-cn.com/problems/number-of-islands/
-中等：https://leetcode-cn.com/problems/find-eventual-safe-states/
-困难：https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
-困难：https://leetcode-cn.com/problems/making-a-large-island/&lt;/p&gt;
-
-&lt;h5 id=&quot;bfs&quot;&gt;BFS&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
-中等：https://leetcode-cn.com/problems/minesweeper/
-中等：https://leetcode-cn.com/problems/minimum-height-trees/
-困难：https://leetcode-cn.com/problems/bus-routes/&lt;/p&gt;
-
-&lt;h4 id=&quot;英文网站-2&quot;&gt;英文网站：&lt;/h4&gt;
-&lt;h5 id=&quot;图-1&quot;&gt;图&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/find-the-town-judge/
-中等：https://leetcode.com/problems/course-schedule-ii
-困难：https://leetcode.com/problems/minimize-malware-spread-ii/&lt;/p&gt;
-
-&lt;h5 id=&quot;堆和排序-1&quot;&gt;堆和排序&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/kth-largest-element-in-a-stream/
-中等：https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
-困难：https://leetcode.com/problems/find-median-from-data-stream/&lt;/p&gt;
-
-&lt;h5 id=&quot;dfs-1&quot;&gt;DFS&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/maximum-depth-of-binary-tree/
-中等：https://leetcode.com/problems/number-of-islands/
-中等：https://leetcode.com/problems/find-eventual-safe-states/
-困难：https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
-困难：https://leetcode.com/problems/making-a-large-island/&lt;/p&gt;
-
-&lt;h5 id=&quot;bfs-1&quot;&gt;BFS&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/n-ary-tree-level-order-traversal/
-中等：https://leetcode.com/problems/minesweeper/
-中等：https://leetcode.com/problems/minimum-height-trees/
-困难：https://leetcode.com/problems/bus-routes/&lt;/p&gt;
-
-&lt;h1 id=&quot;第四周&quot;&gt;第四周&lt;/h1&gt;
-&lt;h3 id=&quot;本周重点学习知识点-2&quot;&gt;本周重点学习知识点&lt;/h3&gt;
-&lt;p&gt;Trie树、AC自动机、贪心算法、分治算法、回溯算法、动态规划&lt;/p&gt;
-
-&lt;h3 id=&quot;要求-3&quot;&gt;要求&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
-  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
-    &lt;h3 id=&quot;注意事项-3&quot;&gt;注意事项&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
-  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
-    &lt;h3 id=&quot;第四周题目&quot;&gt;第四周题目&lt;/h3&gt;
-    &lt;h4 id=&quot;中文网站-3&quot;&gt;中文网站：&lt;/h4&gt;
-    &lt;h5 id=&quot;trie树&quot;&gt;Trie树&lt;/h5&gt;
-    &lt;p&gt;简单：https://leetcode-cn.com/problems/longest-word-in-dictionary/
-中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
-困难：https://leetcode-cn.com/problems/word-search-ii/&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;分治算法&quot;&gt;分治算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/majority-element/
-中等：https://leetcode-cn.com/problems/different-ways-to-add-parentheses/
-困难：https://leetcode-cn.com/problems/burst-balloons/&lt;/p&gt;
-
-&lt;h5 id=&quot;贪心算法&quot;&gt;贪心算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/assign-cookies/
-中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-困难：https://leetcode-cn.com/problems/ipo/&lt;/p&gt;
-
-&lt;h5 id=&quot;回溯算法&quot;&gt;回溯算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/letter-case-permutation/
-中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
-困难：https://leetcode-cn.com/problems/n-queens/&lt;/p&gt;
-
-&lt;h5 id=&quot;动态规划&quot;&gt;动态规划&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode-cn.com/problems/min-cost-climbing-stairs/
-中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
-困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
-困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
-困难：https://leetcode-cn.com/problems/edit-distance/&lt;/p&gt;
-
-&lt;h4 id=&quot;英文网站-3&quot;&gt;英文网站：&lt;/h4&gt;
-&lt;h5 id=&quot;trie树-1&quot;&gt;Trie树&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/longest-word-in-dictionary/
-中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
-困难：https://leetcode.com/problems/word-search-ii/&lt;/p&gt;
-
-&lt;h5 id=&quot;分治算法-1&quot;&gt;分治算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/majority-element/
-中等：https://leetcode.com/problems/different-ways-to-add-parentheses/
-困难：https://leetcode.com/problems/burst-balloons/&lt;/p&gt;
-
-&lt;h5 id=&quot;贪心算法-1&quot;&gt;贪心算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/assign-cookies/
-中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-困难：https://leetcode.com/problems/ipo/&lt;/p&gt;
-
-&lt;h5 id=&quot;回溯算法-1&quot;&gt;回溯算法&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/letter-case-permutation/
-中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
-困难：https://leetcode.com/problems/n-queens/&lt;/p&gt;
-
-&lt;h5 id=&quot;动态规划-1&quot;&gt;动态规划&lt;/h5&gt;
-&lt;p&gt;简单：https://leetcode.com/problems/min-cost-climbing-stairs/
-中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
-困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
-困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
-困难：https://leetcode.com/problems/edit-distance/&lt;/p&gt;</content><author><name>true</name></author><category term="Algorithm" /><summary type="html">第一周 要求 每周至少完成给定题目中的两道算法题 围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限） 注意事项 下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习； 有的题目可能需要结合多个算法或数据结构进行求解。 第一周题目 中文网站： 链表 简单：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/ 简单：https://leetcode-cn.com/problems/merge-two-sorted-lists 中等：https://leetcode-cn.com/problems/swap-nodes-in-pairs/ 中等：https://leetcode-cn.com/problems/linked-list-cycle-ii 困难：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/2018/05/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-05-17T14:05:21+08:00</published><updated>2018-05-17T14:05:21+08:00</updated><id>http://localhost:4000/2018/05/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/05/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>true</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+使用 ylabel 函数添加y轴标签
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="MATLAB" /><category term="学习笔记" /><summary type="html"></summary></entry></feed>
