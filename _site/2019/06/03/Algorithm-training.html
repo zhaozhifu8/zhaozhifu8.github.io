@@ -1,0 +1,547 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="赵志富的博客;记录美好生活。" />
+<meta name="keywords" content="赵志富的博客, 赵志富的个人网站，无聊才读书，赵志富，无聊才读书的博客" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>Algorithm training</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(154,133,255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(154,133,255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">https://zhaozf.site</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Algorithm training</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(154,133,255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/06/20/7-steps-to-become-a-UI-UX-designer.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(154,133,255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(154,133,255);"><sapn class="main">【翻译】(第一篇) 7 steps to become a UI/UX designer</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Algorithm training</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2018/05/17/welcome-to-jekyll.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(154,133,255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(154,133,255);"><sapn class="main">Welcome to Jekyll!</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/06/20/7-steps-to-become-a-UI-UX-designer.html" class="leftchange" style="border-right: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>上一篇<br><br>【翻译】(第一篇) 7 steps to become a UI/UX designer</span></a>
+    
+    
+      <a href="/2018/05/17/welcome-to-jekyll.html" class="rightchange" style="border-left: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>下一篇<br><br>Welcome to Jekyll!</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="第一周">第一周</h1>
+<h3 id="要求">要求</h3>
+<ol>
+  <li>每周至少完成给定题目中的两道算法题</li>
+  <li>围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    <h3 id="注意事项">注意事项</h3>
+  </li>
+  <li>下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；</li>
+  <li>有的题目可能需要结合多个算法或数据结构进行求解。
+    <h3 id="第一周题目">第一周题目</h3>
+    <!--more-->
+    <h4 id="中文网站">中文网站：</h4>
+    <h5 id="链表">链表</h5>
+    <p>简单：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+简单：https://leetcode-cn.com/problems/merge-two-sorted-lists
+中等：https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+中等：https://leetcode-cn.com/problems/linked-list-cycle-ii
+困难：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/</p>
+  </li>
+</ol>
+
+<h5 id="数组">数组</h5>
+<p>简单：https://leetcode-cn.com/problems/sort-array-by-parity/
+简单：https://leetcode-cn.com/problems/sort-array-by-parity-ii/
+中等：https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
+中等：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+困难：https://leetcode-cn.com/problems/search-in-rotated-sorted-array</p>
+
+<h5 id="栈">栈</h5>
+<p>简单：https://leetcode-cn.com/problems/valid-parentheses/
+中等：https://leetcode-cn.com/problems/next-greater-element-ii/
+困难：https://leetcode-cn.com/problems/maximum-frequency-stack/</p>
+
+<h5 id="递归">递归</h5>
+<p>简单：https://leetcode-cn.com/problems/longest-univalue-path/
+中等：https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/
+困难：https://leetcode-cn.com/problems/special-binary-string/</p>
+
+<h5 id="排序">排序</h5>
+<p>简单：https://leetcode-cn.com/problems/valid-anagram/
+中等：https://leetcode-cn.com/problems/wiggle-sort-ii/
+困难：https://leetcode-cn.com/problems/maximum-gap/</p>
+
+<h5 id="二分查找">二分查找</h5>
+<p>简单：https://leetcode-cn.com/problems/arranging-coins/
+中等：https://leetcode-cn.com/problems/powx-n/
+困难：https://leetcode-cn.com/problems/dungeon-game/</p>
+
+<h4 id="英文网站">英文网站：</h4>
+<h5 id="链表-1">链表</h5>
+<p>简单：https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+简单：https://leetcode.com/problems/merge-two-sorted-lists
+中等：https://leetcode.com/problems/swap-nodes-in-pairs/
+中等：https://leetcode.com/problems/linked-list-cycle-ii
+困难：https://leetcode.com/problems/reverse-nodes-in-k-group/</p>
+
+<h5 id="数组-1">数组</h5>
+<p>简单：https://leetcode.com/problems/sort-array-by-parity/
+简单：https://leetcode.com/problems/sort-array-by-parity-ii/
+中等：https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+中等：https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+困难：https://leetcode.com/problems/search-in-rotated-sorted-array</p>
+
+<h5 id="栈-1">栈</h5>
+<p>简单：https://leetcode.com/problems/valid-parentheses/
+中等：https://leetcode.com/problems/next-greater-element-ii/
+困难：https://leetcode.com/problems/maximum-frequency-stack/</p>
+
+<h5 id="递归-1">递归</h5>
+<p>简单：https://leetcode.com/problems/longest-univalue-path/
+中等：https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+困难：https://leetcode.com/problems/special-binary-string/</p>
+
+<h5 id="排序-1">排序</h5>
+<p>简单：https://leetcode.com/problems/valid-anagram/
+中等：https://leetcode.com/problems/wiggle-sort-ii/
+困难：https://leetcode.com/problems/maximum-gap/</p>
+
+<h5 id="二分查找-1">二分查找</h5>
+<p>简单：https://leetcode.com/problems/arranging-coins/
+中等：https://leetcode.com/problems/powx-n/
+困难：https://leetcode.com/problems/dungeon-game/</p>
+
+<h1 id="第二周">第二周</h1>
+<h3 id="本周重点学习知识点">本周重点学习知识点</h3>
+<p>跳表、散列表、哈希算法、二叉树、红黑树</p>
+
+<h3 id="要求-1">要求</h3>
+<ol>
+  <li>每周至少完成给定题目中的两道算法题</li>
+  <li>围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    <h3 id="注意事项-1">注意事项</h3>
+  </li>
+  <li>下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；</li>
+  <li>有的题目可能需要结合多个算法或数据结构进行求解。
+    <h3 id="第二周题目">第二周题目</h3>
+    <h4 id="中文网站-1">中文网站：</h4>
+    <h5 id="哈希表">哈希表</h5>
+    <p>简单：https://leetcode-cn.com/problems/valid-anagram/
+中等：https://leetcode-cn.com/problems/top-k-frequent-words
+中等：https://leetcode-cn.com/problems/find-duplicate-file-in-system/
+困难：https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/
+困难：https://leetcode-cn.com/problems/number-of-atoms/</p>
+  </li>
+</ol>
+
+<h5 id="二叉树">二叉树</h5>
+<p>简单：https://leetcode-cn.com/problems/second-minimum-node-in-a-binary-tree/
+中等：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+中等：https://leetcode-cn.com/problems/all-nodes-distance-k-in-binary-tree/
+困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+困难：https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/</p>
+
+<h5 id="二叉搜索树">二叉搜索树</h5>
+<p>简单：https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
+中等：https://leetcode-cn.com/problems/range-sum-of-bst/
+中等：https://leetcode-cn.com/problems/contains-duplicate-iii/
+困难：https://leetcode-cn.com/problems/count-of-range-sum/
+困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/</p>
+
+<h4 id="英文网站-1">英文网站：</h4>
+<h5 id="哈希表-1">哈希表</h5>
+<p>简单：https://leetcode.com/problems/valid-anagram/
+中等：https://leetcode.com/problems/top-k-frequent-words
+中等：https://leetcode.com/problems/find-duplicate-file-in-system/
+困难：https://leetcode.com/problems/substring-with-concatenation-of-all-words/
+困难：https://leetcode.com/problems/number-of-atoms/</p>
+
+<h5 id="二叉树-1">二叉树</h5>
+<p>简单：https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
+中等：https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+中等：https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/
+困难：https://leetcode.com/problems/binary-tree-maximum-path-sum/</p>
+
+<h5 id="二叉搜索树-1">二叉搜索树</h5>
+<p>简单：https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+中等：https://leetcode.com/problems/range-sum-of-bst/
+中等：https://leetcode.com/problems/contains-duplicate-iii/
+困难：https://leetcode.com/problems/count-of-range-sum/
+困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/</p>
+
+<h1 id="第三周">第三周</h1>
+<h3 id="本周重点学习知识点-1">本周重点学习知识点</h3>
+<p>递归树、堆和排序、图、深度和广度优先搜索、字符串匹配</p>
+
+<h3 id="要求-2">要求</h3>
+<ol>
+  <li>每周至少完成给定题目中的两道算法题</li>
+  <li>围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    <h3 id="注意事项-2">注意事项</h3>
+  </li>
+  <li>下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；</li>
+  <li>有的题目可能需要结合多个算法或数据结构进行求解。
+    <h3 id="第三周题目">第三周题目</h3>
+    <h4 id="中文网站-2">中文网站：</h4>
+    <h5 id="图">图</h5>
+    <p>简单：https://leetcode-cn.com/problems/find-the-town-judge/
+中等：https://leetcode-cn.com/problems/course-schedule-ii
+困难：https://leetcode-cn.com/problems/minimize-malware-spread-ii/</p>
+  </li>
+</ol>
+
+<h5 id="堆和排序">堆和排序</h5>
+<p>简单：https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/
+中等：https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/
+困难：https://leetcode-cn.com/problems/find-median-from-data-stream/</p>
+
+<h5 id="dfs">DFS</h5>
+<p>简单：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+中等：https://leetcode-cn.com/problems/number-of-islands/
+中等：https://leetcode-cn.com/problems/find-eventual-safe-states/
+困难：https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
+困难：https://leetcode-cn.com/problems/making-a-large-island/</p>
+
+<h5 id="bfs">BFS</h5>
+<p>简单：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
+中等：https://leetcode-cn.com/problems/minesweeper/
+中等：https://leetcode-cn.com/problems/minimum-height-trees/
+困难：https://leetcode-cn.com/problems/bus-routes/</p>
+
+<h4 id="英文网站-2">英文网站：</h4>
+<h5 id="图-1">图</h5>
+<p>简单：https://leetcode.com/problems/find-the-town-judge/
+中等：https://leetcode.com/problems/course-schedule-ii
+困难：https://leetcode.com/problems/minimize-malware-spread-ii/</p>
+
+<h5 id="堆和排序-1">堆和排序</h5>
+<p>简单：https://leetcode.com/problems/kth-largest-element-in-a-stream/
+中等：https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
+困难：https://leetcode.com/problems/find-median-from-data-stream/</p>
+
+<h5 id="dfs-1">DFS</h5>
+<p>简单：https://leetcode.com/problems/maximum-depth-of-binary-tree/
+中等：https://leetcode.com/problems/number-of-islands/
+中等：https://leetcode.com/problems/find-eventual-safe-states/
+困难：https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+困难：https://leetcode.com/problems/making-a-large-island/</p>
+
+<h5 id="bfs-1">BFS</h5>
+<p>简单：https://leetcode.com/problems/n-ary-tree-level-order-traversal/
+中等：https://leetcode.com/problems/minesweeper/
+中等：https://leetcode.com/problems/minimum-height-trees/
+困难：https://leetcode.com/problems/bus-routes/</p>
+
+<h1 id="第四周">第四周</h1>
+<h3 id="本周重点学习知识点-2">本周重点学习知识点</h3>
+<p>Trie树、AC自动机、贪心算法、分治算法、回溯算法、动态规划</p>
+
+<h3 id="要求-3">要求</h3>
+<ol>
+  <li>每周至少完成给定题目中的两道算法题</li>
+  <li>围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    <h3 id="注意事项-3">注意事项</h3>
+  </li>
+  <li>下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；</li>
+  <li>有的题目可能需要结合多个算法或数据结构进行求解。
+    <h3 id="第四周题目">第四周题目</h3>
+    <h4 id="中文网站-3">中文网站：</h4>
+    <h5 id="trie树">Trie树</h5>
+    <p>简单：https://leetcode-cn.com/problems/longest-word-in-dictionary/
+中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode-cn.com/problems/word-search-ii/</p>
+  </li>
+</ol>
+
+<h5 id="分治算法">分治算法</h5>
+<p>简单：https://leetcode-cn.com/problems/majority-element/
+中等：https://leetcode-cn.com/problems/different-ways-to-add-parentheses/
+困难：https://leetcode-cn.com/problems/burst-balloons/</p>
+
+<h5 id="贪心算法">贪心算法</h5>
+<p>简单：https://leetcode-cn.com/problems/assign-cookies/
+中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+困难：https://leetcode-cn.com/problems/ipo/</p>
+
+<h5 id="回溯算法">回溯算法</h5>
+<p>简单：https://leetcode-cn.com/problems/letter-case-permutation/
+中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode-cn.com/problems/n-queens/</p>
+
+<h5 id="动态规划">动态规划</h5>
+<p>简单：https://leetcode-cn.com/problems/min-cost-climbing-stairs/
+中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
+困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
+困难：https://leetcode-cn.com/problems/edit-distance/</p>
+
+<h4 id="英文网站-3">英文网站：</h4>
+<h5 id="trie树-1">Trie树</h5>
+<p>简单：https://leetcode.com/problems/longest-word-in-dictionary/
+中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode.com/problems/word-search-ii/</p>
+
+<h5 id="分治算法-1">分治算法</h5>
+<p>简单：https://leetcode.com/problems/majority-element/
+中等：https://leetcode.com/problems/different-ways-to-add-parentheses/
+困难：https://leetcode.com/problems/burst-balloons/</p>
+
+<h5 id="贪心算法-1">贪心算法</h5>
+<p>简单：https://leetcode.com/problems/assign-cookies/
+中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+困难：https://leetcode.com/problems/ipo/</p>
+
+<h5 id="回溯算法-1">回溯算法</h5>
+<p>简单：https://leetcode.com/problems/letter-case-permutation/
+中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode.com/problems/n-queens/</p>
+
+<h5 id="动态规划-1">动态规划</h5>
+<p>简单：https://leetcode.com/problems/min-cost-climbing-stairs/
+中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+困难：https://leetcode.com/problems/edit-distance/</p>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>赵志富的个人网站 | 无聊才读书 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

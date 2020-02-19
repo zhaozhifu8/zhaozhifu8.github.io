@@ -1,4 +1,1417 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-17T22:12:26+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>赵志富的博客;记录美好生活。</subtitle><author><name>true</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/2018/05/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-05-17T14:05:21+08:00</published><updated>2018-05-17T14:05:21+08:00</updated><id>http://localhost:4000/2018/05/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/05/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-19T22:23:24+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>赵志富的博客;记录美好生活。</subtitle><author><name>true</name></author><entry><title type="html">【翻译】 第六篇 Atomic Design with React</title><link href="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html" rel="alternate" type="text/html" title="【翻译】 第六篇 Atomic Design with React" /><published>2019-11-30T23:59:24+08:00</published><updated>2019-11-30T23:59:24+08:00</updated><id>http://localhost:4000/2019/11/30/Atomic-Design-with-React</id><content type="html" xml:base="http://localhost:4000/2019/11/30/Atomic-Design-with-React.html">&lt;center&gt;&lt;h1&gt; React 的原子设计&lt;/h1&gt;&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
+        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;原文链接：https://codeburst.io/atomic-design-with-react-e7aea8152957&lt;/li&gt;
+  &lt;li&gt;作者：Danilo Woznica&lt;/li&gt;
+  &lt;li&gt;2018年1月9日&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/translate/201912042105.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How the Atomic Design methodology allowed me to create a great design system from scratch and made me a better developer, with principles of componentization, hierarchies and reuses of code.&lt;/p&gt;
+
+&lt;p&gt;原子设计方法论是如何让我从零开始创建一个伟大的设计系统，并使我成为一个更好的开发人员，具有组件化、层次结构和代码重用的原则。
+&lt;!--more--&gt;
+I have recently had the opportunity to work on a new product from scratch made in React and PWA with the well-crafted and componentized UI at Cheesecake. However, when we discussed with the whole team the best way to approach the development, we ended up having the same old problems that have happened in most past projects, such as:&lt;/p&gt;
+
+&lt;p&gt;我最近有机会在一个新的产品从零开始的反应和 PWA 与精心制作和组件化的 UI 在芝士蛋糕。 然而，当我们与整个团队讨论处理开发的最佳方法时，我们最终遇到了与过去大多数项目中发生的相同的老问题，例如:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lack of Styleguide of components; 缺乏构件的样式指南;&lt;/li&gt;
+  &lt;li&gt;Lack of precision in estimating development time; 估计开发时间不精确;&lt;/li&gt;
+  &lt;li&gt;Great amount of setup time for developers; 为开发人员提供大量的安装时间;&lt;/li&gt;
+  &lt;li&gt;Inconsistency between components and view; 组件与视图不一致;&lt;/li&gt;
+  &lt;li&gt;Repeated code; 重复代码;&lt;/li&gt;
+  &lt;li&gt;Side effects; 副作用;&lt;/li&gt;
+  &lt;li&gt;Very specific components to each pages; 每个页面都有非常具体的组件;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ve started to build the CSS architecture using the ITCSS methodology that organizes the style files on stacks from generics styles to the specifics ones, which helps you to scale large projects easily. But along with ITCSS, we were using CSS Modules to scope the components, so we noticed that component stack was getting huge and even the generic styles were being componentized and reused within other one.&lt;/p&gt;
+
+&lt;p&gt;我们已经开始使用 ITCSS 方法来构建 CSS 架构，这种方法将样式文件从泛型样式组织到具体样式，这有助于您轻松地扩展大型项目。 但是与 ITCSS 一起，我们使用 CSS 模块来调整组件的范围，所以我们注意到组件堆栈变得越来越庞大，甚至通用样式也被组件化并在其他组件中重用。&lt;/p&gt;
+
+&lt;p&gt;That was the moment in which we paused to rethink our architecture and how we could set the components in a more distributed and organized way. Then we found a methodology called Atomic Design that creates multiples stacks of components, with different hierarchies of complexity and dependence.&lt;/p&gt;
+
+&lt;p&gt;在那一刻，我们停下来重新思考我们的体系结构，以及我们如何将组件设置成更加分布和有组织的方式。 然后我们发现了一种叫做原子设计的方法，它创建了多个组件堆栈，具有不同的复杂性和依赖性层次结构。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301609.png&quot; alt=&quot;原子设计层次结构&quot; title=&quot;原子设计层次结构&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-atomic-design&quot;&gt;What is Atomic Design?&lt;/h2&gt;
+
+&lt;h2 id=&quot;什么是原子设计&quot;&gt;什么是原子设计？&lt;/h2&gt;
+
+&lt;p&gt;Popularly known within the design world, Atomic Design helps to build consistent, solid and reusable design systems. Plus, in the world of React, Vue and frameworks that stimulate the componentization, Atomic Design is used unconsciously; but when used in the right way, it becomes a powerful ally for developers.&lt;/p&gt;
+
+&lt;p&gt;原子设计在设计界广为人知，它帮助构建一致、可靠和可重用的设计系统。 另外，在 React、 Vue 和促进组件化的框架的世界中，原子设计是无意识地使用的; 但是当使用得当时，它成为了开发人员的强大盟友。&lt;/p&gt;
+
+&lt;p&gt;The name Atomic Design comes from the idea of separating the components in atoms, molecules, organisms, templates and pages, like in the image above. But what are the responsibilities of each separated part?&lt;/p&gt;
+
+&lt;p&gt;“原子设计”这个名字来源于这样一个想法，即将原子、分子、有机体、模板和页面中的成分分离开来，如上图所示。 但是，每个独立部分的责任是什么？&lt;/p&gt;
+
+&lt;h3 id=&quot;atoms&quot;&gt;Atoms&lt;/h3&gt;
+&lt;h3 id=&quot;原子&quot;&gt;原子&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301613.png&quot; alt=&quot;原子组件示例&quot; title=&quot;原子组件示例&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Atoms are the smallest possible components, such as buttons, titles, inputs or event color pallets, animations, and fonts. They can be applied on any context, globally or within other components and templates, besides having many states, such as this example of button: disabled, hover, different sizes, etc.&lt;/p&gt;
+
+&lt;p&gt;原子是最小的可能组件，例如按钮、标题、输入或事件颜色托盘、动画和字体。 它们可以应用于任何上下文，全局或其他组件和模板，除了有许多状态，如这个按钮的例子: 禁用，悬停，不同大小等。&lt;/p&gt;
+
+&lt;h3 id=&quot;molecules&quot;&gt;Molecules&lt;/h3&gt;
+&lt;h3 id=&quot;分子&quot;&gt;分子&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301615.png&quot; alt=&quot;分子组成的例子&quot; title=&quot;分子组成的例子&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;They are the composition of one or more components of atoms. Here we begin to compose complex components and reuse some of those components. Molecules can have their own properties and create functionalities by using atoms, which don’t have any function or action by themselves.
+它们是由一个或多个原子组成的。 在这里，我们开始组合复杂的组件并重用其中的一些组件。 分子可以有自己的属性，通过原子创造功能，而原子本身没有任何功能或作用。&lt;/p&gt;
+
+&lt;h3 id=&quot;organisms&quot;&gt;Organisms&lt;/h3&gt;
+&lt;h3 id=&quot;有机体&quot;&gt;有机体&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301635.png&quot; alt=&quot;生物成分的例子&quot; title=&quot;生物成分的例子&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Organisms are the combination of molecules that work together or even with atoms that compose more elaborate interfaces. At this level, the components begin to have the final shape, but they are still ensured to be independent, portable and reusable enough to be reusable in any content.&lt;/p&gt;
+
+&lt;p&gt;有机体是分子的组合，这些分子相互作用，甚至与原子组成更复杂的界面。 在这个级别上，组件开始具有最终的形状，但仍然保证它们是独立的、可移植的和可重用的，足以在任何内容中重用。&lt;/p&gt;
+
+&lt;h3 id=&quot;templates&quot;&gt;Templates&lt;/h3&gt;
+&lt;h3 id=&quot;模板&quot;&gt;模板&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301636.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this state we stop composing components and begin to set their context. Moreover, the templates create relationships between the organisms and others components through positions, placements and patterns of the pages but it doesn’t have any style, color or component rendered. That’s why it looks like a wireframe.
+在这种状态下，我们停止组合组件并开始设置它们的上下文。 此外，模板通过页面的位置、位置和模式在有机体和其他组件之间创建关系，但它没有任何风格、颜色或组件渲染。 这就是为什么它看起来像线框图。&lt;/p&gt;
+
+&lt;h3 id=&quot;pages&quot;&gt;Pages&lt;/h3&gt;
+&lt;h3 id=&quot;页数&quot;&gt;页数&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301638.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pages are the navigate parts of the application and it’s where the components are distributed in one specific template. The components get real content and they’re connected with the whole application. At this stage, we can test the efficiency of the design system to analyse if all the components are independent enough or if we need to split them in smaller parts.&lt;/p&gt;
+
+&lt;p&gt;页面是应用程序的导航部分，它是组件在一个特定模板中分布的位置。 这些组件获得真正的内容，并与整个应用程序相连接。 在这个阶段，我们可以测试设计系统的效率，以分析是否所有的组件都足够独立，或者是否需要将它们拆分成更小的部分。&lt;/p&gt;
+
+&lt;h3 id=&quot;react--atomic-design&quot;&gt;React + Atomic Design&lt;/h3&gt;
+&lt;h3 id=&quot;react--原子设计&quot;&gt;React + 原子设计&lt;/h3&gt;
+
+&lt;p&gt;When we started to use Atomic Design within React we had to adjust some rules of the methodology to ensure that components were reused as much as possible, that they were stateless, without styles of positions and very specific margins so to avoid any side effects in the pages of application.
+当我们开始在 React 中使用 Atomic Design 时，我们不得不调整方法的一些规则，以确保组件被尽可能多地重用，确保它们是无状态的，没有位置样式和非常具体的边距，以避免应用程序页面中的任何副作用。&lt;/p&gt;
+
+&lt;p&gt;So with each new component we asked ourselves: “Are these components generic enough to avoid specificity and/or repeated code in whatever context they are used?”
+因此，对于每一个新组件，我们都要问自己: “这些组件是否足够通用，以避免在任何情况下使用特殊性和 / 或重复代码? ”&lt;/p&gt;
+
+&lt;p&gt;So we were able to write a few rules:
+所以我们可以写一些规则:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Atomic Design should have a file of variables and it must be imported by each component;
+1.原子设计应具有一个变量文件，并且必须由每个组件导入。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The atoms should be written without margins and positions;
+2.原子应该写在没有边缘和位置的地方；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Only the molecules and organisms can set the positions of atoms, but these stacks can’t have any styles of margins and positions;
+3.只有分子和有机体可以设置原子的位置，但这些堆栈不能有任何类型的边距和位置;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Templates have only one function: to set the grid of pages but never positions of specific components;
+4.模板只有一个功能: 设置页面的网格，但不设置特定组件的位置;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Pages render the components with a template defined and it’s here that the Atomic Design will be connected to the rest of the application;
+5.页面使用定义的模板呈现组件，在这里原子设计将连接到应用程序的其余部分;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;lets-code&quot;&gt;Let’s code&lt;/h3&gt;
+&lt;h3 id=&quot;让我们来编码&quot;&gt;让我们来编码&lt;/h3&gt;
+
+&lt;p&gt;What I will show here is everything in a boilerplate on GitHub, which you can test and then start your projects using Atomic Design, so let’s do it:
+这里我要展示的是 GitHub 上的样板文件，你可以测试它，然后使用 Atomic Design 开始你的项目，所以让我们开始吧:&lt;/p&gt;
+
+&lt;p&gt;To build a UI LIbrary we used an awesome tool called Storybook, which is a great ally to the Atomic Design in React (you can use it for the React Native and Vue too), it allows to render the components and list all states/variations of one.
+为了构建 UI LIbrary，我们使用了一个非常棒的工具 Storybook，它是原子设计在反应(你可以使用它为反应原生和 Vue 也)的一个很好的盟友，它允许渲染组件和列出一个的所有状态 / 变化。&lt;/p&gt;
+
+&lt;p&gt;With the Storybook installed the folder structure will look like this:
+安装了 Storybook 后，文件夹结构如下:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201912042026.png&quot; alt=&quot;Structure folder&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that inside of the button component there is a file called ‘index.js’ which is the component itself, the ‘styles.css’ is the style that will be imported by CSS Modules (here we’ve used the BEM CSS inside the structure; I recommend reading the article ‘CSS Architecture with ReactJS’) and the ‘stories.js’ is the file that will import the component into the Storybook, which looks like this:
+注意，在按钮组件的内部有一个叫做‘ index.js’的文件，它是组件本身，‘ styles.CSS’是由 CSS 模块导入的样式(这里我们在结构中使用了 BEM CSS; 我推荐阅读文章‘ CSS Architecture with ReactJS’) ，而‘ stories.js’是将组件导入 Storybook 的文件，它看起来像这样:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201912042029.png&quot; alt=&quot;Storybook’s file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each ‘add ()’ function is a variation of the component and it is the best approach to describe each state individually rather than a single function, so it becomes easier to highlight and control each one of them. So if you describe all the component variations , the Storybook should look like this:
+每个 add ()函数都是组件的一个变体，它是描述每个状态的最佳方法，而不是单个函数，因此更容易突出和控制每个状态。 因此，如果你描述所有的组件变化，故事书应该是这样的:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201912042030.png&quot; alt=&quot;Storybook interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the coolest part of the Storybook is that you can add some ‘addons’, such as the Storybook Info, which does awesome things like: story source, props types, defaults values and which values are required or not.
+故事书最酷的部分是你可以添加一些插件，比如故事书信息，它可以做一些很棒的事情，比如: 故事来源，道具类型，默认值以及哪些值是必需的或者不是。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201912042031.png&quot; alt=&quot;Storybook table&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;h3 id=&quot;总结&quot;&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;At the end of project, we reached the initial goals and we believe we left a good legacy, a structure which ensures that the project can grow and that other developers can understand the architecture quickly. Maybe we initially spent some extra time writing stories and etc, but the more the project grows, the more the benefits make clear why we should use such architecture.
+在项目结束时，我们达到了最初的目标，并且我们相信我们留下了一个很好的遗产—- 一个确保项目可以成长并且其他开发人员可以快速理解架构的结构。 也许我们最初花费了一些额外的时间来写故事等等，但是随着项目的增长，好处越来越明显，为什么我们应该使用这样的架构。&lt;/p&gt;
+
+&lt;p&gt;However we could see that this architecture probably doesn’t work for every project because it depends on several factors. The main one is that the design needs to be thought in the same way as the development: in an atomic way. But the integration between design and development is a point that every project wants to reach, so it becomes a very positive point for Atomic Design.
+然而，我们可以看到，这种架构可能不适用于每个项目，因为它取决于几个因素。 主要的一点是，设计需要以与开发相同的方式来考虑: 以原子的方式。 但是设计和开发之间的集成是每个项目都想要达到的，所以这对于原子设计来说是一个非常积极的点。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="React" /><category term="设计方法" /><summary type="html">React 的原子设计</summary></entry><entry><title type="html">【翻译】 第五篇 The Evolution of UI/UX Designers Into Product Designers</title><link href="http://localhost:4000/2019/11/30/The-Evolution-of-UI-UX-Designers-Into-Product-Designers.html" rel="alternate" type="text/html" title="【翻译】 第五篇 The Evolution of UI/UX Designers Into Product Designers" /><published>2019-11-30T18:48:41+08:00</published><updated>2019-11-30T18:48:41+08:00</updated><id>http://localhost:4000/2019/11/30/The-Evolution-of-UI-UX-Designers-Into-Product-Designers</id><content type="html" xml:base="http://localhost:4000/2019/11/30/The-Evolution-of-UI-UX-Designers-Into-Product-Designers.html">&lt;center&gt;&lt;h1&gt; 从 ui / ux 设计师到产品设计师的演变&lt;/h1&gt;&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
+        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;原文链接：https://medium.com/thinking-design/the-evolution-of-ui-ux-designers-into-product-designers-623e4e7eaab3&lt;/li&gt;
+  &lt;li&gt;作者：Adobe Creative Cloud&lt;/li&gt;
+  &lt;li&gt;2017年1月18日&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/translate/201911301134.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What is a product? Until recently, the term was only used in relation to something material and often found in a retail store, but nowadays it is coming to mean digital products as well. Apps are modern products.&lt;/p&gt;
+
+&lt;p&gt;什么是产品？ 直到最近，这个词还只是用来指物质的东西，通常在零售店里才能找到，但是现在它也开始指数字产品了。 应用程序是现代产品。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;When it comes to building great products, design is the most important “feature.” We’ve moved into the stage where product design dominates — it’s what sets companies apart and gives a real edge over competitors.&lt;/p&gt;
+
+&lt;p&gt;当谈到建立伟大的产品，设计是最重要的“特征。” 我们已经进入了产品设计占主导地位的阶段ーー这是公司与众不同的地方，也是相对于竞争对手的真正优势所在。&lt;/p&gt;
+
+&lt;p&gt;The design industry has evolved quite a lot in the last few years and today there are a number of different responsibilities encompassed by the umbrella term designer: UX Designers, UI Designers, and Product Designers. “What is the difference between these job roles?” is a fairly common question in design industry. Let’s attempt to distill what each of these titles really mean, and look at why the evolution of UI/UX Designers into Product Designers is a logical development in the era of modern technology.&lt;/p&gt;
+
+&lt;p&gt;在过去的几年里，设计行业已经发生了很大的变化，如今，设计师这个总称涵盖了许多不同的职责: 用户体验设计师、用户界面设计师和产品设计师。 “这些工作角色之间的区别是什么? ” 在设计行业是一个相当普遍的问题。 让我们尝试提炼出每一个标题的真正含义，并且看看为什么 ui / ux 设计师进化成产品设计师是现代技术时代的一个合乎逻辑的发展。&lt;/p&gt;
+
+&lt;h2 id=&quot;ux-ui-product-who-does-what&quot;&gt;UX, UI, Product: Who Does What?&lt;/h2&gt;
+
+&lt;h2 id=&quot;用户体验用户界面产品-谁做了什么&quot;&gt;用户体验，用户界面，产品: 谁做了什么？&lt;/h2&gt;
+
+&lt;p&gt;All of these roles have one thing in common — they all design how a user interacts with a product. But these people all perform slightly different functions to reach the same goal.&lt;/p&gt;
+
+&lt;p&gt;所有这些角色都有一个共同点: 他们都设计用户如何与产品交互。 但是这些人为了达到同一个目标，所执行的功能略有不同。&lt;/p&gt;
+
+&lt;h3 id=&quot;ux-designer-user-experience-designer&quot;&gt;UX Designer (User Experience Designer)&lt;/h3&gt;
+
+&lt;h3 id=&quot;用户体验设计师&quot;&gt;用户体验设计师&lt;/h3&gt;
+
+&lt;p&gt;UX designers are primarily concerned with how the product feels. The goal is make the user’s interaction as efficient and simple as possible. UX designers look at design from the mindspace of a user and squash potential problems by:&lt;/p&gt;
+
+&lt;p&gt;用户体验设计师主要关心的是产品的感觉。 我们的目标是让用户的交互尽可能的高效和简单。 用户体验设计师从用户的思维空间来看待设计，通过以下方式来消除潜在的问题:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Writing various product user scenarios and building patterns of interaction.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;编写各种产品用户场景和构建交互模式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Resorting to various kinds of testing and watching what users do (e.g. usability-lab studies, eye-tracking, A/B testing, email surveys, etc).&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;通过各种测试和观察用户的行为(例如: 可用性实验室研究、眼球追踪、 a / b 测试、电子邮件调查等)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Prototyping an interface and creating the products logic via wireframes.&lt;/li&gt;
+  &lt;li&gt;原型化界面并通过线框图创建产品逻辑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ui-designer-user-interface-designer&quot;&gt;UI Designer (User Interface Designer)&lt;/h3&gt;
+&lt;h3 id=&quot;ui-设计师用户界面设计师&quot;&gt;Ui 设计师(用户界面设计师)&lt;/h3&gt;
+
+&lt;p&gt;UI designers, on the other hand are the people who are primarily concerned how the product looks. They responsible for how we see the product in its final version. They are in charge of designing each screen or page with which a user interacts and ensuring that the user interface visually communicates the logic that a UX designer has offered (for example, a UI designer creating a data dashboard can front load the most important content at the top). UI designers are also responsible for creating a style guide and unified visual language that is applied across the product.&lt;/p&gt;
+
+&lt;p&gt;另一方面，UI 设计师主要关心的是产品的外观。 他们负责我们如何看待产品的最终版本。 他们负责设计用户交互的每个屏幕或页面，并确保用户界面可视化地传达用户体验设计师提供的逻辑(例如，创建数据指示板的用户界面设计师可以在顶部前端加载最重要的内容)。 Ui 设计师还负责创建一个样式指南和统一的视觉语言，应用于整个产品。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301238.png&quot; alt=&quot;Ui 设计师找到了突出显示那些应该吸引用户注意力的元素的最佳方式&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;product-designer&quot;&gt;Product Designer&lt;/h3&gt;
+&lt;h3 id=&quot;产品设计师&quot;&gt;产品设计师&lt;/h3&gt;
+
+&lt;p&gt;Product Designer is a sum-up term used to describe a designer who is generally involved in the creation of the look and feel of a whole product. Many product designers consider themselves to be designers who design experiences. This means that a product designer is the one who gives real insight to UX and UI designers when it comes to how certain features should work, or how a certain UI control should look.&lt;/p&gt;
+
+&lt;p&gt;产品设计师是一个总结术语，用来描述一个设计师，他通常参与创造整个产品的外观和感觉。 许多产品设计师认为自己是有设计经验的设计师。 这意味着产品设计师是那个在特定功能应该如何工作，或者特定 UI 控件应该如何外观方面给用户体验和用户界面设计师提供真正见解的人。&lt;/p&gt;
+
+&lt;p&gt;Companies use the term ‘Product Designer’ differently; the most general definition is a person who’s a champion of a user’s needs. As Justin Edmund said, “A product designer oversees product vision from a high level (how does this feature make sense for where we want to be in 6 months) to a low execution level (how does styling this button this way impact how the user flows through this function).”&lt;/p&gt;
+
+&lt;p&gt;公司使用“产品设计师”这个术语的方式不同; 最普遍的定义是一个能够满足用户需求的人。 正如 Justin Edmund 所说，“产品设计师监督产品远景，从高层次(这个功能对我们6个月后的目标有什么意义)到低层次的执行(这样设计这个按钮如何影响用户通过这个功能的流程)。”&lt;/p&gt;
+
+&lt;h2 id=&quot;drivers-of-design-evolution&quot;&gt;Drivers of Design Evolution&lt;/h2&gt;
+&lt;h2 id=&quot;设计进化的驱动力&quot;&gt;设计进化的驱动力&lt;/h2&gt;
+
+&lt;p&gt;Design and its component practices are like any other craft: you can always develop a deeper familiarity with the minutiae and master your skills by taking more active role in whole design process. There’s a general positive trend of designers taking on a larger scope of responsibilities within the product development process, and here are some drivers for this trend:&lt;/p&gt;
+
+&lt;p&gt;设计及其组件实践就像其他工艺一样: 你总是可以通过在整个设计过程中扮演更积极的角色，对细节有更深入的了解，并掌握自己的技能。 设计师在产品开发过程中承担更大范围的责任，这是一个普遍的积极趋势，以下是这一趋势的一些驱动因素:&lt;/p&gt;
+
+&lt;h3 id=&quot;design-thinking&quot;&gt;Design Thinking&lt;/h3&gt;
+
+&lt;h3 id=&quot;设计思维&quot;&gt;设计思维&lt;/h3&gt;
+
+&lt;p&gt;Design thinking has become a popular approach for designing a product. The best design reflects the product’s goals. Good designers have always applied design thinking to product design, whether physical or digital, because it’s focussed on end-to-end product development, not just the “design phase” part.&lt;/p&gt;
+
+&lt;p&gt;设计思维已经成为一种流行的产品设计方法。 最好的设计反映了产品的目标。 优秀的设计师总是将设计思维应用到产品设计中，无论是物理设计还是数字设计，因为他们关注的是端到端的产品开发，而不仅仅是“设计阶段”。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301253.png&quot; alt=&quot;设计思维是一个以人为中心的创造过程，为用户构建有意义和有效的解决方案。&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When thinking in products, designers should understand business objectives and be able to answer the following questions first:&lt;/p&gt;
+
+&lt;p&gt;在思考产品时，设计师应该理解商业目标，并能够首先回答以下问题:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What problem do we solve? 我们要解决什么问题？&lt;/li&gt;
+  &lt;li&gt;Who has these problems? 谁有这些问题？&lt;/li&gt;
+  &lt;li&gt;Why are we doing this? 我们为什么要这么做？&lt;/li&gt;
+  &lt;li&gt;How are we doing this? 我们要怎么做？&lt;/li&gt;
+  &lt;li&gt;What do we want to achieve? 我们想要实现什么？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Answering these questions helps designers understand the user experience of a product as a whole; not purely as interaction (feel) or visual (look) design part. Only after that it makes sense to move to the actual state offinding a design solution which includes following 6 phases:&lt;/p&gt;
+
+&lt;p&gt;回答这些问题可以帮助设计师理解整个产品的用户体验，而不仅仅是交互(感觉)或视觉(外观)设计部分。 只有在这之后，才有意义转移到实际状态，提出一个包括以下6个阶段的设计方案:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Empathize: Conduct research to develop a deeper understanding of your users.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;感同身受: 进行研究，深入了解你的用户&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Define: Combine your research and observe where your users’ problem exist. In pinpointing your users’ needs, begin to highlight opportunities for innovation.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;定义: 结合你的研究，观察用户存在问题的地方。 在精确定位用户的需求时，开始强调创新的机会&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ideate: Generate a range of potential solutions by giving yourself and your team total freedom.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;想法: 通过给你自己和你的团队完全的自由来产生一系列可能的解决方案&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Prototype: Build a prototype (or series of prototypes) to test your solution. Creating a prototype lets designer see if they’re on the right track, and often sparks different ideas that wouldn’t come in other cases.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Prototype: 构建一个原型(或一系列原型)来测试您的解决方案。 创建一个原型让设计师看看他们是否在正确的轨道上，并经常会激发不同的想法，不会出现在其他情况下&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Test: Return to your users for feedback. Ask yourself ‘Does this solution meet users’ needs?’&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;测试: 返回给你的用户以获得反馈。 问问自己这个解决方案是否满足用户的需求&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Implement” Put the vision into effect. Ensure that your solution is materialized and works for your users. This step is crucial for the entire process.&lt;/li&gt;
+  &lt;li&gt;实施”把愿景付诸实施。 确保您的解决方案是具体化的，并且对用户有效。 这一步对整个过程至关重要&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301259.png&quot; alt=&quot;设计思维框架&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;collaborative-work&quot;&gt;Collaborative Work&lt;/h3&gt;
+&lt;h3 id=&quot;协同工作&quot;&gt;协同工作&lt;/h3&gt;
+
+&lt;p&gt;More and more companies try to unify designers and developers into the development process. This new way of product development has two major benefits:&lt;/p&gt;
+
+&lt;p&gt;越来越多的公司试图将设计师和开发人员统一到开发过程中。 这种新的产品开发方式有两个主要好处:&lt;/p&gt;
+
+&lt;p&gt;Working together in a collaborative environment creates a situation where team members are encouraged to think wildly. Also embracing the critique of a whole team is the best way to refine something that, if designed in isolation, is at risk of becoming impossible to use.&lt;/p&gt;
+
+&lt;p&gt;在一个协作的环境中共同工作创造了一种鼓励团队成员广泛思考的情况。 接受整个团队的批评也是改进某些东西的最好方法，如果单独设计，就有变得不可能使用的风险&lt;/p&gt;
+
+&lt;p&gt;Methodologies such as Agile and Lean leads to designers and other team members working more cross-functionally with larger scopes of responsibility. 方法论，例如敏捷及倾斜导致设计师和其他团队成员在更大的职责范围内跨职能地工作&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301305.png&quot; alt=&quot;一个统一的过程促进更好的工作&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;continuous-improvement-iterative-design&quot;&gt;Continuous Improvement (Iterative Design)&lt;/h3&gt;
+
+&lt;h3 id=&quot;持续改进迭代设计&quot;&gt;持续改进(迭代设计)&lt;/h3&gt;
+
+&lt;p&gt;Unlike more traditional forms of design, design process for digital products isn’t a one-time thing and designers should never assume to get everything right on the first go. Implementation often reveals gaps in the design: undocumented conditions or bad assumptions about product usage, which hard to predict without shipping the product.&lt;/p&gt;
+
+&lt;p&gt;与传统的设计形式不同，数字产品的设计过程不是一次性的，设计师永远不应该假设一开始就把每件事都做对。 实现往往会揭示设计中的差距: 没有记录的条件或关于产品使用的错误假设，如果没有运输产品，就很难预测。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301308.png&quot; alt=&quot;如何构建产品&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To design a successful product you need to adopt a process of continuous improvement. Iterative design follows the idea that design should be done in repeated cycles: it’s a process of constantly refining and improving the product based on both qualitative and quantitative feedback data from your users. This is a great opportunity for designers to see a bigger picture, improve their work based on user feedback and make the product inherently more valuable to the user.&lt;/p&gt;
+
+&lt;p&gt;为了设计一个成功的产品，你需要采用一个持续改进的过程。 迭代设计遵循的思想是设计应该在重复的循环中进行: 它是一个不断地改进和提高产品的过程，这个过程基于来自用户的定性和定量的反馈数据。 对于设计师来说，这是一个很好的机会，他们可以看到更大的图景，根据用户的反馈改进他们的工作，使产品对用户来说更有价值。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/201911301309.png&quot; alt=&quot;产品设计是一个依赖于设计思维的迭代过程。&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;Product design represents the next enlargement of design scope, from just user experience design towards an even broader state of design for an entire product.&lt;/p&gt;
+
+&lt;p&gt;产品设计代表了下一次设计范围的扩大，从单纯的用户体验设计到更广泛的整个产品设计状态。&lt;/p&gt;
+
+&lt;p&gt;The best products are built by people who understand the whole product, not just their silo. In order to make such products, UI/UX Designers should look to evolve into Product Designers who are able to generate and process a additional information to get the best result.&lt;/p&gt;
+
+&lt;p&gt;最好的产品是由了解整个产品的人创造的，而不仅仅是他们自己的筒仓。 为了制造这样的产品，ui / ux 设计师应该考虑发展成为能够生成和处理附加信息以获得最佳结果的产品设计师。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="Adobe" /><category term="产品设计的演化过程" /><summary type="html">从 ui / ux 设计师到产品设计师的演变</summary></entry><entry><title type="html">【翻译】(第四篇)18 designers predict UI/UX trends for 2018</title><link href="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html" rel="alternate" type="text/html" title="【翻译】(第四篇)18 designers predict UI/UX trends for 2018" /><published>2019-08-10T23:25:22+08:00</published><updated>2019-08-10T23:25:22+08:00</updated><id>http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018</id><content type="html" xml:base="http://localhost:4000/2019/08/10/18-designers-predict-UI-UX-trends-for-2018.html">&lt;center&gt;&lt;h1&gt; 18位设计师预测2018年用户界面/用户体验趋势&lt;/h1&gt;&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
+        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;** 原文链接：https://www.figma.com/blog/eighteen-designers-predict-ui-ux-trends-for-2018/ **&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;作者：Valerie Veteto&lt;/li&gt;
+  &lt;li&gt;2017年12月15日&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/translate/UX_Design_Trends_Cover.jfif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Designers are always looking toward the future — in our “build and ship it now” industry we’re programmed to iterate ad finitum. In the end, a designer’s obsession always circles back to one simple question: How can we improve the user’s experience?
+&lt;!--more--&gt;
+设计师总是在展望未来-在我们的“现在制造和推广”行业中，我们被编程为迭代定义。最后，设计师的痴迷总是绕回到一个简单的问题上：我们如何才能改善用户体验？&lt;/p&gt;
+
+&lt;p&gt;With that in mind, Figma asked 18 designers what UI/UX trends they predict for 2018. December, with its flurry of holiday parties, cheery OOO auto-replies and introspective weather patterns, provided the perfect opportunity to pause and survey the landscape.
+考虑到这一点，Figma询问了18位设计师，他们预测2018年的用户界面/用户体验趋势。12月，伴随着节日派对的风潮，欢快的OOO自动回复和反省的天气模式，提供了一个完美的机会来暂停和调查景观。&lt;/p&gt;
+
+&lt;p&gt;Designers were culled from a few different sources: those who attended last month’s Figma sponsored design systems dinner, speakers at this year’s Clarity Conference and friends of the Figma family. You’ll read through opinions from designers who work anywhere from Facebook to Google to Airbnb. We even crowdsourced Twitter, receiving 61 thoughtful responses that were much appreciated.
+设计师们被从几个不同的来源中挑选出来: 那些参加了上个月 Figma 赞助的设计系统晚宴的人，今年 Clarity 大会的演讲者，以及 Figma 家族的朋友。 你可以阅读从 Facebook 到 Google 再到 Airbnb 的设计师们的意见。 我们甚至把 Twitter 众包出去，收到了61条深思熟虑的回复，这些回复都非常令人感激。&lt;/p&gt;
+
+&lt;p&gt;Like a collective hive brain, many designers touched on similar topics, from accessibility and ethical accountability, to collaborative design.
+像一个集体蜂巢大脑一样，许多设计师也谈到了类似的话题，从可及性和道德责任，到协同设计。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/blue_guy.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;1-accessibility-will-be-first-ego-second&quot;&gt;1. Accessibility will be first, ego second&lt;/h1&gt;
+&lt;h1 id=&quot;1-可达性第一自我第二&quot;&gt;1. 可达性第一，自我第二&lt;/h1&gt;
+
+&lt;p&gt;“I really hope 2018 is the year designers commit to designing with accessibility in mind. We need to stop using ultra light grays for essential elements, we need to stop animating every single pixel just because it looks nice, and we need to stop making it harder on people to understand the content of a page only because we want to prove ourselves as designers.”
+“我真的希望2018年是设计师们致力于设计时考虑到无障碍性的一年。 我们需要停止使用超轻灰色作为基本元素，我们需要停止仅仅因为每个像素看起来漂亮就对其进行动画处理，我们需要停止仅仅因为我们想证明自己是设计师就让人们更难理解页面的内容。”&lt;/p&gt;
+
+&lt;p&gt;Hubert Florin, Product Designer at Slack
+休伯特 · 弗洛林，Slack 的产品设计师&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/red_woman.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-collaboration-in-design-will-echo-engineering&quot;&gt;2. Collaboration in design will echo engineering&lt;/h1&gt;
+&lt;h1 id=&quot;2-设计方面的合作将与工程学相呼应&quot;&gt;2. 设计方面的合作将与工程学相呼应&lt;/h1&gt;
+
+&lt;p&gt;“Whether or not designers code, I think that design teams will start to collaborate a lot more like engineering teams. That might include design reviews akin to code reviews, design tools that function like code linters, or an uptick in open source design patterns. What would software be like if all open source engineering projects had design equivalents driving industry standards in user experience or information design?”
+“无论设计师是否编写代码，我认为设计团队将开始更像工程团队一样合作。 这可能包括类似于代码审查的设计审查，功能类似于代码短片的设计工具，或者开源设计模式的提升。 如果所有的开源工程项目在用户体验或信息设计方面都有驱动行业标准的设计等价物，那么软件会是什么样子呢？”&lt;/p&gt;
+
+&lt;p&gt;Jules Forrest, Senior Product Designer at Credit Karma 
+朱尔斯 · 福里斯特，Credit Karma 高级产品设计师&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/tim_belonax.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-designers-will-focus-on-ethics&quot;&gt;3. Designers will focus on ethics&lt;/h1&gt;
+&lt;h1 id=&quot;3-设计师会关注道德&quot;&gt;3. 设计师会关注道德&lt;/h1&gt;
+
+&lt;p&gt;“My hope is UX/UI designers become more aware of their influence in 2018 and take into greater account the ethical ramifications of their design choices for the people that use their products.”
+“我希望用户体验 / 用户界面设计师在2018年能够更多地意识到他们的影响力，更多地考虑他们的设计选择对使用他们产品的人的道德影响。”&lt;/p&gt;
+
+&lt;p&gt;Tim Belonax, Lead Designer at Pinterest. 
+Pinterest的首席设计师 Tim Belonax&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/johan_ronsse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;4-designers-will-lean-too-heavily-on-the-industry-standard&quot;&gt;4. Designers will lean too heavily on the industry standard&lt;/h1&gt;
+&lt;h1 id=&quot;4-设计师过于依赖行业标准&quot;&gt;4. 设计师过于依赖行业标准&lt;/h1&gt;
+
+&lt;p&gt;“Unfortunately I predict increased reliance on prescribed design systems (I.e. Material, Fluent) without questioning them.”
+“不幸的是，我预测会越来越依赖规定的设计系统(即 Material，Fluent) ，而不去质疑它们。”&lt;/p&gt;
+
+&lt;p&gt;Johan Ronsse, UI/UX Designer and Partner at Mono Design
+Johan Ronsse，ui / ux 设计师，Mono Design 合伙人&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/diana_mounter.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;5-with-great-efficiency-comes-great-responsibility&quot;&gt;5. With great efficiency comes great responsibility&lt;/h1&gt;
+&lt;h1 id=&quot;5-效率越高责任越大&quot;&gt;5. 效率越高，责任越大&lt;/h1&gt;
+
+&lt;p&gt;“In 2018, I think we’ll see design and development tools continue to converge, with more centralized tools helping to design and build systems to work with whatever technology or platform you need. We’ll see CSS grid, custom variables, and frameworks like Vue and React bring new possibilities and greater efficiencies to design implementation — I hope this creates the space to spend more time designing responsibly, and building more inclusive experiences.”
+“在2018年，我认为我们将看到设计和开发工具继续融合，更多的集中化工具帮助设计和构建系统，以满足您所需的任何技术或平台。 我们将看到 CSS 网格、自定义变量，以及 Vue 和 React 等框架为设计实现带来了新的可能性和更高的效率ーー我希望这能创造空间，让我们花更多时间进行负责任的设计，构建更具包容性的体验。”&lt;/p&gt;
+
+&lt;p&gt;Diana Mounter, Design Systems Manager at GitHub
+戴安娜 · 蒙特，GitHub 设计系统经理&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/matthew_morek.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;6-were-going-to-ignore-the-one-trend-we-all-need&quot;&gt;6. We’re going to ignore the one trend we all need&lt;/h1&gt;
+&lt;h1 id=&quot;6-我们将忽略我们都需要的一个趋势&quot;&gt;6. 我们将忽略我们都需要的一个趋势&lt;/h1&gt;
+
+&lt;p&gt;“The one trend we all need, but is not likely to take the industry by storm or even make headlines, is design for accessibility and inclusive design. There’s a lot of work in that area and barely anyone wants to touch it. #accessibility”
+“我们都需要的一个趋势是无障碍设计和包容性设计，但这个趋势不太可能席卷整个行业，甚至不会成为头条新闻。 那个领域有很多工作，几乎没有人愿意去碰它。 # 无障碍”&lt;/p&gt;
+
+&lt;p&gt;Matthew Morek, UI/UX Design Consultant
+Matthew Morek，ui / ux 设计顾问&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/michelle_morrison.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;7-design-will-be-a-major-player-in-social-change&quot;&gt;7. Design will be a major player in social change&lt;/h1&gt;
+&lt;h1 id=&quot;7-设计将在社会变革中扮演重要角色&quot;&gt;7. 设计将在社会变革中扮演重要角色&lt;/h1&gt;
+
+&lt;p&gt;“Design that matters most is design that solves real human problems. Forward looking, I see design playing a major role in how we tackle the big, nasty issues in society. Design will become more political, more accessible, and a toolset that affects real change.”
+“最重要的设计是解决真正的人类问题的设计。 展望未来，我认为设计在我们如何处理社会中的重大问题上扮演着重要的角色。 设计将变得更加政治化，更加易于理解，并成为影响真正变化的工具集。”&lt;/p&gt;
+
+&lt;p&gt;Michelle Morrison, Design Program Manager at Facebook
+米歇尔 · 莫里森，Facebook 设计项目经理&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/noah_levin.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;8-design-tools-will-make-a-designer-out-of-everyone&quot;&gt;8. Design tools will make a designer out of everyone&lt;/h1&gt;
+&lt;h1 id=&quot;8-设计工具能让每个人都成为设计师&quot;&gt;8. 设计工具能让每个人都成为设计师&lt;/h1&gt;
+
+&lt;p&gt;“Modern design tools will become approachable enough that more people will be able to contribute to the design process on a level-playing field. We’ll think of “designers” less as an isolated role, but as a thing many people contribute to.”
+“现代设计工具将变得足够容易接近，更多的人将能够在公平竞争的环境中为设计过程做出贡献。 我们不会把“设计师”看作是一个孤立的角色，而是许多人为之贡献的东西。”&lt;/p&gt;
+
+&lt;p&gt;Noah Levin, Design Manager at Figma
+诺亚 · 莱文，Figma 设计经理&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/zachary_gibson.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;9-jason-schwartzman-said-it-best&quot;&gt;9. Jason Schwartzman said it best&lt;/h1&gt;
+&lt;h1 id=&quot;9-詹森舒瓦兹曼说的最好&quot;&gt;9. 詹森·舒瓦兹曼说的最好&lt;/h1&gt;
+
+&lt;p&gt;“Can I quote I Heart Huckabees? The interconnection thing is definitely for real.”
+“我可以引用笑看人心的话吗? 互连这件事绝对是真的。”&lt;/p&gt;
+
+&lt;p&gt;Zachary Gibson, Material Design Creative Lead at Google
+扎卡里 · 吉布森，谷歌材料设计创意主管&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/nicole_tollefson.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;10-time-to-check-your-ego-at-the-door&quot;&gt;10. Time to check your ego at the door&lt;/h1&gt;
+&lt;h1 id=&quot;10-是时候在门口检查一下你的自负了&quot;&gt;10. 是时候在门口检查一下你的自负了&lt;/h1&gt;
+
+&lt;p&gt;“We’ve given the word “empathy” a lot of deserving fanfare in the last few years, and next we’ll need to add to that rally-cry with ‘ego-less.’ Many still find it uncomfortable to invite “non-designers” into their headspace and discover that their best design is ultimately 90% (or more) other peoples’ input and 10% (or less) their own ideas, but the most successful teams and companies have known this about design for a long time.”
+“在过去的几年里，我们已经为“同理心”这个词大张旗鼓地宣传了很多次，接下来，我们需要用“没有自我”来加强这种集会式的呐喊 许多人仍然觉得邀请“非设计师”进入他们的思维空间并发现他们最好的设计最终是90% (或更多)其他人的投入和10% (或更少)他们自己的想法是不舒服的，但是最成功的团队和公司早就知道这一点。”&lt;/p&gt;
+
+&lt;p&gt;Nicole Tollefson, Lead Designer at Atlassian Buyer Experience
+Nicole Tollefson，Atlassian 采购经验的首席设计师&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/josh_silverman.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;11-people-skills-will-matter-more-than-ever&quot;&gt;11. People skills will matter more than ever&lt;/h1&gt;
+&lt;h1 id=&quot;11-人际交往技巧将比以往任何时候都重要&quot;&gt;11. 人际交往技巧将比以往任何时候都重要&lt;/h1&gt;
+
+&lt;p&gt;“It’s becoming increasingly critical to hone our people skills — the stuff that persists amidst so much change. This means we’ll listen and collaborate more with each other; ensure diverse, cross-team voices are present and heard throughout our work; and cultivate optimal environments for optimal performance. Underneath every tech problem is a people problem.”
+“磨练我们的人际交往技能变得越来越重要——这些技能在如此多的变化中依然存在。 这意味着我们将更多地相互倾听和协作; 确保不同的、跨团队的声音在整个工作过程中都能被听到; 培养最佳的工作环境。 每个技术问题的背后都有一个人的问题。”&lt;/p&gt;
+
+&lt;p&gt;Josh Silverman, Design Producer at Twitter
+乔什 · 西尔弗曼，Twitter 设计制作人&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/linda_dong.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;12-its-time-to-dynamically-react-to-the-environment&quot;&gt;12. It’s time to dynamically react to the environment&lt;/h1&gt;
+&lt;h1 id=&quot;12-是时候对环境做出动态反应了&quot;&gt;12. 是时候对环境做出动态反应了&lt;/h1&gt;
+
+&lt;p&gt;“I see future designs integrating the real world in a big way. Whether that’s through hardware sensors, alternate reality, or context-driven UI — designers will understand design lives outside of a screen. Designs will dynamically react to the environment around them and will take full advantage of hardware capabilities.”
+“我预见未来的设计将以一种很大的方式整合现实世界。 无论是通过硬件传感器、虚拟现实还是上下文驱动的用户界面ーー设计师都将理解屏幕之外的设计世界。 设计将根据周围的环境动态地做出反应，并充分利用硬件功能。”&lt;/p&gt;
+
+&lt;p&gt;Linda Dong, Design Manager at Lyft
+设计经理 Linda Dong&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/lucas_smith.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;13-better-design-tools-will-lead-to-better-branding-through-design-systems&quot;&gt;13. Better design tools will lead to better branding through design systems&lt;/h1&gt;
+&lt;h1 id=&quot;13-更好的设计工具将通过设计系统带来更好的品牌&quot;&gt;13. 更好的设计工具将通过设计系统带来更好的品牌&lt;/h1&gt;
+
+&lt;p&gt;“As tooling catches up to the prevailing winds of design systems, it will be easier to collaborate and evolve the expression of a brand through a design system. This will allow designers to work at a higher fidelity earlier in the product process — improving decision making and lowering the cost to produce great digital work.”&lt;/p&gt;
+
+&lt;p&gt;Lucas Smith, Design Technologist at Airbnb
+卢卡斯 · 史密斯，Airbnb 设计技术专家&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/daniel_eden.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;14-design-systems-will-serve-people-not-products&quot;&gt;14. Design systems will serve people, not products&lt;/h1&gt;
+&lt;h1 id=&quot;14-设计系统将服务于人而不是产品&quot;&gt;14. 设计系统将服务于人，而不是产品&lt;/h1&gt;
+
+&lt;p&gt;“The next monumental shift in design requires us to think of design systems as a service and not a product. We tend to think of a design system as a “product serving products,” but I think that does a disservice to the relationships, negotiation, compromise, and human interaction that makes working on systems so challenging and rewarding.”
+“设计的下一个重大转变要求我们把设计系统看作是一种服务，而不是一种产品。 我们倾向于认为设计系统是一个“为产品服务的产品” ，但是我认为这对人际关系、谈判、妥协和人际交往是有害的，而这些使得系统的工作变得如此具有挑战性和回报性。”&lt;/p&gt;
+
+&lt;p&gt;Daniel Eden, Product Designer at Facebook
+丹尼尔 · 伊登，Facebook 产品设计师&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/jerel_johnson.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;15-design-systems-will-only-grow-in-importance&quot;&gt;15. Design systems will only grow in importance&lt;/h1&gt;
+&lt;h1 id=&quot;15-设计系统只会变得越来越重要&quot;&gt;15. 设计系统只会变得越来越重要&lt;/h1&gt;
+
+&lt;p&gt;“We will continue to see the rise of design systems in response to scaling design teams, templatization, and increased reliance on machine learning and AI-based content. Designers will add procedural literacy and algorithmic thinking to their skillsets to meet the needs and manifest the desires of people.”
+“我们将继续看到设计系统的崛起，以应对缩放设计团队、模板化、以及对机器学习和基于 ai 的内容的更多依赖。 设计师将在他们的技能中加入程序素养和算法思维，以满足人们的需求和实现人们的愿望。”&lt;/p&gt;
+
+&lt;p&gt;Jerel Johnson, Sr. Product Designer at Backpack Health
+背包健康公司高级产品设计师杰瑞尔 · 约翰逊&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/una_kravets.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;16-flat-design-will-no-longer-be-a-focus&quot;&gt;16. Flat design will no longer be a focus&lt;/h1&gt;
+&lt;h1 id=&quot;16-扁平化设计将不再是焦点&quot;&gt;16. 扁平化设计将不再是焦点&lt;/h1&gt;
+
+&lt;p&gt;“I think we’ll see a lot more creativity in interfaces in the coming year as we move away from flat design, with interaction and accessibility in mind.”
+“我认为，随着我们逐渐远离扁平化设计，将交互性和可访问性考虑在内，未来一年我们将在界面上看到更多的创造力。”&lt;/p&gt;
+
+&lt;p&gt;Una Kravets, Sr. UI Engineer at DigitalOcean
+Una Kravets DigitalOcean 的高级 UI 工程师&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/isha_kasliwal.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;17-design-systems-will-bridge-the-gap-across-departments&quot;&gt;17. Design systems will bridge the gap across departments&lt;/h1&gt;
+&lt;h1 id=&quot;17-设计系统将弥合各部门之间的差距&quot;&gt;17. 设计系统将弥合各部门之间的差距&lt;/h1&gt;
+
+&lt;p&gt;“Design trends for the next year will definitely include, just like this year, an uptick in design systems. More and more companies are learning the benefits of systemizing design, especially how it bridges the gaps between product, design, and engineering. Also, I feel like 3D modeling and 3D visualizations are continuing to grow in popularity. I can imagine showing depth in UI will be trendy as a result of that.”
+“明年的设计趋势肯定会包括，就像今年一样，设计系统的上升。 越来越多的公司正在学习系统化设计的好处，尤其是它如何在产品、设计和工程之间搭建桥梁。 此外，我觉得3 d 建模和3 d 可视化正在持续增长的普及。 我可以想象在 UI 中显示深度将会成为时尚的结果。”&lt;/p&gt;
+
+&lt;p&gt;Isha Kasliwal, Senior UI/UX Designer/Developer at Twitch
+Isha Kasliwal，Twitch 高级 ui / ux 设计师 / 开发人员&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/miriam_suzanne.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;18-improvements-in-css-will-affect-web-design-in-surprising-ways&quot;&gt;18. Improvements in CSS will affect web design in surprising ways&lt;/h1&gt;
+&lt;h1 id=&quot;18-css-的改进会以令人惊讶的方式影响网页设计&quot;&gt;18. CSS 的改进会以令人惊讶的方式影响网页设计&lt;/h1&gt;
+
+&lt;p&gt;“There’s a lot to be excited about in CSS — integrating new tools, like Grid and Custom Properties, with existing features like Calc and Viewport Units. Modern CSS allow a new level of interaction, responsiveness, and data-visualization that previously required extensive Javascript involvement. I’m excited to see what new trends grow out of that technology.”
+“在 CSS 中有很多令人兴奋的东西ーー集成新的工具，如 Grid 和 Custom Properties，以及现有的特性，如 Calc 和 Viewport Units。 现代 CSS 允许一个新的层次的交互、响应和数据可视化，以前需要大量的 Javascript 参与。 我很高兴看到这项技术带来了什么新的趋势。”&lt;/p&gt;
+
+&lt;p&gt;Miriam Suzanne, Designer and Developer at OddBird
+米里亚姆苏珊娜，OddBird 的设计师和开发人员&lt;/p&gt;
+
+&lt;p&gt;An honorary mention goes to… 
+获得荣誉提名的是..&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="designers" /><summary type="html">18位设计师预测2018年用户界面/用户体验趋势</summary></entry><entry><title type="html">【微信小程序采坑之路】①radio实现接收后台数据并展示</title><link href="http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying.html" rel="alternate" type="text/html" title="【微信小程序采坑之路】①radio实现接收后台数据并展示" /><published>2019-08-05T03:46:31+08:00</published><updated>2019-08-05T03:46:31+08:00</updated><id>http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying</id><content type="html" xml:base="http://localhost:4000/2019/08/05/Radio-realizes-receiving-background-data-and-displaying.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201908042042.jpg&quot; alt=&quot;微信小程序&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;新手开发学习采坑之路，只为记录一下遇到问题：&lt;/p&gt;
+
+&lt;p&gt;今天在开发微信小程序的时候遇到了一个小坑，在获取后台返回的数据之后想要在前台渲染。&lt;/p&gt;
+
+&lt;p&gt;首先要实现的功能是页面的展示，代码是from表单写的，用户通过这个表单提交数据到后台，然后在下一次用户打开这个页面的时候展示上一次通过from表单提交的数据。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;然后我最初的想法是通过wx:for循环把数据里的每一个元素提出，再用item提取出来，但是实际的结果不尽人意，通过wx:for循环之后整个表单页面在渲染层就不显示了。这样一来，这个方法就实现不了了，后台的数据都已经获取到了，就差渲染到页面上了。&lt;/p&gt;
+
+&lt;p&gt;最后想到了通过setData方法来进行数据绑定，直接使用来进行展示， 运行了一下，可以。没想到直接使用了一个最简单的办法就实现了。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Js逻辑层代码：
+&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492288-30ff1ba7-a92b-4aa3-bf50-0490732601ac-image1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Wxml渲染层代码：
+&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492310-14ad7b94-d16e-4ac0-9570-65744d8cb0e7-image2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;显示的页面样式是这样的：
+&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492350-38a749ad-c5c1-49b5-bf70-788d2afacd26-image3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;虽然，input组件可以显示了，但是还有一个radio单选组件，这个怎么才能让接收到数据显示到radio组件上呢？&lt;/p&gt;
+
+    &lt;p&gt;在网上搜索得到的结果是 正常的JavaScript代码里需要定义一个方法然后通过传递的元素名获取元素对象，获取到对象之后进行遍历，寻找值等于所获取值的子对象，找到子对象之后用rObj[i].checked =  ‘checked’;将数据显示到radio选项里。但是微信小程序这个就比较麻烦，checked这个属性的值是boolean值，只有true和false，我就在这个值里绑定一个三元运算符进行判断，如果这个值等于提交给后台的value值，那么就是true然后radio里的选项上这个就是选中状态。&lt;/p&gt;
+
+    &lt;p&gt;在实验的时候，我的代码是这样写的：（错误的范例）&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;view class=&quot;form-item&quot;&amp;gt;
+    &amp;lt;view class=&quot;form-item-hd&quot;&amp;gt;特技方式：&amp;lt;/view&amp;gt;
+    &amp;lt;view class=&quot;section__title&quot;&amp;gt;
+      &amp;lt;radio-group name=&quot;style&quot;&amp;gt;
+        &amp;lt;label&amp;gt;
+          &amp;lt;radio value=&quot;4&quot; checked=&quot;&quot; /&amp;gt;向左移动&amp;lt;/label&amp;gt;
+        &amp;lt;label&amp;gt;
+          &amp;lt;radio value=&quot;38&quot; checked=&quot;&quot;/&amp;gt;向右移动&amp;lt;/label&amp;gt;
+      &amp;lt;/radio-group&amp;gt;
+    &amp;lt;/view&amp;gt;
+  &amp;lt;/view&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;不管上一次发送的是什么它总是显示的是最后一个radio选项，就像这样：
+&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2019/png/262649/1550204492371-6e26f89b-3b83-42d4-b4a3-965d93526434-image4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;不太记得了是哪位伟大的名人说过一句话：“这样的结果那就只有一种可能了，那就是代码是问题”。接着找bug吧！把checked的属性全都试了一遍。但是结果还是不好使。What？（一个黑人大大问号），难道是三元运算符的问题吗？找了一下小程序的文档，一看果然是，运算的结果true是不加单引号的，（emmm！！！）运行之后正确执行了。这一个小坑让我转了这么一大圈。但是结果是圆满的。&lt;/p&gt;
+
+    &lt;p&gt;这个错误让我想起了一个笑话：一个程序员在肯德基编程，一个乞丐边上坐下来，向他乞讨。他给了一块钱，继续写代码。乞丐没有走，看着他。过了一会，悄悄地说：“这行少了一个分号” 他惊诧地睁大眼睛问：“这个你也懂? ” 乞丐满眼含泪：“就是因为懂这个，所以我才落的今天这下场。”……&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>true</name></author><category term="微信小程序" /><category term="Radio组件" /><summary type="html"></summary></entry><entry><title type="html">【翻译】(第三篇) The Psychology Principles Every UI/UX Designer Needs to Know</title><link href="http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know.html" rel="alternate" type="text/html" title="【翻译】(第三篇) The Psychology Principles Every UI/UX Designer Needs to Know" /><published>2019-07-17T06:42:49+08:00</published><updated>2019-07-17T06:42:49+08:00</updated><id>http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know</id><content type="html" xml:base="http://localhost:4000/2019/07/17/The-Psychology-Principles-Every-UI-UX-Designer-Needs-to-Know.html">&lt;center&gt;&lt;h1&gt; 每一个UI/UX设计者需要知道的心理学原则&lt;/h1&gt;&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
+        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;** 原文链接：https://uxplanet.org/the-psychology-principles-every-ui-ux-designer-needs-to-know-24116fd65778 **&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;作者：Thanasis Rigopoulos&lt;/li&gt;
+  &lt;li&gt;2017年6月8日&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/translate/translate3-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Psychology plays a big part in a user’s experience with an application. By understanding how our designs are perceived, we can make adjustments so that the apps we create are more effective in achieving the goals of the user.
+心理学在用户的应用体验中起着重要作用。通过了解我们的设计是如何被感知的，我们可以进行调整，以便我们创建的应用程序在实现用户目标方面更有效。&lt;/p&gt;
+
+&lt;p&gt;To help you understand the perception of the user, I will introduce some design principles which I think are the most important, and also provide common examples of these principles in practice. Let’s start with the Von Restorff effect:
+帮助你理解用户的感受，我将介绍一些我认为最重要的设计原则，并在实践中提供这些原则的常见例子。让我们从冯·雷斯托夫效应（Von Restorff effect）开始：&lt;/p&gt;
+
+&lt;h2 id=&quot;冯雷斯托夫效应von-restorff-effect&quot;&gt;冯·雷斯托夫效应（Von Restorff effect）&lt;/h2&gt;
+
+&lt;p&gt;The Von Restorff effect (also known as the isolation effect) predicts that when multiple similar objects are present, the one that differs from the rest is most likely to be remembered!
+Von Restorff效应（也称为隔离效应）预测，当存在多个类似对象时，最有可能记住与其他对象不同的对象！&lt;/p&gt;
+
+&lt;p&gt;Does this ring any bells?
+这个预测准确吗？&lt;/p&gt;
+
+&lt;p&gt;This is the main reason why all call-to-actions (CTAs) look different from the rest of the action buttons on a site or application!
+这就是为什么所有动作调用（CTAs）看起来都不同于网站上或应用程序上的其他动作按钮的主要原因！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-2.png&quot; alt=&quot;Von Restorff Effect Example&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We want users to be able to differentiate between a simple action button and a CTA, in order for them to have a clear understanding what the CTA does, whilst also remembering it throughout their use of the application or site.
+我们希望用户能够区分简单的操作按钮和CTA，以便他们清楚地了解CTA的作用，同时在使用应用程序或网站的过程中记住它。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“When multiple similar objects are present, the one that differs from the rest is most likely to be remembered!”
+当存在多个相似的物体时，最有可能记住与其他物体不同的物体！&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;序列位置效应serial-position-effect&quot;&gt;序列位置效应（Serial position effect）&lt;/h2&gt;
+
+&lt;p&gt;The Serial Position Effect is the propensity of a user to best remember the first and last items in a series.
+序列位置效应是用户倾向于最好地记住序列中第一项和最后一项。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-3.png&quot; alt=&quot;From left to right, Twitter, Medium, ProductHunt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is why most applications nowadays ditch the hamburger menu and go for a bottom or top bar navigation, placing the most important user actions to the right or left. In the image above, you can see some examples from popular iOS applications. Each put the “Home” and “Profile” items all the way to the left and right, with serial position effect in mind.
+这就是为什么现在大多数应用程序放弃汉堡包菜单，选择底部或顶部的导航条，将最重要的用户操作放在右侧或左侧。在上图中，您可以看到一些流行的iOS应用程序的示例。每个都将“主页”和“配置文件”项目一直放在左右两侧，并考虑到序列位置效应。&lt;/p&gt;
+
+&lt;h2 id=&quot;认知负荷cognitive-load&quot;&gt;认知负荷（Cognitive load）&lt;/h2&gt;
+
+&lt;p&gt;Cognitive load refers to the total amount of mental effort being used in a person’s working memory. To put it simply, it is the amount of thought you need to exercise in order to complete a specific task.
+认知负荷是指在一个人的工作记忆中所使用的脑力的总量。简单地说，它是完成一项特定任务所需要的思考量。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Cognitive load is the amount of thought you need to exercise in order to complete a specific task.”
+认知负荷是为了完成一项特定的任务而需要锻炼的思想量。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cognitive load theory can be differentiated into three types:
+认知负荷理论可分为三种类型：&lt;/p&gt;
+
+&lt;p&gt;1.Intrinsic cognitive load
+1.内在认知负荷&lt;/p&gt;
+
+&lt;p&gt;2.Extraneous cognitive load
+2.外来认知负荷&lt;/p&gt;
+
+&lt;p&gt;3.Germane cognitive load
+3.相关认知负荷&lt;/p&gt;
+
+&lt;p&gt;I will touch upon the Intrinsic and Germane types as I think that these are the most applicable to UX design.
+我将讨论内在的和相关联系的类型，因为我认为它们最适用于UX设计。&lt;/p&gt;
+
+&lt;h2 id=&quot;内在认知负荷intrinsic-cognitive-load&quot;&gt;内在认知负荷（Intrinsic Cognitive Load）&lt;/h2&gt;
+
+&lt;p&gt;Intrinsic cognitive load is the difficulty associated with a specific instructional topic. It’s the main reason micro-copy and copy play a huge role in a good user experience.
+内在认知负荷是与特定教学主题相关的困难。这是微拷贝和拷贝在良好的用户体验中发挥巨大作用的主要原因。&lt;/p&gt;
+
+&lt;p&gt;For example most of the time on applications’ empty states, we prompt users to complete a task. Here, the copy needs to be short, simple and with the appropriate words in order for the user to be able to easily follow the instructions.
+例如，大多数情况下，在应用程序的空状态下，我们会提示用户完成一项任务。在这里，副本需要简短、简单和适当的文字，以便用户能够轻松地按照说明进行操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-4.png&quot; alt=&quot;From left to right, Stayful, Serist, Lucidchart&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;相关认知负荷germane-cognitive-load&quot;&gt;相关认知负荷（Germane Cognitive Load）&lt;/h2&gt;
+
+&lt;p&gt;Germane cognitive load is the cognitive load devoted to processing information and construction of schemas. The schemas describe a pattern of thought that organises categories of information and any relationships among them.
+相关认知负荷是专门用于信息处理和模式构建的认知负载。这些图式描述了一种思维模式，它组织信息的类别和它们之间的任何关系。&lt;/p&gt;
+
+&lt;p&gt;One of the reasons we use design patterns is because they’re something we’re programmed to do by default — so it’s easier for the users to recognise and learn something new if they can discern it into a pattern from something they already understand.
+我们使用设计模式的其中一个原因是，它们是我们在默认情况下编程要做的事情——因此，如果用户能够从他们已经理解的东西中将其识别为模式，那么他们就更容易识别和学习新的东西。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“It’s easier for users to learn something new if they can discern it to a pattern from something they understand”
+“如果用户能够从他们所理解的事物中辨别出某种模式，那么他们更容易学习新事物。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;希克定律hicks-law&quot;&gt;希克定律（Hick’s Law）&lt;/h2&gt;
+
+&lt;p&gt;Hick’s Law is the most popular principle, along with the Gestalt Laws.
+希克定律是除了格式塔定律之外最流行的原理。&lt;/p&gt;
+
+&lt;p&gt;It’s also very simple to understand and practice. Hick’s Law describes that the time it takes for a person to make a decision depends on the choices available to him or her. So if the number of choices increases, the time to make a decision increases logarithmically.
+它也很容易理解和实践。希克定律描述了一个人做出决定所需的时间取决于他或她所能做出的选择。因此，如果选择的数量增加，做出决定的时间将以对数方式增加。&lt;/p&gt;
+
+&lt;p&gt;A very nice example of Hick’s Law that applies to user experience design are lists:
+适用于用户体验设计的希克定律的一个很好的例子是列表：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-5.png&quot; alt=&quot;Hick’s Law Example&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;邻近定律law-of-proximity&quot;&gt;邻近定律（Law of Proximity）&lt;/h2&gt;
+
+&lt;p&gt;Law of proximity is part of the Gestalt Laws of Perceptual Organization, and it states that objects that are near, or proximate to each other, tend to be grouped together. To put it in simpler terms, our brain can easily associate objects close to each other, better than it does objects that are spaced far apart. This clustering occurs because humans have a natural tendency to organise and group things together.
+邻近法则是知觉组织的格式塔法则的一部分，它指出，接近或接近彼此的物体倾向于组合在一起。简单地说，我们的大脑可以很容易地将彼此靠近的物体联系在一起，这比那些相隔很远的物体要好。这种聚集的发生是因为人类有一种自然的倾向，将事物组织在一起。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/translate/translate3-6.png&quot; alt=&quot;Law of Proximity Example&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The Law of Proximity states that objects that are near, or proximate to each other, tend to be grouped together”
+邻近定律规定，彼此接近或接近的物体倾向于组合在一起。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the example above, there are 72 circles. We recognise the circles in groups, based on the distance between them. Categorically, we also perceive that there’s a group of 36 circles on the left side of the image, and 3 groups of 12 circles on the right side of the image.
+在上面的例子中，有72个圆。我们根据两个圆之间的距离，对它们进行分组识别。明确地说，我们还发现图像左侧有一组36个圆圈，右侧有3组12个圆圈。&lt;/p&gt;
+
+&lt;p&gt;I believe this example makes it clear that there is a need to group things together when designing a UI, as well as the importance of being careful when putting things together since users may naturally think they are associated with each other.
+我相信这个例子清楚地表明，在设计一个UI时需要将事物分组在一起，并且在将事物组合在一起时要小心，因为用户可能会自然地认为它们是相互关联的。&lt;/p&gt;
+
+&lt;p&gt;Originally published at blog.marvelapp.com on June 8, 2017.
+最初于2017年6月8日在blog.marvelapp.com上发布。&lt;/p&gt;</content><author><name>true</name></author><category term="心理学" /><category term="设计" /><category term="UI/UX" /><category term="翻译" /><summary type="html">每一个UI/UX设计者需要知道的心理学原则</summary></entry><entry><title type="html">【致自己-心灵鸡汤】放下，需要勇气，更考验智慧</title><link href="http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more.html" rel="alternate" type="text/html" title="【致自己-心灵鸡汤】放下，需要勇气，更考验智慧" /><published>2019-07-13T01:58:22+08:00</published><updated>2019-07-13T01:58:22+08:00</updated><id>http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more</id><content type="html" xml:base="http://localhost:4000/2019/07/13/Put-it-down-need-courage-test-wisdom-even-more.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201907122010.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&amp;lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;amp;id=460378099&amp;amp;auto=1&amp;amp;height=66&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/center&gt;
+
+&lt;p&gt;人生在世，不过两词：拿得起，放得下。&lt;/p&gt;
+
+&lt;p&gt;柏拉图说：“如果不幸福、不快乐，那就放手吧。人生最遗憾的，莫过于，&lt;em&gt;** 轻易地放弃了不该放弃的，固执地坚持了不该坚持的。 **&lt;/em&gt;”&lt;/p&gt;
+
+&lt;p&gt;拼尽全力也得不到的东西，就试着放下吧。&lt;/p&gt;
+
+&lt;p&gt;放下，是人生的一场修行，你以为放下就会失去，但放下才是真正的拥有。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;center&gt;&lt;h1&gt;壹&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;追不上的不追背不动的放下-看不惯的删除&quot;&gt;“追不上的，不追。背不动的，放下。 看不惯的，删除。”&lt;/h3&gt;
+
+&lt;p&gt;渐渐发现，生活中大多苦恼，其实都是我们自己“创造”的。&lt;/p&gt;
+
+&lt;p&gt;怀念已逝而无可挽救的事物，追寻得不到的人，渴望远远没能力够到的生活，对未来期许太大、太多。&lt;/p&gt;
+
+&lt;p&gt;可现实对于背负过多念想的人来说，往往是残酷的。&lt;/p&gt;
+
+&lt;p&gt;生活，本就是一边拥有，一边失去。一些得到，一些不可及。唯有让一切随缘，缘深多聚聚，缘浅随它去，你才能活得快乐些。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122049.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;就像郭德纲说的那样：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;　“人在天涯，身不由己，风雨踏歌行。江湖子弟，拿得起来放得下。放不下，也得放。
+活一百岁的没几个人，开心就笑，不开心待会儿再笑。高高兴兴比什么都强。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　好日子，是脚踏实地一步一步过出来的。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;** 往后余生，只愿你能不念过去，不盼将来，过好现在。 **&lt;/em&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;h1&gt;贰&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;不要赌天意不要猜人心天意你赌不起人心你猜不透&quot;&gt;“不要赌天意，不要猜人心。天意你赌不起，人心你猜不透。”&lt;/h3&gt;
+
+&lt;p&gt;寝室里那个太自我的室友，让你很困扰吧？&lt;/p&gt;
+
+&lt;p&gt;职场话语间总有言外之意的同事，让你很苦恼吧？&lt;/p&gt;
+
+&lt;p&gt;感情中和你意见不合吵吵闹闹的男/女朋友，让你很受伤吧？&lt;/p&gt;
+
+&lt;p&gt;可若是别太放在心上，做好自己，便不会如此闹心了，不是吗？&lt;/p&gt;
+
+&lt;p&gt;每一段关系，只要自己竭尽全力守护过，无愧于心，足矣。&lt;/p&gt;
+
+&lt;p&gt;分分合合，他去他来，乃是人生常态。我们唯一能做的，是有缘相遇时，好好珍惜。发现道不同，则不相为谋，潇洒离开就好。&lt;/p&gt;
+
+&lt;p&gt;不怪TA，也不怪你，更不怪所谓是是非非纷扰之事。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;** 毕竟，“天下无不散之筵席”，才是一生中大多数关系无法避免的结局啊。 **&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122051.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;h1&gt;叁&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;不要总是抱怨生活不会因为抱怨变得更好-&quot;&gt;“不要总是抱怨，生活不会因为抱怨变得更好” 。&lt;/h3&gt;
+
+&lt;p&gt;三毛曾说：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“偶尔抱怨一次人生可能是某种情感的宣泄，也无不可，但习惯性的抱怨而不谋求改变，便是不聪明的人了。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;倘若真心想要改变现状，就打起精神吧。&lt;/p&gt;
+
+&lt;p&gt;考大学失败3次，申请工作失败30多次，其中有两次肯德基和警察岗位应聘只因为他长得丑而拒绝。&lt;/p&gt;
+
+&lt;p&gt;首次创业准备大展宏图，最终也失败了的马云，凭着不服输，埋头向前冲的韧劲，最终创造了让他享誉全中国、甚至全世界的阿里巴巴。&lt;/p&gt;
+
+&lt;p&gt;失败只是漫长人生中一个小磕绊，也许多年后你甚至都记不起这段经历。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;** 要记住，频频回头看而止步不前的人，是无法如愿过上好日子的。 **&lt;/em&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;h1&gt;肆&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;一个人要抵过千军万马一个人也要活得有声有色&quot;&gt;“一个人要抵过千军万马，一个人也要活得有声有色。”&lt;/h3&gt;
+
+&lt;p&gt;曾看过这样一句很温暖的话：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“希望你别迷路了，希望你交到好朋友，希望你别再被人欺负，希望你幸福，希望你一个人也能够坚强。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;不要自怨自艾，心态好了，生活才不会这么累。&lt;/p&gt;
+
+&lt;p&gt;生活有小目标，有能聊得来的人，工作勤勉，还有点小钱，偶尔做做不切实际的梦，偶尔也浪费一点时间，挺好。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/blogImg/201907122053.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不要因为一次感情失败就失望于人性，不要因为一次挫折就否定自己的能力，不要因为暂时没有努力方向就消极怠慢。&lt;/p&gt;
+
+&lt;p&gt;生活有希望，才会足够坚强。&lt;/p&gt;
+
+&lt;p&gt;人生就是，一边努力着，一边快乐着，平淡且真，有所期待。&lt;/p&gt;
+
+&lt;p&gt;这就是一个人最好的生活状态吧：&lt;em&gt;** 有所为，有所爱，也有人懂，有自己的生活节奏，也永远对未来有所期待。 **&lt;/em&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;h1&gt;伍&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;除了生死其他一切都是小事&quot;&gt;“除了生死，其他一切都是小事”&lt;/h3&gt;
+
+&lt;p&gt;你该知道，极乐世界描绘得好，也无法安慰即将逝世之人。&lt;/p&gt;
+
+&lt;p&gt;因为离去前回想这一生后，他们深知活着的世界，才是最动人而无可代替的。&lt;/p&gt;
+
+&lt;p&gt;身边有珍惜的人，眼前有治愈的美景，可以品尝美味的食物，起起落落的人生经历，那一刻回忆起来也是美好的往事。&lt;/p&gt;
+
+&lt;p&gt;所以啊，遇到再怎么苦恼让人难过的事也好，要想着，一切终会过去，时间会给你治愈，没有什么是解决不了的。&lt;/p&gt;
+
+&lt;p&gt;还活着，一切就还有希望，未来还会走向更好的地方。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;** 当你握紧双手，里面什么也没有； **&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;** 当你打开双手，世界就在你手中。 **&lt;/em&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="致自己" /><category term="心灵鸡汤" /><summary type="html"></summary></entry><entry><title type="html">【翻译】(第二篇) How to streamline your UI/UX workflow with Figma</title><link href="http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma.html" rel="alternate" type="text/html" title="【翻译】(第二篇) How to streamline your UI/UX workflow with Figma" /><published>2019-07-12T17:22:59+08:00</published><updated>2019-07-12T17:22:59+08:00</updated><id>http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma</id><content type="html" xml:base="http://localhost:4000/2019/07/12/How-to-streamline-your-UI-UX-workflow-with-Figma.html">&lt;center&gt;&lt;h1&gt; 如何使用Figma简化您的UI/UX工作流&lt;/h1&gt;&lt;/center&gt;
+
+&lt;h4 id=&quot;如何在下一个项目中节省90的时间&quot;&gt;如何在下一个项目中节省90%的时间&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;作者：Nicole Saidy&lt;/li&gt;
+  &lt;li&gt;2018年2月12日&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;原文地址：https://blog.nicolesaidy.com/how-to-streamline-your-ui-ux-workflow-with-figma-b72c30596435&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*OGwKowQMVnj5Vk-lbbB6OQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;去年，我一直使用Figma软件来进行我的UI/UX设计工作，并且它节省了我很多工作时间。他真的改变了我的工作流。&lt;/p&gt;
+
+&lt;p&gt;除了直观的使用。我喜欢Figma的原因是因为他是完整的一套东西。它使我能够在整个设计过程中工作：线框图、设计、设计系统、原型设计和协作。&lt;/p&gt;
+
+&lt;p&gt;我不想谈论你为什么应该使用Figma。反而，我将向你展示你怎样使用一个简单的黑客软件节省你下一个项目的时间。&lt;/p&gt;
+
+&lt;p&gt;这都归结为Figma中的一个重要特性：✨组件✨。
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*zafsrGTkmeVKhMCEldZ34g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;组件在Figma中是和Sketch中的符号是非常相似的。但是我认为Figma的组件更灵活，更容易使用。如果您对组件不太了解，请先阅读本文或观看本教程。&lt;/p&gt;
+
+&lt;p&gt;Figma 怎样节省我的时间呢？让我们看看传统的设计过程与Figma中的设计过程的对比。&lt;/p&gt;
+
+&lt;h2 id=&quot;终极对决&quot;&gt;终极对决：&lt;/h2&gt;
+
+&lt;h4 id=&quot;经典过程&quot;&gt;经典过程：&lt;/h4&gt;
+
+&lt;p&gt;最简单的经典过程是在像Balsamiq这样的应用程序中构建线框图，然后在另一个应用程序 Sketch中构建设计，然后在另一个应用程序像 inVision中构建原型。这不是一个相互作用的过程，因为它会引起摩擦并浪费很多时间，更不用说它会在线框和原型之间产生巨大的差距。&lt;/p&gt;
+
+&lt;h4 id=&quot;figma过程&quot;&gt;Figma过程：&lt;/h4&gt;
+
+&lt;p&gt;使用Figma，您可以跳过2个步骤，在Figma中构建交互式线框，创建一个UI库（在相同的时间），然后更新已经花费宝贵时间用于创建最终设计原型的UI组件。&lt;/p&gt;
+
+&lt;p&gt;让我换个说法。从一开始就使用组件构建线框。当你这样做时，在你的线框被批准之后，你所需要做的就是更新组件。这将把它们从灰度基本形状转换为详细设计的组件，这些组件可以完全将线框转换为高保真原型。&lt;/p&gt;
+
+&lt;h4 id=&quot;他是怎样工作&quot;&gt;他是怎样工作？&lt;/h4&gt;
+
+&lt;p&gt;下面是执行步骤&lt;/p&gt;
+
+&lt;h5 id=&quot;step-1-构建你的线框&quot;&gt;step 1. 构建你的线框&lt;/h5&gt;
+
+&lt;p&gt;在这步骤之前，你应该已经在纸上画完了你屏幕上的草图。之后，是时候把他们移到数字线框了。&lt;/p&gt;
+
+&lt;p&gt;你开始在屏幕上画之前。第一件事是你需要创建一个UI框架库。这就是所有可重用的UI组件和指导原则将发生的地方。&lt;/p&gt;
+
+&lt;p&gt;第一个组件你应该创建你的文本样式。创建每一个样式的组件（H1,H2,H3,H4,P,Small，等）。保持原样的字体，不要考虑设计。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*kglcTnnr6lQvK56nHl1k5g.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在，每当您想向屏幕添加文本时，都可以从UI库中的文本组件中获取一个实例。为什么?当你进入设计阶段，想要改变你所有屏幕的字体样式时，你只需要从这里改变一次，它就会在任何地方更新。你一会就明白了。&lt;/p&gt;
+
+&lt;p&gt;这个概念同样适用于所有其他组件。&lt;/p&gt;
+
+&lt;p&gt;创建所有其他对象作为组件，如按钮、输入、下拉列表、导航栏、卡片、标签、页脚等。我通常喜欢先在屏幕中创建对象，在它的上下文中构建它，然后将它拖到我的UI库并将其转换为组件，然后将其复制回我的屏幕。&lt;/p&gt;
+
+&lt;p&gt;到项目结束时，（几乎）您在设计中创建的每个对象都应该是一个组件。这不仅可以节省您的工作时间，而且还可以保持整个产品的一致性，这是UI/UX设计中的一个关键点。&lt;/p&gt;
+
+&lt;h5 id=&quot;step-2-使线框交互&quot;&gt;Step 2. 使线框交互&lt;/h5&gt;
+
+&lt;p&gt;完成线框图和创建UI库之后，是时候让线框图交互了。幸运的是，Figma让这一切变得非常容易。&lt;/p&gt;
+
+&lt;p&gt;您只需要在原型模式下将每个对象拖到其链接页。请记住，链接原始组件会将相同的链接应用于其所有实例，如下所示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*pO1A_LCHEZpOiX9PR42c0g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下一步是与利益相关者共享交互式线框，并通过直接在原型上添加评论来获得反馈。&lt;/p&gt;
+
+&lt;p&gt;在几个迭代周期之后，您的线框应该得到批准。&lt;/p&gt;
+
+&lt;h5 id=&quot;step-3-设计系统风格&quot;&gt;Step 3. 设计系统风格&lt;/h5&gt;
+
+&lt;p&gt;一旦您的交互式线框获得批准，您现在就可以设计系统的样式。在这个步骤中，您将品牌设计指南、颜色和设计细节添加到您的UI库中已经构建的组件中。此步骤完全将线框转换为高保真设计原型。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*azAA0jqs7f2hCm4FMCDDKw.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我喜欢先向利益相关者展示风格指南，以便在向他们展示所有屏幕之前获得关于情绪和设计风格的反馈。我喜欢在其中添加一些UI组件，让他们了解每个组件的设计方式。&lt;/p&gt;
+
+&lt;h5 id=&quot;step-4-原型定稿&quot;&gt;Step 4. 原型定稿&lt;/h5&gt;
+
+&lt;p&gt;一旦样式指南获得批准，剩下的就是对原型进行润色。在这里你可以确保一切都到位。有些对象可能不是需要设计的组件，或者需要填充的组件。确保播放原型并尝试链接以确保所有链接都正常工作。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/2400/1*o0XtqMUKt1n7mX_Sw1G85g.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;原型完成了！现在，您可以与利益相关者共享一个链接，以获得最终批准。然后，您将它交给开发人员，向他们展示如何检查和导出Figma中的图像，同时他们还可以直接在原型上提出任何问题。&lt;/p&gt;
+
+&lt;p&gt;您还可以与用户共享一个公共链接来测试原型并收集反馈。&lt;/p&gt;
+
+&lt;p&gt;就这样！我希望我的过程能帮助你节省下一个项目的时间。&lt;/p&gt;
+
+&lt;p&gt;如果你喜欢这个，那么你肯定会喜欢我用Figma简化你的工作流程的SkillShare类，点击这里免费获得我的类（以及2个月的SkillShare溢价）。&lt;/p&gt;
+
+&lt;p&gt;别忘了在下面给我一些👏，在我的博客上写更多与设计相关的文章。&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="设计" /><category term="软件使用" /><summary type="html">如何使用Figma简化您的UI/UX工作流</summary></entry><entry><title type="html">【翻译】(第一篇) 7 steps to become a UI/UX designer</title><link href="http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer.html" rel="alternate" type="text/html" title="【翻译】(第一篇) 7 steps to become a UI/UX designer" /><published>2019-06-20T03:42:59+08:00</published><updated>2019-06-20T03:42:59+08:00</updated><id>http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer</id><content type="html" xml:base="http://localhost:4000/2019/06/20/7-steps-to-become-a-UI-UX-designer.html">&lt;center&gt;&lt;h1&gt;七步成为UI/UX设计师&lt;/h1&gt;&lt;/center&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;本文来自阅读极客时间专栏《左耳听风》89&lt;/td&gt;
+        &lt;td&gt;程序员练级攻略：UI/UX设计 文章中的推荐阅读&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;提示帮助您开始的资源&quot;&gt;提示：帮助您开始的资源&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;作者：Nicole Saidy&lt;/li&gt;
+  &lt;li&gt;2017年5月25日&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** 原文链接：https://blog.nicolesaidy.com/7-steps-to-become-a-ui-ux-designer-8beed7639a95 **&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/translate/translate1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近，我收到很多人的的相似问题：
+●	我怎么样才能深入的了解UI或UX？
+●	我作为一名程序员/营销经理/社交媒体策划师并且想要知道更多的关于设计。我该从哪里开始？
+●	你知道什么是好的设计和什么事坏的设计吗？
+●	成为一名设计师需要什么？
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h3 id=&quot;如何开始&quot;&gt;“如何开始？”&lt;/h3&gt;
+&lt;p&gt;这个问题使我回到我刚开始职业生涯的时候。7年前，在我第一份设计工作的第一天。我坐在iMac上的一个空白Photoshop文件前（那是我是Windows用户）。我想知道我的经理刚刚向我介绍了什么。我没有灵感怎样开始。大脑一片空白。&lt;/p&gt;
+
+&lt;p&gt;在就职那份工作之前，我只是大学毕业获得多媒体学位。那么，为什么我对设计一无所知呢？大学不教我们实用设计。大多数的大学课程只教我们原理和有时候教我们怎样使用设计软件像Adobe套件。但那还不够—甚至还不够接近。
+只有自己练习和学习才能使你成为更好的设计师
+自学七年后，我现在是一名设计教师和国际会议演讲者。
+你应该知道的第一件事是：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;你不必生来就拥有它
+我们不是天生就是设计师的独角兽。设计是学来的。设计就是解决问题。这是一个不断发现问题并为其创造解决方案的过程。
+设计有很多领域：用户界面、用户体验、产品设计师、图形设计师、交互设计师、信息架构师，并且列表还在继续。首先找出你更感兴趣的专业。现在，让我们集中讨论最常见的类型：界面和体验的混合：UI/UX设计师。&lt;/p&gt;
+  &lt;h1 id=&quot;1-熟悉用户界面原则&quot;&gt;1.	熟悉用户界面原则&lt;/h1&gt;
+  &lt;p&gt;练习设计之前，第一件事你需要学习一些设计的原则。由此，你将要能够进入设计的世界并且开始具有创造力的思想。你将要学习心理方面的设计：为什么它看起来好看和不好看
+这是一些你应该知道的基础原则&lt;/p&gt;
+  &lt;h3 id=&quot;1-颜色&quot;&gt;1.	颜色&lt;/h3&gt;
+  &lt;p&gt;颜色词汇，基础与色彩心理学。
+&lt;a href=&quot;https://www.sitepoint.com/principles-of-design-colour/&quot;&gt;设计原则：颜色&lt;/a&gt;&lt;/p&gt;
+  &lt;h3 id=&quot;2-平衡&quot;&gt;2.	平衡&lt;/h3&gt;
+  &lt;p&gt;对称与非对称
+&lt;a href=&quot;https://www.sitepoint.com/principles-of-good-design-balance/&quot;&gt;设计原则：平衡&lt;/a&gt;&lt;/p&gt;
+  &lt;h3 id=&quot;3-对比度&quot;&gt;3.	对比度&lt;/h3&gt;
+  &lt;p&gt;使用对比度去组织信息，构建层次结构和创造焦点。
+&lt;a href=&quot;https://www.sitepoint.com/principles-of-design-contrast/&quot;&gt;设计原则：对比度&lt;/a&gt;&lt;/p&gt;
+  &lt;h3 id=&quot;4-排版&quot;&gt;4.	排版&lt;/h3&gt;
+  &lt;p&gt;选择字体并且在网页上创建可读文档。
+&lt;a href=&quot;https://www.smashingmagazine.com/2009/03/10-principles-for-readable-web-typography/&quot;&gt;10条原则中的可读性和网页排版原则&lt;/a&gt;&lt;/p&gt;
+  &lt;h3 id=&quot;5-一致性&quot;&gt;5.	一致性&lt;/h3&gt;
+  &lt;p&gt;最重要的原则，从这里开始创建直观和可用的设计。
+&lt;a href=&quot;https://uxdesign.cc/design-principle-consistency-6b0cf7e7339f&quot;&gt;设计原则：一致性&lt;/a&gt;
+&lt;a href=&quot;https://goodui.org/&quot;&gt;这里&lt;/a&gt;有一些很好的做和不做的设计一个好的用户界面。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;2-学习创造性的用户体验过程&quot;&gt;2.	学习创造性的用户体验过程&lt;/h1&gt;
+&lt;p&gt;接下来的事是明白创造性的过程。UI/Ux设计是每个创意人经历的一个特殊的阶段。
+分为四个不同的阶段-发现、定义、开发和交付-&lt;a href=&quot;https://www.thoughtworks.com/insights/blog/double-diamond&quot;&gt;双菱形&lt;/a&gt;是设计过程的简单可视图&lt;/p&gt;
+&lt;h3 id=&quot;发现&quot;&gt;发现&lt;/h3&gt;
+&lt;p&gt;这是一个开始阶段，设计师开始研究，获得灵感，收集想法。&lt;/p&gt;
+&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
+&lt;p&gt;这是定义阶段，设计师定义从发现阶段提取的想法。在此基础上，创建了一个清晰的创意简报。&lt;/p&gt;
+&lt;h3 id=&quot;开发&quot;&gt;开发&lt;/h3&gt;
+&lt;p&gt;这就是创建、原型化、测试和迭代解决方案或概念的地方。这个试错的过程帮助设计师改进和完善他们的想法&lt;/p&gt;
+&lt;h3 id=&quot;交付&quot;&gt;交付&lt;/h3&gt;
+&lt;p&gt;最后阶段是交付，最终项目完成、生产和启动的地方。
+查看我的文章&lt;a href=&quot;https://blog.prototypr.io/how-to-streamline-your-ui-ux-workflow-with-figma-b72c30596435&quot;&gt;如何使用Figma简化您的UI/UX工作流。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-培养你的设计眼光&quot;&gt;3.	培养你的设计眼光&lt;/h1&gt;
+
+&lt;p&gt;知道设计原则是很好的，但有时这还不够，你还必须训练你的眼睛去看好的设计和坏的设计，并找出设计的优缺点。&lt;/p&gt;
+
+&lt;p&gt;最有效的训练你的设计眼光的方法是通过灵感。在打开一张空白的画布并盯着它看半个小时之前，要知道只有通过研究才能获得创造性。有时候大脑不能自己创造想法，你必须先看看其他的设计才能开始创造自己的想法，尤其是当你是一个初学者的时候。&lt;/p&gt;
+
+&lt;p&gt;所以看看其他设计师在Dribbble上做了什么，每当你遇到漂亮的设计或与你的项目相关的东西时，把它保存在你的笔记中，并提到你喜欢它的地方，你也可以截图。这样，您就可以从一系列鼓舞人心的设计开始你的创作。&lt;/p&gt;
+
+&lt;p&gt;这是我最喜欢的灵感网站：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://onepagelove.com/&quot;&gt;onepagelove.com&lt;/a&gt;一页的网站设计给你灵感&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.awwwards.com/&quot;&gt;awwwards.com&lt;/a&gt;奖励网站，促进设计人才&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dribbble.com/&quot;&gt;dribbble.com&lt;/a&gt;分享工作的设计师社区&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pttrns.com/&quot;&gt;pttrns.com&lt;/a&gt;移动设计模式的集合。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://uimovement.com/&quot;&gt;uimovement.com&lt;/a&gt;最好的用户界面设计灵感，每一天。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;4-每天阅读设计文章&quot;&gt;4.	每天阅读设计文章&lt;/h1&gt;
+
+&lt;p&gt;为了让我们熟悉设计，最好的方法是每天阅读几篇文章。&lt;/p&gt;
+
+&lt;p&gt;使阅读设计新闻和博客成为日常习惯。在线上有数以百万计的文章可供我们发现新的趋势、用例和教程。我们要做的就是找到他们。没有什么比从别人的经历中学习更好的了。&lt;/p&gt;
+
+&lt;p&gt;所以，从一杯咖啡和一些鼓舞人心的文章开始你的一天吧，这些文章都是关于中型杂志或是零碎杂志的文章。早晨学习新事物会开阔你的思维，为你的一天创造空间。&lt;/p&gt;
+
+&lt;p&gt;然后，在你的一天中，时不时地休息一下，多读些东西。休息对创造力非常重要，尤其是当你陷入困境，觉得没有效率的时候。将您喜欢的网站作为浏览器主页添加书签或订阅设计时事通讯。&lt;/p&gt;
+
+&lt;p&gt;以下是我最喜欢的博客和新闻网站：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;blog.marvelapp.com&lt;/li&gt;
+  &lt;li&gt;medium.com/design&lt;/li&gt;
+  &lt;li&gt;smashingmagazine.com&lt;/li&gt;
+  &lt;li&gt;webdesignernews.com&lt;/li&gt;
+  &lt;li&gt;sitepoint.com/design-ux&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;5-设计假项目&quot;&gt;5.	设计假项目&lt;/h1&gt;
+&lt;p&gt;熟能生巧。我们都知道，没有经验，我们找不到客户/工作。但是没有工作或项目，我们就不能练习，对吗？&lt;/p&gt;
+
+&lt;p&gt;但是我们可以通过自己练习打破这个循环，通过创建假项目来娱乐！Dribbble 就可以满足它了。&lt;/p&gt;
+
+&lt;p&gt;腾出时间选择一个你已经使用的网站或应用程序，然后重新设计它。它可以是任何你认为更好的东西。你也可以设计自己的应用程序想法。&lt;/p&gt;
+
+&lt;p&gt;从这里，你将建立你的设计组合，你将实践设计。&lt;/p&gt;
+
+&lt;h1 id=&quot;6-学习最新的网页设计工具&quot;&gt;6.	学习最新的网页设计工具。&lt;/h1&gt;
+&lt;p&gt;外面有很多设计工具，但是你不需要知道所有这些工具。了解最棒的产品，选择最喜爱的产品，并随时掌握最新的功能和趋势。&lt;/p&gt;
+
+&lt;p&gt;以下是我在设计过程中使用的最新工具：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.sketch.com/&quot;&gt;Sketch&lt;/a&gt;用于界面设计
+&lt;a href=&quot;https://www.figma.com/&quot;&gt;Figma&lt;/a&gt;用于协同界面设计
+&lt;a href=&quot;https://balsamiq.com/&quot;&gt;Balsamiq&lt;/a&gt;用于低保真线框
+&lt;a href=&quot;https://www.adobe.com/products/xd.html&quot;&gt;Adobe XD&lt;/a&gt;用于界面设计和原型设计
+&lt;a href=&quot;https://marvelapp.com/&quot;&gt;Marvel App&lt;/a&gt;用于模型交互设计
+&lt;a href=&quot;https://www.invisionapp.com/&quot;&gt;Invision App&lt;/a&gt;用于原型设计和协作&lt;/p&gt;
+
+&lt;h1 id=&quot;7-指导并得到指导&quot;&gt;7.	指导并得到指导&lt;/h1&gt;
+
+&lt;p&gt;学习设计的另一个好方法是找一个愿意帮忙的设计导师或设计师朋友。他们将帮助你加快学习过程。&lt;/p&gt;
+
+&lt;p&gt;设计师会审查你的作品并尽可能给出他们的评论。这就像一条捷径。他们也会给你从他们的经验中学到的技巧和诀窍。所以，继续给设计师发电子邮件，提出问题，讨论你的问题。&lt;/p&gt;
+
+&lt;p&gt;而且，从我教设计和前端的几年中，我学到的比我教的还多。当你准备好和别人谈论设计时，你可以指导或教育别人设计。你将学会从不同的角度看待它，你会得到你可能从未想过的反馈和问题。&lt;/p&gt;
+
+&lt;p&gt;每当你和别人谈论设计的时候，你的大脑总是处于“头脑风暴”的状态，你会发现自己对设计越来越感兴趣。&lt;/p&gt;
+
+&lt;p&gt;查看我的&lt;a href=&quot;https://github.com/nicolesaidy/awesome-web-design&quot;&gt;很棒的网页设计&lt;/a&gt;Github存储库，这是一个网站设计师的资源管理列表。&lt;/p&gt;
+
+&lt;p&gt;如果你喜欢这篇文章，一定要在下面给我一些👏，并在我的&lt;a href=&quot;https://blog.nicolesaidy.com/&quot;&gt;博客&lt;/a&gt;上找到更多的设计文章。另外，还可以在&lt;a href=&quot;https://twitter.com/nicolesaidy&quot;&gt;Twitter&lt;/a&gt;上打个招呼🙋🏽‍&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="设计" /><summary type="html">七步成为UI/UX设计师</summary></entry><entry><title type="html">Algorithm training</title><link href="http://localhost:4000/2019/06/03/Algorithm-training.html" rel="alternate" type="text/html" title="Algorithm training" /><published>2019-06-03T06:27:46+08:00</published><updated>2019-06-03T06:27:46+08:00</updated><id>http://localhost:4000/2019/06/03/Algorithm-training</id><content type="html" xml:base="http://localhost:4000/2019/06/03/Algorithm-training.html">&lt;h1 id=&quot;第一周&quot;&gt;第一周&lt;/h1&gt;
+&lt;h3 id=&quot;要求&quot;&gt;要求&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
+  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    &lt;h3 id=&quot;注意事项&quot;&gt;注意事项&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
+  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
+    &lt;h3 id=&quot;第一周题目&quot;&gt;第一周题目&lt;/h3&gt;
+    &lt;!--more--&gt;
+    &lt;h4 id=&quot;中文网站&quot;&gt;中文网站：&lt;/h4&gt;
+    &lt;h5 id=&quot;链表&quot;&gt;链表&lt;/h5&gt;
+    &lt;p&gt;简单：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+简单：https://leetcode-cn.com/problems/merge-two-sorted-lists
+中等：https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+中等：https://leetcode-cn.com/problems/linked-list-cycle-ii
+困难：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;数组&quot;&gt;数组&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/sort-array-by-parity/
+简单：https://leetcode-cn.com/problems/sort-array-by-parity-ii/
+中等：https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
+中等：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+困难：https://leetcode-cn.com/problems/search-in-rotated-sorted-array&lt;/p&gt;
+
+&lt;h5 id=&quot;栈&quot;&gt;栈&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/valid-parentheses/
+中等：https://leetcode-cn.com/problems/next-greater-element-ii/
+困难：https://leetcode-cn.com/problems/maximum-frequency-stack/&lt;/p&gt;
+
+&lt;h5 id=&quot;递归&quot;&gt;递归&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/longest-univalue-path/
+中等：https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/
+困难：https://leetcode-cn.com/problems/special-binary-string/&lt;/p&gt;
+
+&lt;h5 id=&quot;排序&quot;&gt;排序&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/valid-anagram/
+中等：https://leetcode-cn.com/problems/wiggle-sort-ii/
+困难：https://leetcode-cn.com/problems/maximum-gap/&lt;/p&gt;
+
+&lt;h5 id=&quot;二分查找&quot;&gt;二分查找&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/arranging-coins/
+中等：https://leetcode-cn.com/problems/powx-n/
+困难：https://leetcode-cn.com/problems/dungeon-game/&lt;/p&gt;
+
+&lt;h4 id=&quot;英文网站&quot;&gt;英文网站：&lt;/h4&gt;
+&lt;h5 id=&quot;链表-1&quot;&gt;链表&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+简单：https://leetcode.com/problems/merge-two-sorted-lists
+中等：https://leetcode.com/problems/swap-nodes-in-pairs/
+中等：https://leetcode.com/problems/linked-list-cycle-ii
+困难：https://leetcode.com/problems/reverse-nodes-in-k-group/&lt;/p&gt;
+
+&lt;h5 id=&quot;数组-1&quot;&gt;数组&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/sort-array-by-parity/
+简单：https://leetcode.com/problems/sort-array-by-parity-ii/
+中等：https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+中等：https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+困难：https://leetcode.com/problems/search-in-rotated-sorted-array&lt;/p&gt;
+
+&lt;h5 id=&quot;栈-1&quot;&gt;栈&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/valid-parentheses/
+中等：https://leetcode.com/problems/next-greater-element-ii/
+困难：https://leetcode.com/problems/maximum-frequency-stack/&lt;/p&gt;
+
+&lt;h5 id=&quot;递归-1&quot;&gt;递归&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/longest-univalue-path/
+中等：https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+困难：https://leetcode.com/problems/special-binary-string/&lt;/p&gt;
+
+&lt;h5 id=&quot;排序-1&quot;&gt;排序&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/valid-anagram/
+中等：https://leetcode.com/problems/wiggle-sort-ii/
+困难：https://leetcode.com/problems/maximum-gap/&lt;/p&gt;
+
+&lt;h5 id=&quot;二分查找-1&quot;&gt;二分查找&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/arranging-coins/
+中等：https://leetcode.com/problems/powx-n/
+困难：https://leetcode.com/problems/dungeon-game/&lt;/p&gt;
+
+&lt;h1 id=&quot;第二周&quot;&gt;第二周&lt;/h1&gt;
+&lt;h3 id=&quot;本周重点学习知识点&quot;&gt;本周重点学习知识点&lt;/h3&gt;
+&lt;p&gt;跳表、散列表、哈希算法、二叉树、红黑树&lt;/p&gt;
+
+&lt;h3 id=&quot;要求-1&quot;&gt;要求&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
+  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    &lt;h3 id=&quot;注意事项-1&quot;&gt;注意事项&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
+  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
+    &lt;h3 id=&quot;第二周题目&quot;&gt;第二周题目&lt;/h3&gt;
+    &lt;h4 id=&quot;中文网站-1&quot;&gt;中文网站：&lt;/h4&gt;
+    &lt;h5 id=&quot;哈希表&quot;&gt;哈希表&lt;/h5&gt;
+    &lt;p&gt;简单：https://leetcode-cn.com/problems/valid-anagram/
+中等：https://leetcode-cn.com/problems/top-k-frequent-words
+中等：https://leetcode-cn.com/problems/find-duplicate-file-in-system/
+困难：https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/
+困难：https://leetcode-cn.com/problems/number-of-atoms/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;二叉树&quot;&gt;二叉树&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/second-minimum-node-in-a-binary-tree/
+中等：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+中等：https://leetcode-cn.com/problems/all-nodes-distance-k-in-binary-tree/
+困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+困难：https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/&lt;/p&gt;
+
+&lt;h5 id=&quot;二叉搜索树&quot;&gt;二叉搜索树&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
+中等：https://leetcode-cn.com/problems/range-sum-of-bst/
+中等：https://leetcode-cn.com/problems/contains-duplicate-iii/
+困难：https://leetcode-cn.com/problems/count-of-range-sum/
+困难：https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/&lt;/p&gt;
+
+&lt;h4 id=&quot;英文网站-1&quot;&gt;英文网站：&lt;/h4&gt;
+&lt;h5 id=&quot;哈希表-1&quot;&gt;哈希表&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/valid-anagram/
+中等：https://leetcode.com/problems/top-k-frequent-words
+中等：https://leetcode.com/problems/find-duplicate-file-in-system/
+困难：https://leetcode.com/problems/substring-with-concatenation-of-all-words/
+困难：https://leetcode.com/problems/number-of-atoms/&lt;/p&gt;
+
+&lt;h5 id=&quot;二叉树-1&quot;&gt;二叉树&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
+中等：https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+中等：https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/
+困难：https://leetcode.com/problems/binary-tree-maximum-path-sum/&lt;/p&gt;
+
+&lt;h5 id=&quot;二叉搜索树-1&quot;&gt;二叉搜索树&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+中等：https://leetcode.com/problems/range-sum-of-bst/
+中等：https://leetcode.com/problems/contains-duplicate-iii/
+困难：https://leetcode.com/problems/count-of-range-sum/
+困难：https://leetcode.com/problems/count-of-smaller-numbers-after-self/&lt;/p&gt;
+
+&lt;h1 id=&quot;第三周&quot;&gt;第三周&lt;/h1&gt;
+&lt;h3 id=&quot;本周重点学习知识点-1&quot;&gt;本周重点学习知识点&lt;/h3&gt;
+&lt;p&gt;递归树、堆和排序、图、深度和广度优先搜索、字符串匹配&lt;/p&gt;
+
+&lt;h3 id=&quot;要求-2&quot;&gt;要求&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
+  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    &lt;h3 id=&quot;注意事项-2&quot;&gt;注意事项&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
+  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
+    &lt;h3 id=&quot;第三周题目&quot;&gt;第三周题目&lt;/h3&gt;
+    &lt;h4 id=&quot;中文网站-2&quot;&gt;中文网站：&lt;/h4&gt;
+    &lt;h5 id=&quot;图&quot;&gt;图&lt;/h5&gt;
+    &lt;p&gt;简单：https://leetcode-cn.com/problems/find-the-town-judge/
+中等：https://leetcode-cn.com/problems/course-schedule-ii
+困难：https://leetcode-cn.com/problems/minimize-malware-spread-ii/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;堆和排序&quot;&gt;堆和排序&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/
+中等：https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/
+困难：https://leetcode-cn.com/problems/find-median-from-data-stream/&lt;/p&gt;
+
+&lt;h5 id=&quot;dfs&quot;&gt;DFS&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+中等：https://leetcode-cn.com/problems/number-of-islands/
+中等：https://leetcode-cn.com/problems/find-eventual-safe-states/
+困难：https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
+困难：https://leetcode-cn.com/problems/making-a-large-island/&lt;/p&gt;
+
+&lt;h5 id=&quot;bfs&quot;&gt;BFS&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
+中等：https://leetcode-cn.com/problems/minesweeper/
+中等：https://leetcode-cn.com/problems/minimum-height-trees/
+困难：https://leetcode-cn.com/problems/bus-routes/&lt;/p&gt;
+
+&lt;h4 id=&quot;英文网站-2&quot;&gt;英文网站：&lt;/h4&gt;
+&lt;h5 id=&quot;图-1&quot;&gt;图&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/find-the-town-judge/
+中等：https://leetcode.com/problems/course-schedule-ii
+困难：https://leetcode.com/problems/minimize-malware-spread-ii/&lt;/p&gt;
+
+&lt;h5 id=&quot;堆和排序-1&quot;&gt;堆和排序&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/kth-largest-element-in-a-stream/
+中等：https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
+困难：https://leetcode.com/problems/find-median-from-data-stream/&lt;/p&gt;
+
+&lt;h5 id=&quot;dfs-1&quot;&gt;DFS&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/maximum-depth-of-binary-tree/
+中等：https://leetcode.com/problems/number-of-islands/
+中等：https://leetcode.com/problems/find-eventual-safe-states/
+困难：https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+困难：https://leetcode.com/problems/making-a-large-island/&lt;/p&gt;
+
+&lt;h5 id=&quot;bfs-1&quot;&gt;BFS&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/n-ary-tree-level-order-traversal/
+中等：https://leetcode.com/problems/minesweeper/
+中等：https://leetcode.com/problems/minimum-height-trees/
+困难：https://leetcode.com/problems/bus-routes/&lt;/p&gt;
+
+&lt;h1 id=&quot;第四周&quot;&gt;第四周&lt;/h1&gt;
+&lt;h3 id=&quot;本周重点学习知识点-2&quot;&gt;本周重点学习知识点&lt;/h3&gt;
+&lt;p&gt;Trie树、AC自动机、贪心算法、分治算法、回溯算法、动态规划&lt;/p&gt;
+
+&lt;h3 id=&quot;要求-3&quot;&gt;要求&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;每周至少完成给定题目中的两道算法题&lt;/li&gt;
+  &lt;li&gt;围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限）
+    &lt;h3 id=&quot;注意事项-3&quot;&gt;注意事项&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习；&lt;/li&gt;
+  &lt;li&gt;有的题目可能需要结合多个算法或数据结构进行求解。
+    &lt;h3 id=&quot;第四周题目&quot;&gt;第四周题目&lt;/h3&gt;
+    &lt;h4 id=&quot;中文网站-3&quot;&gt;中文网站：&lt;/h4&gt;
+    &lt;h5 id=&quot;trie树&quot;&gt;Trie树&lt;/h5&gt;
+    &lt;p&gt;简单：https://leetcode-cn.com/problems/longest-word-in-dictionary/
+中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode-cn.com/problems/word-search-ii/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;分治算法&quot;&gt;分治算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/majority-element/
+中等：https://leetcode-cn.com/problems/different-ways-to-add-parentheses/
+困难：https://leetcode-cn.com/problems/burst-balloons/&lt;/p&gt;
+
+&lt;h5 id=&quot;贪心算法&quot;&gt;贪心算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/assign-cookies/
+中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+困难：https://leetcode-cn.com/problems/ipo/&lt;/p&gt;
+
+&lt;h5 id=&quot;回溯算法&quot;&gt;回溯算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/letter-case-permutation/
+中等：https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode-cn.com/problems/n-queens/&lt;/p&gt;
+
+&lt;h5 id=&quot;动态规划&quot;&gt;动态规划&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode-cn.com/problems/min-cost-climbing-stairs/
+中等：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
+困难：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
+困难：https://leetcode-cn.com/problems/edit-distance/&lt;/p&gt;
+
+&lt;h4 id=&quot;英文网站-3&quot;&gt;英文网站：&lt;/h4&gt;
+&lt;h5 id=&quot;trie树-1&quot;&gt;Trie树&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/longest-word-in-dictionary/
+中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode.com/problems/word-search-ii/&lt;/p&gt;
+
+&lt;h5 id=&quot;分治算法-1&quot;&gt;分治算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/majority-element/
+中等：https://leetcode.com/problems/different-ways-to-add-parentheses/
+困难：https://leetcode.com/problems/burst-balloons/&lt;/p&gt;
+
+&lt;h5 id=&quot;贪心算法-1&quot;&gt;贪心算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/assign-cookies/
+中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+困难：https://leetcode.com/problems/ipo/&lt;/p&gt;
+
+&lt;h5 id=&quot;回溯算法-1&quot;&gt;回溯算法&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/letter-case-permutation/
+中等：https://leetcode.com/problems/add-and-search-word-data-structure-design/
+困难：https://leetcode.com/problems/n-queens/&lt;/p&gt;
+
+&lt;h5 id=&quot;动态规划-1&quot;&gt;动态规划&lt;/h5&gt;
+&lt;p&gt;简单：https://leetcode.com/problems/min-cost-climbing-stairs/
+中等：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+困难：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+困难：https://leetcode.com/problems/edit-distance/&lt;/p&gt;</content><author><name>true</name></author><category term="Algorithm" /><summary type="html">第一周 要求 每周至少完成给定题目中的两道算法题 围绕每周重点学习的算法知识点，撰写一篇有观点和思考的技术文章（字数不限） 注意事项 下面列出的题目中，按照知识点进行了简单分类，但并不意味着使用相应的数据结构或算法一定是解决该题目的最优解，这样分类只是为了方便大家有针对性的练习； 有的题目可能需要结合多个算法或数据结构进行求解。 第一周题目 中文网站： 链表 简单：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/ 简单：https://leetcode-cn.com/problems/merge-two-sorted-lists 中等：https://leetcode-cn.com/problems/swap-nodes-in-pairs/ 中等：https://leetcode-cn.com/problems/linked-list-cycle-ii 困难：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/2018/05/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-05-17T14:05:21+08:00</published><updated>2018-05-17T14:05:21+08:00</updated><id>http://localhost:4000/2018/05/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/05/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
@@ -10,26 +1423,4 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>true</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Hello Jekyll</title><link href="http://localhost:4000/2017/04/18/hello-jekyll.html" rel="alternate" type="text/html" title="Hello Jekyll" /><published>2017-04-18T00:00:00+08:00</published><updated>2017-04-18T00:00:00+08:00</updated><id>http://localhost:4000/2017/04/18/hello-jekyll</id><content type="html" xml:base="http://localhost:4000/2017/04/18/hello-jekyll.html">&lt;blockquote&gt;
-  &lt;p&gt;Transform your plain text into static websites and blogs.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;welcome&quot;&gt;Welcome&lt;/h1&gt;
-
-&lt;h2 id=&quot;welcome-1&quot;&gt;Welcome&lt;/h2&gt;
-
-&lt;h3 id=&quot;welcome-2&quot;&gt;Welcome&lt;/h3&gt;
-
-&lt;p&gt;This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.&lt;/p&gt;
-
-&lt;h3 id=&quot;so-what-is-jekyll-exactlypermalink&quot;&gt;So what is Jekyll, exactly?Permalink&lt;/h3&gt;
-
-&lt;p&gt;Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;) and our &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
-
-&lt;h3 id=&quot;helpful-hintspermalink&quot;&gt;Helpful HintsPermalink&lt;/h3&gt;
-
-&lt;p&gt;Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.&lt;/p&gt;
-
-&lt;h3 id=&quot;video-test&quot;&gt;Video Test&lt;/h3&gt;
-
-&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</content><author><name>Jekyll</name></author><category term="jekyll" /><summary type="html">Transform your plain text into static websites and blogs.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>true</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

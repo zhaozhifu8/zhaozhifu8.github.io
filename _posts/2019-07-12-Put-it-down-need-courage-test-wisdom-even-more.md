@@ -3,9 +3,9 @@ layout: post
 title:  "【致自己-心灵鸡汤】放下，需要勇气，更考验智慧"
 date:   2019-07-12 17:58:22
 tags: 致自己 心灵鸡汤
-description: ''
 color: 'rgb(154,133,255)'
 cover: '../assets/blogImg/201907122010.jpg'
+
 ---
 
 ![](../assets/blogImg/201907122010.jpg)
