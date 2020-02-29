@@ -28,18 +28,18 @@ portraits: '/assets/profile.jpeg' # your portraits image file path
 SNS: true
 SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
   mail: 'mailto:zhaozhifu08@gmail.com'
-  weixin: '' # 你的微信二维码存放的地址
+  weixin: 'https://mp.weixin.qq.com/s/gZCa_Ny9kU0agm_6QjFMfw' # 你的微信二维码存放的地址
   qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
   github: 'https://github.com/zhaozhifu8'
   Codepen: ''
-  weibo: ''
+  weibo: 'https://weibo.com/p/1005055401054571/home?from=page_100505&mod=TAB&is_all=1#place'
   instagram: ''
-  Twitter: ''
+  Twitter: 'https://twitter.com/zouxin6'
   Dribbble: ''
-  Facebook: ''
+  Facebook: 'https://www.facebook.com/zhifu.zhao.54'
   Google: ''
-  zhihu: ''
-  juejin: ''
+  zhihu: 'https://www.zhihu.com/people/zhaozhifu8'
+  juejin: 'https://juejin.im/user/57a290b48ac247005f068ac8/posts'
   twitch: ''
 
 # 分页
