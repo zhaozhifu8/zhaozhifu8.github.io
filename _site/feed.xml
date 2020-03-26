@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-10T22:35:45+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>生于黄龙府，苟活阿勒锦。弱冠入前端，学浅而空迟。吾今用博客，以书所思想。日后若有暇，温故求知新。</subtitle><author><name>true</name></author><entry><title type="html">yarn 安装与使用</title><link href="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html" rel="alternate" type="text/html" title="yarn 安装与使用" /><published>2020-02-04T20:01:00+08:00</published><updated>2020-02-04T20:01:00+08:00</updated><id>http://localhost:4000/2020/02/04/Yarn-installation-and-use</id><content type="html" xml:base="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/20200204.png&quot; alt=&quot;yarn包管理器&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-26T10:52:36+08:00</updated><id>http://localhost:4000/</id><title type="html">赵志富的个人网站 | 无聊才读书</title><subtitle>生于黄龙府，苟活阿勒锦。弱冠入前端，学浅而空迟。吾今用博客，以书所思想。日后若有暇，温故求知新。</subtitle><author><name>true</name></author><entry><title type="html">前端开发学习路线-WEB基础</title><link href="http://localhost:4000/2020/03/11/Front-end-development-learning-route-web-Foundation.html" rel="alternate" type="text/html" title="前端开发学习路线-WEB基础" /><published>2020-03-11T04:53:35+08:00</published><updated>2020-03-11T04:53:35+08:00</updated><id>http://localhost:4000/2020/03/11/Front-end-development-learning-route-web-Foundation</id><content type="html" xml:base="http://localhost:4000/2020/03/11/Front-end-development-learning-route-web-Foundation.html">&lt;p&gt;&lt;img src=&quot;/assets/blogImg/202003102128.jpg&quot; alt=&quot;WEB基础&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;web基础&quot;&gt;web基础&lt;/h1&gt;
+
+&lt;h3 id=&quot;常见浏览器&quot;&gt;常见浏览器&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;IE浏览器&lt;/li&gt;
+  &lt;li&gt;Edge浏览器&lt;/li&gt;
+  &lt;li&gt;火狐浏览器（Firefox）&lt;/li&gt;
+  &lt;li&gt;谷歌浏览器（google Chrome）&lt;/li&gt;
+  &lt;li&gt;Safari浏览器&lt;/li&gt;
+  &lt;li&gt;Opera浏览器&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;浏览器内核&quot;&gt;浏览器内核&lt;/h3&gt;
+&lt;p&gt;浏览器内核有可以分成两部分：渲染引擎（layout engineer 或者 Rendering Engine）和JS引擎。&lt;/p&gt;
+
+&lt;p&gt;(1). &lt;code class=&quot;highlighter-rouge&quot;&gt;Trident&lt;/code&gt;（IE内核）
+(2). &lt;code class=&quot;highlighter-rouge&quot;&gt;Gecko&lt;/code&gt;（Firefox）
+(3). &lt;code class=&quot;highlighter-rouge&quot;&gt;webkit&lt;/code&gt;(Safari)
+(4). &lt;code class=&quot;highlighter-rouge&quot;&gt;Chromium/Blink&lt;/code&gt;(chrome)
+(5). &lt;code class=&quot;highlighter-rouge&quot;&gt;Presto&lt;/code&gt;(Opera) blink
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;web标准&quot;&gt;web标准&lt;/h3&gt;
+&lt;p&gt;结构标准：结构用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分。
+样式标准：表现用于设置网页元素的板式、颜色、大小等外观样式，主要指CSS。
+行为标准：行为是指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。&lt;/p&gt;
+
+&lt;h1 id=&quot;html入门&quot;&gt;HTML入门&lt;/h1&gt;
+
+&lt;h3 id=&quot;html初识&quot;&gt;HTML初识&lt;/h3&gt;
+&lt;p&gt;HTML(Hyper Text Markup Language的缩写)中文译为“超文本标签语言”，主要是通过HTML标签对网页中的文本、图片、声音等内容进行描述。&lt;/p&gt;
+
+&lt;h3 id=&quot;html骨架&quot;&gt;HTML骨架&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;标签&quot;&gt;标签&lt;/h3&gt;
+&lt;p&gt;在HTML页面中，带有&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt;符号的元素被称为HTML标签，如&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;/code&gt; 、&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 、&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&lt;/code&gt;等。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;双标签
+    &lt;标签名&gt;内容&lt;/标签名&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;单标签
+    &lt;标签名 /&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;HTML标签：作用所有HTML中标签的一个根节点。
+head标签：用于存放title，meta，base，style，script，link 注意在head标签中我们必须要设置的标签是title
+body标签：页面的主体部分。
+title标签：让页面拥有一个属于自己的标题.&lt;/p&gt;
+
+&lt;h4 id=&quot;排版标签&quot;&gt;排版标签&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;标题标签：
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;h2&amp;gt;&amp;lt;h3&amp;gt;&amp;lt;h4&amp;gt;&amp;lt;h5&amp;gt;&amp;lt;h6&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;段落标签
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;p&amp;gt;段落标签&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;水平线标签
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;hr /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;换行标签
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;div span 布局标签 没有语义
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;文本格式化标签&quot;&gt;文本格式化标签&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;标签&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;显示效果&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;b&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;文字以粗体方式显示（XHTML推荐使用strong）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;em&amp;gt;&amp;lt;/em&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;文字以斜体方式显示（XHTML推荐使用em）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;s&amp;gt;&amp;lt;/s&amp;gt;&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;del&amp;gt;&amp;lt;/del&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;文字以加删除线方式显示（XHTML推荐使用del）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;u&amp;gt;&amp;lt;/u&amp;gt;&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ins&amp;gt;&amp;lt;/ins&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;文字以加下划线方式显示（XHTML不赞成使用u）&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;图片标签&quot;&gt;图片标签&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;图像URL&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;属性：
+src：图像URL
+alt：图像不能显示时的替换文本
+title：鼠标悬停时显示的内容
+width：设置图像的宽度
+height：设置图像的高度
+border：设置图像边框的宽度&lt;/p&gt;
+
+&lt;h4 id=&quot;链接标签&quot;&gt;链接标签&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;href：用于指定链接目标的URL地址
+target: 用于打开指定链接页面的打开方式，其值有self和black两种
+        self为默认值，black为在新窗口中打开。&lt;/p&gt;
+
+&lt;h4 id=&quot;base标签&quot;&gt;base标签&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;base target=&quot;_black_&quot; /&amp;gt;&lt;/code&gt;
+base 可以设置整体链接的打开状态&lt;/p&gt;
+
+&lt;h4 id=&quot;特殊字符标签&quot;&gt;特殊字符标签&lt;/h4&gt;
+
+&lt;p&gt;特殊字符|描述|字符代码
+—|:–:|—:
+ ` &lt;code class=&quot;highlighter-rouge&quot;&gt;|空格符 |&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;&amp;lt;&lt;code class=&quot;highlighter-rouge&quot;&gt;|小于号 |&lt;/code&gt;&amp;lt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;&amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;|大于号 |&lt;/code&gt;&amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;&amp;amp;&lt;code class=&quot;highlighter-rouge&quot;&gt;|和号 | &lt;/code&gt;&amp;amp;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;￥&lt;code class=&quot;highlighter-rouge&quot;&gt;|人民币|&lt;/code&gt;¥&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;©&lt;code class=&quot;highlighter-rouge&quot;&gt;|版权|&lt;/code&gt;©&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;®&lt;code class=&quot;highlighter-rouge&quot;&gt;|商标 |&lt;/code&gt;®&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;℃&lt;code class=&quot;highlighter-rouge&quot;&gt;|摄氏度 |&lt;/code&gt;°&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;±&lt;code class=&quot;highlighter-rouge&quot;&gt;|正负号 |&lt;/code&gt;&amp;amp;plusmn&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ &lt;/code&gt;×&lt;code class=&quot;highlighter-rouge&quot;&gt;|乘号 |&lt;/code&gt;&amp;amp;times `
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;÷&lt;/code&gt;|除号 |&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;divide &lt;/code&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;²&lt;/code&gt;|平方（上标2） |&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;sup2 &lt;/code&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;³&lt;/code&gt;|立方（上标3）|&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;sup3 &lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;注释标签&quot;&gt;注释标签&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--注释标签--&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;文档类型&quot;&gt;文档类型&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这句话告诉我们使用的是html5的版本。&lt;/p&gt;
+
+&lt;h3 id=&quot;字符集&quot;&gt;字符集&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;utf-8是目前最常用的字符集编码方式。包含去世界所有国家需要用到的字符。
+GB231 简单中文 ，包含6763个汉字。
+BIG5 繁体中文
+GBK 包含全部中文字符，是GB2312的扩展，加入对繁体字的支持，兼容GB2312。&lt;/p&gt;
+
+&lt;h3 id=&quot;属性&quot;&gt;属性&lt;/h3&gt;
+&lt;p&gt;使用HTML制作网页时，可以使用HTML标签属性加以设置，语法格式：
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;标签名 属性1=&quot;属性值&quot; 属性2=&quot;属性值2&quot; ...&amp;gt;&lt;/code&gt; 内容&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;/标签&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;1.标签可以拥有多个属性，必须写在开始标签中，位于标签名后面。
+2.属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。
+3.任何标签的属性都有默认值，省略该属性则取默认值。
+采取 键值对 的格式 key=”value“ 的格式。
+比如：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;hr width=&quot;400px&quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;锚定定位&quot;&gt;锚定定位&lt;/h3&gt;
+
+&lt;p&gt;1.使用&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a href=&quot;#id名&quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt;创建链接文本。
+2.使用相应的id名标注跳转目标的位置。&lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;live&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;相对路径&quot;&gt;相对路径&lt;/h3&gt;
+&lt;p&gt;1.图像文件和HTML文件位于同一文件夹，只需输入图像文件名称即可，如&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;logo.gif&quot; /&amp;gt;&lt;/code&gt;
+2.图像文件位于Html文件的下一级文件夹：输入文件夹名和文件名，之间用“/”隔开，如&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;img/img01/logo.gif&quot; /&amp;gt;&lt;/code&gt;
+3.图像文件位于HTML文件的上一级文件夹；在文件名之前加入“../”,如果是上两级，则需要使用“../../” 以此类推，如&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;../logo.gif&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;无序列表ul&quot;&gt;无序列表ul&lt;/h3&gt;
+
+&lt;p&gt;无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;ul&amp;gt;
+    &amp;lt;li&amp;gt; 列表项&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt; 列表项&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt; 列表项&amp;lt;/li&amp;gt;
+    ......
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/code&gt;中只能嵌套&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt;,直接在&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/code&gt;标签中输入其他标签或者文字的做法是不被允许的。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;li&amp;gt;&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;/li&amp;gt;&lt;/code&gt;之间相当于一个容器，可以容纳所有元素。&lt;/li&gt;
+  &lt;li&gt;无序列表会有自己样式属性，放下那个样式，让css来！&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;有序列表ol&quot;&gt;有序列表ol&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;ol&amp;gt;
+    &amp;lt;li&amp;gt; 中国&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt; 中国&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="HTML" /><category term="前端开发" /><category term="前端开发学习路线" /><summary type="html"></summary></entry><entry><title type="html">yarn 安装与使用</title><link href="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html" rel="alternate" type="text/html" title="yarn 安装与使用" /><published>2020-02-04T20:01:00+08:00</published><updated>2020-02-04T20:01:00+08:00</updated><id>http://localhost:4000/2020/02/04/Yarn-installation-and-use</id><content type="html" xml:base="http://localhost:4000/2020/02/04/Yarn-installation-and-use.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/20200204.png&quot; alt=&quot;yarn包管理器&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;1---introduction&quot;&gt;1 - Introduction&lt;/h1&gt;
 
@@ -1488,219 +1707,4 @@ Isha Kasliwal，Twitch 高级 ui / ux 设计师 / 开发人员&lt;/p&gt;
 米里亚姆苏珊娜，OddBird 的设计师和开发人员&lt;/p&gt;
 
 &lt;p&gt;An honorary mention goes to… 
-获得荣誉提名的是..&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="designers" /><summary type="html">18位设计师预测2018年用户界面/用户体验趋势</summary></entry><entry><title type="html">MATLAB学习笔记</title><link href="http://localhost:4000/2019/08/06/matlab-Learning-notes.html" rel="alternate" type="text/html" title="MATLAB学习笔记" /><published>2019-08-06T02:24:44+08:00</published><updated>2019-08-06T02:24:44+08:00</updated><id>http://localhost:4000/2019/08/06/matlab-Learning-notes</id><content type="html" xml:base="http://localhost:4000/2019/08/06/matlab-Learning-notes.html">&lt;p&gt;&lt;img src=&quot;../assets/blogImg/201908051827.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;本文是matlab官网教程的学习记录笔记&quot;&gt;本文是MATLAB官网教程的学习记录笔记&lt;/h2&gt;
-
-&lt;h4 id=&quot;11命令&quot;&gt;1.1命令&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clear 用于删除工作区变量，clc 用于清除命令行窗口。
-
-MATLAB 包含内置的常量，例如 pi 表示 π
-
-MATLAB 包含许多内置的函数，例如 abs（计算绝对值）和 eig（计算特征值）sqrt（计算平方根）。 &amp;lt;!--more--&amp;gt;
-MATLAB 变量命名为符合以下规则的任何名称：以字母开头，并且仅包含字母、数字和下划线 (_)。
-
-您可以使用方括号创建包含多个元素的数组。
-&amp;gt;&amp;gt; x = [3 5]
-x = 
-    3    5
-
-
-当您用空格（或逗号）分隔数值时，MATLAB 会将这些数值组合为一个行向量，行向量是一个包含一行多列的数组 (1×n)。当您用分号分隔数值时，MATLAB 会创建一个列向量 (n×1)
-&amp;gt;&amp;gt; x = [1;3]。
-
-
-您可以组合使用空格和分号来创建矩阵，即包含多行多列的数组。输入矩阵时，您必须逐行输入它们。
-&amp;gt;&amp;gt; x = [3 4 5;6 7 8]
-x = 
-    3    4    5
-    6    7    8
-
-在 MATLAB 中，您可以在方括号内执行计算。
-&amp;gt;&amp;gt; x = [abs(-4) 4^2]
-x = 
- 	    4    16
-
-对于长向量，输入单个数值是不实际的。可用来创建等间距向量的替代便捷方法是使用 : 运算符并仅指定起始值和最终值：	first:last。
-&amp;gt;&amp;gt; y = 5:8
-y = 
-    5    6    7    8
-
-
-: 运算符使用默认的间距 1，但是您可以指定您自己的间距，如下所示。
-&amp;gt;&amp;gt; x = 20:2:26
-x = 
-    20    22    24    26
-
-如果您知道向量中所需的元素数目（而不是每个元素之间的间距），则可以改用 linspace 函数：linspace	(first,last,number_of_elements)。注意，请使用逗号 (,) 分隔 linspace 函数的输入。
-&amp;gt;&amp;gt; x = linspace(0,1,5)
-x = 
-    0    0.250    0.500    0.750    1.000
-
-
-linspace 和 : 运算符都可创建行向量。但是，您可以使用转置运算符 (') 将行向量转换为列向量。
-&amp;gt;&amp;gt; x = 1:3;
-&amp;gt;&amp;gt; x = x'
-x = 
-    1
-    2
-    3
-
-
-您可以通过在一条命令中创建行向量并将其全部转置来创建列向量。注意此处使用圆括号来指定运算的顺序。
-&amp;gt;&amp;gt; x = (1:2:5)'
-x = 
-    1
-    3
-    5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;linspace
-https://www.mathworks.cn/help/matlab/ref/linspace.html&lt;/p&gt;
-
-&lt;p&gt;3.3 数组创建函数&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;许多矩阵创建函数允许您输入一个数值来创建方阵 (n×n)，或者输入两个数值来创建非方阵。
-&amp;gt;&amp;gt; x = rand(2)
-x = 
-    0.8147    0.1270
- 	   0.9058    0.9134    
-&amp;gt;&amp;gt; x = rand(2,3)
-x = 
-    0.6324    0.2785    0.9575
-    0.0975    0.5469    0.9649
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;4.1 保存和加载变量&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;您可以使用 save 命令将工作区中的变量保存到称为 MAT 文件的 MATLAB 特定格式文件中。
-  &amp;gt;&amp;gt; save foo x
-以上命令将名为 x 的变量保存到名为 foo.mat 的 MAT 文件中。
-
-您可以使用 load 命令从 MAT 文件加载变量。
-&amp;gt;&amp;gt; load foo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;附加资源：保存、加载和删除工作区变量 
-https://www.mathworks.cn/help/matlab/matlab_env/save-load-and-delete-workspace-variables.html&lt;/p&gt;
-
-&lt;p&gt;5.1 对数组进行索引&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;您可以使用行、列索引从数组中提取值。
-&amp;gt;&amp;gt; x = A(5,7);
-此语法将会提取 A 的第 5 行第 7 列的值，然后将结果赋给变量 x。	
-
-
-您可以使用 MATLAB 关键字 end，作为行或列索引来引用最后一个元素。
-&amp;gt;&amp;gt; x = A(end,2);
-
-请注意，您可以将算术运算与关键字 end 结合使用。例如：
-&amp;gt;&amp;gt; x = A(end-1,end-2)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;5.2 提取多个元素&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;用作索引时，冒号运算符 (:) 可指代该维度中的所有元素。以下语法
-&amp;gt;&amp;gt; x = A(2,:)
-会创建一个包含 A 中第 2 行上所有元素的行向量。
-
-
-冒号运算符可以引用某个值范围。以下语法会创建一个包含矩阵 A 的第 1 行、第 2 行和第 3 行所有元素的矩阵。
-&amp;gt;&amp;gt; x = A(1:3,:)
-
-单个索引值可用于引用向量元素。例如，以下语句
-&amp;gt;&amp;gt; x = v(3)
-会返回向量 v 的第 3 个元素（当 v 为行向量或列向量时）。
-
-单个索引值范围可用于引用向量元素的子集。例如 
-&amp;gt;&amp;gt; x = v(3:end)
-返回向量 v 的一个子集，其中包含从第三个到最后一个元素范围内的所有元素
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;附加资源：矩阵索引 | 数组索引
-https://www.mathworks.cn/help/matlab/math/array-indexing.html
-https://www.mathworks.com/help/matlab/learn_matlab/array-indexing.html&lt;/p&gt;
-
-&lt;p&gt;5.3 更改数组中的值&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;记住您可以使用 : 字符来提取整列数据。
-
-可以通过组合使用索引与赋值来修改变量的元素。
-A(2,5) = 11
-将 data 的第一行最后一列的值更改为 0.5。
-&amp;gt;&amp;gt;data(1,end)=0.5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;6.1 执行数组运算&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MATLAB 的设计让您能够自然地处理数组。例如，您可以将一个标量值与数组中的所有元素相加。
-&amp;gt;&amp;gt; y = x + 2
-
-您可以将任意两个大小相同的数组相加。
-&amp;gt;&amp;gt; z = x + y
-
-您可以将数组中的所有元素与某个标量相乘或相除。
-&amp;gt;&amp;gt; z = 2*x
-&amp;gt;&amp;gt; y = x/3
-
-MATLAB 中的基本统计函数可应用于某个向量以生成单个输出。可以使用 max 函数来确定向量的最大值。
-&amp;gt;&amp;gt; xMax = max(x)
-
-MATLAB 的函数可在单个命令中对整个向量或值数组执行数学运算。
-&amp;gt;&amp;gt; xSqrt = sqrt(x)
-使用 round 函数创建一个名为 vr 的变量，其中包含四舍五入为整数的平均体积 va
-vr=round(va)
-
-
-* 运算符执行矩阵乘法。因此，如果您使用 * 将两个大小相同的向量相乘，则由于内部维度不一致，您将会收到一条错误消息。
-&amp;gt;&amp;gt; z = [3 4] * [10 20]
-用于矩阵乘法的维度不正确。请检查并确保第一个矩阵中的列数与第二个矩阵中的行数匹配。要执行按元素相乘，请使用 '.*'。
-而 .* 运算符执行按元素乘法，允许您将两个大小相同的数组的对应元素相乘。
-&amp;gt;&amp;gt; z = [3 4] .* [10 20]
-z = 
-    30    80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;附加资源：数组与矩阵运算
-https://ww2.mathworks.cn/help/matlab/matlab_prog/array-vs-matrix-operations.html&lt;/p&gt;
-
-&lt;p&gt;7.1 从函数调用获取多个输出&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;size 函数可以应用于数组，以生成包含数组大小的单个输出变量。
-&amp;gt;&amp;gt; s = size(x)
-
-size 函数可以应用于矩阵，以生成单个输出变量或两个输出变量。使用方括号 ([ ]) 获取多个输出。
-&amp;gt;&amp;gt; [xrow,xcol] = size(x)
-
-可以使用 max 函数确定向量的最大值及其对应的索引值。max 函数的第一个输出为输入向量的最大值。执行带两个输出的调用时，第二个输出为索引值。
-&amp;gt;&amp;gt; [xMax,idx] = max(x)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;9.1 绘制向量图&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;可以使用 plot 函数在一张图上绘制两个相同长度的向量。
-&amp;gt;&amp;gt; plot(x,y)
-
-plot 函数接受一个附加参数，该参数让您能够在单引号中使用各种符号来指定颜色、线型和标记样式。
-&amp;gt;&amp;gt; plot(x,y,'r--o')
-以上命令将会绘制一条红色 (r) 虚线 (--)，并使用圆圈 (o) 作为标记。您可以在线条设定的文档中了解有关可用符号的详细信息。https://ww2.mathworks.cn/help/matlab/ref/linespec.html
-
-您会注意到，最开始创建的绘图消失了。要在一张图上先后绘制两条线，请使用 hold on 命令保留之前的绘图，然后添加另一条线。您也可以使用 hold off 命令返回到默认行为。
-
-close all 命令以关闭所有打开的图窗窗口。
-
-当您单独绘制一个向量时，MATLAB 会使用向量值作为 y 轴数据，并将 x 轴数据的范围设置为从 1 到 n（向量中的元素数目）。
-
-plot 函数接受可选的附加输入，这些输入由一个属性名称和一个关联的值组成。
-&amp;gt;&amp;gt; plot(y,'LineWidth',5)
-以上命令将绘制一条粗线。您可以在 Line 属性文档中了解更多可用属性的详细信息。 https://www.mathworks.com/help/matlab/ref/matlab.graphics.chart.primitive.line-properties.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;9.2 编写绘图注释&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;可以使用绘图注释函数（例如 title）在绘图中添加标签。这些函数的输入是一个字符串。MATLAB 中的字符串是用单引号 (') 引起来的。
-&amp;gt;&amp;gt; title('Plot Title')	
-
-使用 ylabel 函数添加y轴标签
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="MATLAB" /><category term="学习笔记" /><summary type="html"></summary></entry></feed>
+获得荣誉提名的是..&lt;/p&gt;</content><author><name>true</name></author><category term="翻译" /><category term="UI/UX" /><category term="designers" /><summary type="html">18位设计师预测2018年用户界面/用户体验趋势</summary></entry></feed>

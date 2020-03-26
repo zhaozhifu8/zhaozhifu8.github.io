@@ -1,0 +1,504 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="生于黄龙府，苟活阿勒锦。弱冠入前端，学浅而空迟。吾今用博客，以书所思想。日后若有暇，温故求知新。" />
+<meta name="keywords" content="赵志富,赵志富的博客,赵志富的个人网站,无聊才读书,无聊才读书的博客,无聊才读书的个人网站" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>前端开发学习路线-WEB基础</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?4c56b88ffe82e0bb23b36a2a153a1717";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158912281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158912281-1');
+</script>
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(154,133,255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(154,133,255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">https://zhaozf.site</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">前端开发学习路线-WEB基础</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(154,133,255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="javascript:;" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(154,133,255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(154,133,255);"><sapn class="main">没有上一页咯</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">前端开发学习路线-WEB基础</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/02/04/Yarn-installation-and-use.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(154,133,255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(154,133,255);"><sapn class="main">yarn 安装与使用</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="javascript:;" class="leftchange" style="border-right: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span><br>没有上一篇咯</span></a>
+    
+    
+      <a href="/2020/02/04/Yarn-installation-and-use.html" class="rightchange" style="border-left: 1px solid rgb(154,133,255);border-bottom: 2px solid rgb(154,133,255);"><span>下一篇<br><br>yarn 安装与使用</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <p><img src="/assets/blogImg/202003102128.jpg" alt="WEB基础" /></p>
+
+<h1 id="web基础">web基础</h1>
+
+<h3 id="常见浏览器">常见浏览器</h3>
+<ol>
+  <li>IE浏览器</li>
+  <li>Edge浏览器</li>
+  <li>火狐浏览器（Firefox）</li>
+  <li>谷歌浏览器（google Chrome）</li>
+  <li>Safari浏览器</li>
+  <li>Opera浏览器</li>
+</ol>
+
+<h3 id="浏览器内核">浏览器内核</h3>
+<p>浏览器内核有可以分成两部分：渲染引擎（layout engineer 或者 Rendering Engine）和JS引擎。</p>
+
+<p>(1). <code class="highlighter-rouge">Trident</code>（IE内核）
+(2). <code class="highlighter-rouge">Gecko</code>（Firefox）
+(3). <code class="highlighter-rouge">webkit</code>(Safari)
+(4). <code class="highlighter-rouge">Chromium/Blink</code>(chrome)
+(5). <code class="highlighter-rouge">Presto</code>(Opera) blink
+<!--more--></p>
+
+<h3 id="web标准">web标准</h3>
+<p>结构标准：结构用于对网页元素进行整理和分类，主要包括XML和XHTML两个部分。
+样式标准：表现用于设置网页元素的板式、颜色、大小等外观样式，主要指CSS。
+行为标准：行为是指网页模型的定义及交互的编写，主要包括DOM和ECMAScript两个部分。</p>
+
+<h1 id="html入门">HTML入门</h1>
+
+<h3 id="html初识">HTML初识</h3>
+<p>HTML(Hyper Text Markup Language的缩写)中文译为“超文本标签语言”，主要是通过HTML标签对网页中的文本、图片、声音等内容进行描述。</p>
+
+<h3 id="html骨架">HTML骨架</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<h3 id="标签">标签</h3>
+<p>在HTML页面中，带有<code class="highlighter-rouge">&lt;&gt;</code>符号的元素被称为HTML标签，如<code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code> 、<code class="highlighter-rouge">&lt;head&gt;</code> 、<code class="highlighter-rouge">&lt;body&gt;</code>等。</p>
+
+<ol>
+  <li>双标签
+    <标签名>内容</标签名>
+    <p><code class="highlighter-rouge">&lt;body&gt;&lt;/body&gt;</code></p>
+  </li>
+  <li>单标签
+    <标签名 />
+
+    <p><code class="highlighter-rouge">&lt;br /&gt;</code></p>
+  </li>
+</ol>
+
+<p>HTML标签：作用所有HTML中标签的一个根节点。
+head标签：用于存放title，meta，base，style，script，link 注意在head标签中我们必须要设置的标签是title
+body标签：页面的主体部分。
+title标签：让页面拥有一个属于自己的标题.</p>
+
+<h4 id="排版标签">排版标签</h4>
+<ol>
+  <li>
+    <p>标题标签：
+ <code class="highlighter-rouge">&lt;h1&gt;&lt;h2&gt;&lt;h3&gt;&lt;h4&gt;&lt;h5&gt;&lt;h6&gt;</code></p>
+  </li>
+  <li>
+    <p>段落标签
+  <code class="highlighter-rouge">&lt;p&gt;段落标签&lt;/p&gt;</code></p>
+  </li>
+  <li>
+    <p>水平线标签
+ <code class="highlighter-rouge">&lt;hr /&gt;</code></p>
+  </li>
+  <li>
+    <p>换行标签
+ <code class="highlighter-rouge">&lt;br /&gt;</code></p>
+  </li>
+  <li>
+    <p>div span 布局标签 没有语义
+ <code class="highlighter-rouge">&lt;div&gt;&lt;/div&gt;</code>
+ <code class="highlighter-rouge">&lt;span&gt;&lt;/span&gt;</code></p>
+  </li>
+</ol>
+
+<h4 id="文本格式化标签">文本格式化标签</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>标签</th>
+      <th style="text-align: center">显示效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;b&gt;&lt;/b&gt;&lt;strong&gt;&lt;/strong&gt;</code></td>
+      <td style="text-align: center">文字以粗体方式显示（XHTML推荐使用strong）</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;i&gt;&lt;/i&gt;</code>和<code class="highlighter-rouge">&lt;em&gt;&lt;/em&gt;</code></td>
+      <td style="text-align: center">文字以斜体方式显示（XHTML推荐使用em）</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;s&gt;&lt;/s&gt;</code>和<code class="highlighter-rouge">&lt;del&gt;&lt;/del&gt;</code></td>
+      <td style="text-align: center">文字以加删除线方式显示（XHTML推荐使用del）</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;u&gt;&lt;/u&gt;</code>和<code class="highlighter-rouge">&lt;ins&gt;&lt;/ins&gt;</code></td>
+      <td style="text-align: center">文字以加下划线方式显示（XHTML不赞成使用u）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="图片标签">图片标签</h4>
+
+<p><code class="highlighter-rouge">&lt;img src="图像URL" /&gt;</code></p>
+
+<p>属性：
+src：图像URL
+alt：图像不能显示时的替换文本
+title：鼠标悬停时显示的内容
+width：设置图像的宽度
+height：设置图像的高度
+border：设置图像边框的宽度</p>
+
+<h4 id="链接标签">链接标签</h4>
+<p><code class="highlighter-rouge">&lt;a href="跳转目标" target="目标窗口的弹出方式"&gt;&lt;/a&gt;</code></p>
+
+<p>href：用于指定链接目标的URL地址
+target: 用于打开指定链接页面的打开方式，其值有self和black两种
+        self为默认值，black为在新窗口中打开。</p>
+
+<h4 id="base标签">base标签</h4>
+
+<p><code class="highlighter-rouge">&lt;base target="_black_" /&gt;</code>
+base 可以设置整体链接的打开状态</p>
+
+<h4 id="特殊字符标签">特殊字符标签</h4>
+
+<p>特殊字符|描述|字符代码
+—|:–:|—:
+ ` <code class="highlighter-rouge">|空格符 |</code> <code class="highlighter-rouge">
+ </code>&lt;<code class="highlighter-rouge">|小于号 |</code>&lt;<code class="highlighter-rouge">
+ </code>&gt;<code class="highlighter-rouge">|大于号 |</code>&gt;<code class="highlighter-rouge">
+ </code>&amp;<code class="highlighter-rouge">|和号 | </code>&amp;<code class="highlighter-rouge">
+ </code>￥<code class="highlighter-rouge">|人民币|</code>¥<code class="highlighter-rouge">
+ </code>©<code class="highlighter-rouge">|版权|</code>©<code class="highlighter-rouge">
+ </code>®<code class="highlighter-rouge">|商标 |</code>®<code class="highlighter-rouge">
+ </code>℃<code class="highlighter-rouge">|摄氏度 |</code>°<code class="highlighter-rouge">
+ </code>±<code class="highlighter-rouge">|正负号 |</code>&amp;plusmn<code class="highlighter-rouge">
+ </code>×<code class="highlighter-rouge">|乘号 |</code>&amp;times `
+ <code class="highlighter-rouge">÷</code>|除号 |<code class="highlighter-rouge">&amp;divide </code>
+ <code class="highlighter-rouge">²</code>|平方（上标2） |<code class="highlighter-rouge">&amp;sup2 </code>
+ <code class="highlighter-rouge">³</code>|立方（上标3）|<code class="highlighter-rouge">&amp;sup3 </code></p>
+
+<h4 id="注释标签">注释标签</h4>
+
+<p><code class="highlighter-rouge">&lt;!--注释标签--&gt;</code></p>
+
+<h3 id="文档类型">文档类型</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</code></pre></div></div>
+<p>这句话告诉我们使用的是html5的版本。</p>
+
+<h3 id="字符集">字符集</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta charset="UTF-8"&gt;
+</code></pre></div></div>
+<p>utf-8是目前最常用的字符集编码方式。包含去世界所有国家需要用到的字符。
+GB231 简单中文 ，包含6763个汉字。
+BIG5 繁体中文
+GBK 包含全部中文字符，是GB2312的扩展，加入对繁体字的支持，兼容GB2312。</p>
+
+<h3 id="属性">属性</h3>
+<p>使用HTML制作网页时，可以使用HTML标签属性加以设置，语法格式：
+<code class="highlighter-rouge">&lt;标签名 属性1="属性值" 属性2="属性值2" ...&gt;</code> 内容<code class="highlighter-rouge">&lt;/标签&gt;</code></p>
+
+<p>1.标签可以拥有多个属性，必须写在开始标签中，位于标签名后面。
+2.属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。
+3.任何标签的属性都有默认值，省略该属性则取默认值。
+采取 键值对 的格式 key=”value“ 的格式。
+比如：<code class="highlighter-rouge">&lt;hr width="400px"&gt;</code></p>
+
+<h3 id="锚定定位">锚定定位</h3>
+
+<p>1.使用<code class="highlighter-rouge">&lt;a href="#id名"&gt;&lt;/a&gt;</code>创建链接文本。
+2.使用相应的id名标注跳转目标的位置。<code class="highlighter-rouge">id="live"</code></p>
+
+<h3 id="相对路径">相对路径</h3>
+<p>1.图像文件和HTML文件位于同一文件夹，只需输入图像文件名称即可，如<code class="highlighter-rouge">&lt;img src="logo.gif" /&gt;</code>
+2.图像文件位于Html文件的下一级文件夹：输入文件夹名和文件名，之间用“/”隔开，如<code class="highlighter-rouge">&lt;img src="img/img01/logo.gif" /&gt;</code>
+3.图像文件位于HTML文件的上一级文件夹；在文件名之前加入“../”,如果是上两级，则需要使用“../../” 以此类推，如<code class="highlighter-rouge">&lt;img src="../logo.gif" /&gt;</code></p>
+
+<h3 id="无序列表ul">无序列表ul</h3>
+
+<p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ul&gt;
+    &lt;li&gt; 列表项&lt;/li&gt;
+    &lt;li&gt; 列表项&lt;/li&gt;
+    &lt;li&gt; 列表项&lt;/li&gt;
+    ......
+&lt;/ul&gt;
+</code></pre></div></div>
+<p>注意：</p>
+<ol>
+  <li><code class="highlighter-rouge">&lt;ul&gt;&lt;/ul&gt;</code>中只能嵌套<code class="highlighter-rouge">&lt;li&gt;&lt;/li&gt;</code>,直接在<code class="highlighter-rouge">&lt;ul&gt;&lt;/ul&gt;</code>标签中输入其他标签或者文字的做法是不被允许的。</li>
+  <li><code class="highlighter-rouge">&lt;li&gt;</code>与<code class="highlighter-rouge">&lt;/li&gt;</code>之间相当于一个容器，可以容纳所有元素。</li>
+  <li>无序列表会有自己样式属性，放下那个样式，让css来！</li>
+</ol>
+
+<h3 id="有序列表ol">有序列表ol</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ol&gt;
+    &lt;li&gt; 中国&lt;/li&gt;
+    &lt;li&gt; 中国&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre></div></div>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>赵志富的个人网站 | 无聊才读书 ©
+  
+  
+    2016
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a>
+  <br>
+  <a href="http://www.beian.miit.gov.cn/">吉ICP备16003940号</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
