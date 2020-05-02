@@ -140,6 +140,7 @@ cover: '../assets/blogImg/gaolu.png'
 
 [PDF爱好者的在线工具](https://www.ilovepdf.com/zh-cn)
 
+[印章生成网站](https://www.gaitubao.com/yinzhang/)
 
 # 好文章
 
